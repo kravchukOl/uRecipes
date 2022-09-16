@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="uRecipes.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:uRecipes"
+    xmlns:views="clr-namespace:uRecipes.Views"
+    xmlns:login="clr-namespace:uRecipes.Views.Login"
+    xmlns:demo="clr-namespace:uRecipes.Views.Demo"
+    Shell.FlyoutBehavior="Disabled">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            
+        </ResourceDictionary>
+    </Shell.Resources>
+
+
+    <!--Implement Login/Register pages-->
+    
+    <!--<ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate login:LoginPage}"/>
+    </ShellItem>-->
+
+
+    <TabBar>
+       
+        <Tab Title="Explore" 
+             Icon="{DynamicResource ExploreIcon}" 
+             Route="ExplorePage"
+             Shell.NavBarIsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate local:ExplorePage}"/>
+        </Tab>
+
+        <Tab Title="Favorites" 
+             Icon="{DynamicResource FavoriteIcon}" 
+             Route="FavoritesPage"
+             Shell.NavBarIsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate  views:FavoritesPage}"/>
+        </Tab>
+
+        <Tab Title="Device" 
+             Icon="{DynamicResource DeviceIcon }" 
+             Route="DevicePage"
+             Shell.NavBarIsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate views:DevicePage}"/>
+        </Tab>
+
+        <Tab Title="Chef" 
+             Icon="{DynamicResource ChefIcon}" 
+             Route="ChefPage"
+             Shell.NavBarIsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate views:ChefPage}"/>
+        </Tab>
+
+        <Tab Title="Settings" 
+             Icon="{DynamicResource SettingsIcon}"
+             Route="SettingsPage"
+             Shell.NavBarIsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}"/>
+        </Tab>
+    </TabBar>
+
+    <!--TEST PAGES-->
+    <ShellContent ContentTemplate="{DataTemplate demo:AddRecipePage}"
+                  Route="AddRecipePage" />
+
+</Shell>

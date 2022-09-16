@@ -1,0 +1,204 @@
+[
+  {
+    "Id": 1,
+    "CategoryName": "Easy Dinners",
+    "CategoryTag": "Popular",
+    "Image": "dinner.png"
+  },
+
+  {
+    "Id": 12,
+    "CategoryName": "Work Lunches",
+    "CategoryTag": "Popular",
+    "Image": "sandwich.png"
+  },
+
+  {
+    "Id": 13,
+    "CategoryName": "5 Ingredient Meals",
+    "CategoryTag": "Popular",
+    "Image": "fiveingredients.png"
+  },
+
+  {
+    "Id": 14,
+    "CategoryName": "3D Food",
+    "CategoryTag": "Popular",
+    "Image": "jelly.png"
+  },
+
+
+
+  {
+    "Id": 21,
+    "CategoryName": "Latest Recipes",
+    "CategoryTag": "RightNow",
+    "Image": "stars.png"
+  },
+
+  {
+    "Id": 22,
+    "CategoryName": "Family Dinners",
+    "CategoryTag": "RightNow",
+    "Image": "dinner1.png"
+  },
+
+  {
+    "Id": 23,
+    "CategoryName": "Plant-Based Meals",
+    "CategoryTag": "RightNow",
+    "Image": "corn.png"
+  },
+
+  {
+    "Id": 24,
+    "CategoryName": "Kid-Friendly",
+    "CategoryTag": "RightNow",
+    "Image": "lolipop.png"
+  },
+
+  {
+    "Id": 31,
+    "CategoryName": "Chicken",
+    "CategoryTag": "Ingredients",
+    "Image": "chicken.png"
+  },
+
+
+  {
+    "Id": 32,
+    "CategoryName": "Chocolate",
+    "CategoryTag": "Ingredients",
+    "Image": "chocolate_bar.png"
+  },
+
+  {
+    "Id": 33,
+    "CategoryName": "Potato",
+    "CategoryTag": "Ingredients",
+    "Image": "potato.png"
+  },
+
+  {
+    "Id": 34,
+    "CategoryName": "Ground Beef",
+    "CategoryTag": "Ingredients",
+    "Image": "beef.png"
+  },
+
+
+  {
+    "Id": 35,
+    "CategoryName": "Plant-Based Meat",
+    "CategoryTag": "Ingredients",
+    "Image": "burger.png"
+  },
+
+  {
+    "Id": 41,
+    "CategoryName": "Healthy",
+    "CategoryTag": "Diet",
+    "Image": "saled.png"
+  },
+
+  {
+    "Id": 42,
+    "CategoryName": "Vegetarian",
+    "CategoryTag": "Diet",
+    "Image": "vegetarian.png"
+  },
+
+  {
+    "Id": 43,
+    "CategoryName": "Low Carb",
+    "CategoryTag": "Diet",
+    "Image": "bites.png"
+  },
+
+  {
+    "Id": 44,
+    "CategoryName": "Keto",
+    "CategoryTag": "Diet",
+    "Image": "avocado.png"
+  },
+
+  {
+    "Id": 45,
+    "CategoryName": "Vegan",
+    "CategoryTag": "Diet",
+    "Image": "vegan.png"
+  },
+
+  {
+    "Id": 46,
+    "CategoryName": "Gluten-Free",
+    "CategoryTag": "Diet",
+    "Image": "glutenfree.png"
+  },
+
+
+  {
+    "Id": 51,
+    "CategoryName": "Breakfast",
+    "CategoryTag": "Meals",
+    "Image": "pancakes.png"
+  },
+
+  {
+    "Id": 52,
+    "CategoryName": "Lunch",
+    "CategoryTag": "Meals",
+    "Image": "sandwich.png"
+  },
+
+  {
+    "Id": 53,
+    "CategoryName": "Dinner",
+    "CategoryTag": "Meals",
+    "Image": "dinner2.png"
+  },
+
+  {
+    "Id": 54,
+    "CategoryName": "Desserts",
+    "CategoryTag": "Meals",
+    "Image": "dessert.png"
+  },
+
+  {
+    "Id": 55,
+    "CategoryName": "Snacks",
+    "CategoryTag": "Meals",
+    "Image": "fries.png"
+  },
+
+
+
+  {
+    "Id": 61,
+    "CategoryName": "Easy",
+    "CategoryTag": "Difficulty",
+    "Image": "redapple.png"
+  },
+
+  {
+    "Id": 62,
+    "CategoryName": "5 Ingredient or Less",
+    "CategoryTag": "Difficulty",
+    "Image": "5ingredients.png"
+  },
+
+  {
+    "Id": 63,
+    "CategoryName": "Under 30 minutes",
+    "CategoryTag": "Difficulty",
+    "Image": "stopwatch.png"
+  },
+
+  {
+    "Id": 64,
+    "CategoryName": "Slow Cooker Recipes",
+    "CategoryTag": "Difficulty",
+    "Image": "kitchen_timer.png"
+  }
+]

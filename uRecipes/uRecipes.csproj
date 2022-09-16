@@ -1,0 +1,228 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">	
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>uRecipes</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>uRecipes</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.urecipes</ApplicationId>
+		<ApplicationIdGuid>6EA1C731-016B-4CCF-A5AB-0FF102072321</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<ProvisioningType>automatic</ProvisioningType>
+		<CodesignKey>Apple Development: Oleksii Kravchuk (5F7772M3GM)</CodesignKey>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-android|AnyCPU'" />
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-android|AnyCPU'" />
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
+	  <MtouchProfiling>False</MtouchProfiling>
+	  <OptimizePNGs>True</OptimizePNGs>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-ios|AnyCPU'">
+	  <MtouchProfiling>False</MtouchProfiling>
+	  <OptimizePNGs>True</OptimizePNGs>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-maccatalyst|AnyCPU'" />
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-maccatalyst|AnyCPU'" />
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows10.0.19041.0|AnyCPU'" />
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows10.0.19041.0|AnyCPU'" />
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0-ios'">
+	  <CodesignKey>Apple Development: Created via API (83547FW62A)</CodesignKey>
+	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#01B8A2" BaseSize="256,256" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Include="Resources\Images\categories_png\beef.png" />
+		<MauiImage Include="Resources\Images\categories_png\fiveingredients.png" />
+		<MauiImage Include="Resources\Images\categories_png\avocado.png" />
+		<MauiImage Include="Resources\Images\categories_png\bites.png" />
+		<MauiImage Include="Resources\Images\categories_png\broccoli.png" />
+		<MauiImage Include="Resources\Images\categories_png\burger.png" />
+		<MauiImage Include="Resources\Images\categories_png\chicken.png" />
+		<MauiImage Include="Resources\Images\categories_png\chocolate_bar.png" />
+		<MauiImage Include="Resources\Images\categories_png\corn.png" />
+		<MauiImage Include="Resources\Images\categories_png\dessert.png" />
+		<MauiImage Include="Resources\Images\categories_png\dinner.png" />
+		<MauiImage Include="Resources\Images\categories_png\dinner1.png" />
+		<MauiImage Include="Resources\Images\categories_png\dinner2.png" />
+		<MauiImage Include="Resources\Images\categories_png\fries.png" />
+		<MauiImage Include="Resources\Images\categories_png\glutenfree.png" />
+		<MauiImage Include="Resources\Images\categories_png\jelly.png" />
+		<MauiImage Include="Resources\Images\categories_png\kitchen_timer.png" />
+		<MauiImage Include="Resources\Images\categories_png\lolipop.png" />
+		<MauiImage Include="Resources\Images\categories_png\pancakes.png" />
+		<MauiImage Include="Resources\Images\categories_png\potato.png" />
+		<MauiImage Include="Resources\Images\categories_png\redapple.png" />
+		<MauiImage Include="Resources\Images\categories_png\saled.png" />
+		<MauiImage Include="Resources\Images\categories_png\sandwich.png" />
+		<MauiImage Include="Resources\Images\categories_png\stars.png" />
+		<MauiImage Include="Resources\Images\categories_png\stopwatch.png" />
+		<MauiImage Include="Resources\Images\categories_png\vegan.png" />
+		<MauiImage Include="Resources\Images\categories_png\vegetarian.png" />
+		
+		<!--Demo Images-->
+		<MauiImage Include="Resources\Images\Demo\user_photo.jpg" />
+		<MauiImage Include="Resources\Images\Demo\user_photo1.jpg" />
+		<MauiImage Include="Resources\Images\Demo\user_photo2.jpg" />
+		<MauiImage Include="Resources\Images\Demo\user_photo3.jpg" />
+		<MauiImage Include="Resources\Images\icons_png\chef.png" />
+		<MauiImage Include="Resources\Images\icons_png\knobs.png" />
+		<MauiImage Include="Resources\Images\icons_png\image.png" />
+		<MauiImage Include="Resources\Images\icons_png\salad.png" />
+		<MauiImage Include="Resources\Images\icons_svg\arrowback.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\completed.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\heart_outline.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\playico.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\share_outline.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\slider03.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\trash.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\wlan.svg" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\Helvetica-Bold.otf" />
+	  <None Remove="Resources\Fonts\helvetica_regular.otf" />
+	  <None Remove="Resources\Fonts\Leto Text Sans Defect.otf" />
+	  <None Remove="Resources\Images\categories_png\avocado.png" />
+	  <None Remove="Resources\Images\categories_png\beef.png" />
+	  <None Remove="Resources\Images\categories_png\bites.png" />
+	  <None Remove="Resources\Images\categories_png\broccoli.png" />
+	  <None Remove="Resources\Images\categories_png\burger.png" />
+	  <None Remove="Resources\Images\categories_png\chicken.png" />
+	  <None Remove="Resources\Images\categories_png\chocolate_bar.png" />
+	  <None Remove="Resources\Images\categories_png\corn.png" />
+	  <None Remove="Resources\Images\categories_png\dessert.png" />
+	  <None Remove="Resources\Images\categories_png\dinner.png" />
+	  <None Remove="Resources\Images\categories_png\dinner1.png" />
+	  <None Remove="Resources\Images\categories_png\dinner2.png" />
+	  <None Remove="Resources\Images\categories_png\fiveingredients.png" />
+	  <None Remove="Resources\Images\categories_png\fries.png" />
+	  <None Remove="Resources\Images\categories_png\glutenfree.png" />
+	  <None Remove="Resources\Images\categories_png\jelly.png" />
+	  <None Remove="Resources\Images\categories_png\kitchen_timer.png" />
+	  <None Remove="Resources\Images\categories_png\lolipop.png" />
+	  <None Remove="Resources\Images\categories_png\pancakes.png" />
+	  <None Remove="Resources\Images\categories_png\potato.png" />
+	  <None Remove="Resources\Images\categories_png\redapple.png" />
+	  <None Remove="Resources\Images\categories_png\saled.png" />
+	  <None Remove="Resources\Images\categories_png\sandwich.png" />
+	  <None Remove="Resources\Images\categories_png\stars.png" />
+	  <None Remove="Resources\Images\categories_png\stopwatch.png" />
+	  <None Remove="Resources\Images\categories_png\vegan.png" />
+	  <None Remove="Resources\Images\categories_png\vegetarian.png" />
+	  <None Remove="Resources\Images\Demo\user_photo1.jpg" />
+	  <None Remove="Resources\Images\Demo\user_photo2.jpg" />
+	  <None Remove="Resources\Images\Demo\user_photo3.jpg" />
+	  <None Remove="Resources\Images\icons_png\chef.png" />
+	  <None Remove="Resources\Images\icons_png\image.png" />
+	  <None Remove="Resources\Images\icons_png\knobs.png" />
+	  <None Remove="Resources\Images\icons_png\salad.png" />
+	  <None Remove="Resources\Images\icons_svg\arrowback.svg" />
+	  <None Remove="Resources\Images\icons_svg\completedCompleted.svg" />
+	  <None Remove="Resources\Images\icons_svg\heart_outline.svg" />
+	  <None Remove="Resources\Images\icons_svg\playico.svg" />
+	  <None Remove="Resources\Images\icons_svg\share_outline.svg" />
+	  <None Remove="Resources\Images\icons_svg\slider03.svg" />
+	  <None Remove="Resources\Images\icons_svg\trash.svg" />
+	  <None Remove="Resources\Images\icons_svg\wlan.svg" />
+	  <None Remove="Resources\Images\ucuisine_front2.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	  <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\ExplorePage.xaml.cs">
+	    <DependentUpon>ExplorePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ExplorePage.xaml.cs">
+	    <DependentUpon>ExplorePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\ChefPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Demo\AddRecipePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DevicePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FavoritesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Login\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Login\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RecipePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Services\DesignServices\" />
+	  <Folder Include="ViewModels\Login\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Resources\JSON\categories.json" />
+	  <Resource Include="Resources\JSON\recipes_demo.json" />
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionuRecipesHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
+</Project>

@@ -1,0 +1,41 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:uRecipes"
+             x:Class="uRecipes.App">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <FontImage x:Key="ExploreIcon"
+                FontFamily="uRecipe"
+                Glyph="&#xe902;" Size="30" Color="#01B8A2" />
+
+            <FontImage x:Key="FavoriteIcon"
+                FontFamily="uRecipe"
+                Glyph="&#xe905;" Size="30" Color="#01B8A2"  />
+
+            <FontImage x:Key="ChefIcon"
+                FontFamily="uRecipe"
+                Glyph="&#xe901;" Size="30" Color="#01B8A2"  />
+
+            <FontImage x:Key="SettingsIcon"
+                FontFamily="uRecipe"
+                Glyph="&#xe908;" Size="30" Color="#01B8A2"  />
+
+            <FontImage x:Key="DeviceIcon"
+                FontFamily="uRecipe"
+                Glyph="&#xe907;" Size="50" Color="#01B8A2"  />
+
+            <FontImage x:Key="SearchIcon"
+                FontFamily="uRecipe"
+                Glyph="&#xe903;" Size="30" Color="#888888"  />
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

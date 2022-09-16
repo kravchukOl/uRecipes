@@ -1,0 +1,124 @@
+[
+  {
+    "Name": "Piña Colada Bombs",
+    "Description": "Summer is almost over but we are still dreaming about piña coladas! These piña colada bombs are the perfect poolside treat.",
+    "Author": "Ivanna Lopez Guajardo",
+    "ImageUrl": "https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/4c4107c8426746d4bad6f6975b6a366f.jpeg",
+    "VideoUrl": "https://youtu.be/PrtSuidNYT8",
+    "PrepTime": "30",
+    "PersonServ": "2"
+  },
+
+  {
+    "Name": "Flaffy Pancakes",
+    "Description": "This recipe for pancakes makes the most perfect soft and fluffy pancakes. Using ingredients you should already have in your kitchen you can easily make these pancakes from scratch for brunch or breakfast this weekend.",
+    "Author": "uCreators Team",
+    "ImageUrl": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/119674.jpg",
+    "VideoUrl": "https://youtu.be/tBTNMo77h2Q",
+    "PrepTime": "45",
+    "PersonServ": "2"
+  },
+
+  {
+    "Name": "Heart Crepes",
+    "Description": "This recipe puts whimsy back into breakfast foods– with a squeeze bottle and a little finesse, you can make your own lace crêpes. You’ll find that this crêpe batter is a little bit more fluid than the traditional recipe.",
+    "Author": "uCreators Team",
+    "ImageUrl": "https://www.prettyprudent.com/wp-content/uploads/2012/02/14080111/1.jpg",
+    "VideoUrl": "https://youtu.be/R4kCdrtNwIo",
+    "PrepTime": "30",
+    "PersonServ": "2"
+
+  },
+
+  {
+    "Name": "Black Been Burgers",
+    "Description": "These extra easy black bean burgers taste amazing and are ready to eat in about 20 minutes! These bean burgers are dairy, egg, and gluten-free, don’t require any complicated steps, are perfect for making ahead, and will make both the meat-eaters and non-meat eaters in your life happy!",
+    "Author": "Ivanna Lopez Guajardo",
+    "ImageUrl": "https://static01.nyt.com/images/2020/06/28/dining/jo-black-bean-burgers/merlin_167531589_227b9414-ffad-4b44-ae53-67483bd2bae5-articleLarge.jpg",
+    "VideoUrl": "https://youtu.be/Ws9DPXVbeFA",
+    "PrepTime": "15",
+    "PersonServ": "1"
+  },
+
+  {
+    "Name": "Scalloped Potatoes",
+    "Description": "Specifically, these scalloped potatoes (which are technically potatoes au gratin). In my humble opinion, they are simply the best. And in the years since I originally posted this recipe here on the blog, thousands of you have also tried them and agreed! So today.",
+    "Author": "Alvin Zhou. Tasty Team",
+    "ImageUrl": "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18132359/051103025-01-classic-scalloped-potatoes-recipe-main.jpg",
+    "VideoUrl": "https://youtu.be/ufvkklHEeMI",
+    "PrepTime": "30",
+    "PersonServ": "2"
+  },
+
+  {
+    "Name": "Bacon Egg Cups",
+    "Description": "Once baked, these breakfast egg cups have a lovely crispy bacon strip on the outside and are deliciously eggy inside. You will find a bed of wilted spinach at the bottom of each cup that compliments everything else nicely. I love to garnish these with some chives, salt, and pepper.",
+    "Author": "Alix Traeger. Tasty Team",
+    "ImageUrl": "https://cdn.cookingperfected.com/wp-content/uploads/2020/10/bacon-egg-cups-v2.jpg",
+    "VideoUrl": "https://youtu.be/qC_GOEE7alA",
+    "PrepTime": "60",
+    "PersonServ": "4"
+  },
+
+  {
+    "Name": "Cookies and Cream Truffles Easy Dessert",
+    "Description": "These truffles are so yummy! If you also want to make this, I used the recipe below:",
+    "Author": "Ivanna Lopez Guajardo",
+    "ImageUrl": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/33731c6a8f5f4704a9dce477f6d40237/BFV11286_3IngredientDesserts2.jpg",
+    "VideoUrl": "https://youtu.be/4_YBELE4LpM",
+    "PrepTime": "60",
+    "PersonServ": "4"
+  },
+
+  {
+    "Name": "Plant-Based Cheeseburger",
+    "Description": "The new generation of vegan meat alternatives, such as Impossible and Beyond, are at their best when still medium-rare and juicy. Flipping the patties frequently as they cook ensures an evenly cooked interior and good flavor development on the exterior. To make the burgers vegetarian, feel free to use any good melting cheese, such as American, Cheddar or Swiss, but to make them strictly vegan, be sure to look for vegan burger buns, as standard supermarket burger buns frequently contain milk or other dairy products.",
+    "Author": "Amy Harriott-Gregory & Chloe Olivia Morgan",
+    "ImageUrl": "https://static01.nyt.com/images/2020/03/04/dining/03fakemeatrex-cheeseburgers/merlin_168791004_aad8d605-35c1-4037-800f-4ea3260fc410-articleLarge.jpg",
+    "VideoUrl": "https://youtu.be/qyaQ-wfojbM",
+    "PrepTime": "25",
+    "PersonServ": "1"
+  },
+
+  {
+    "Name": "Mini Butterfinger Cheesecakes",
+    "Description": "Summer is almost over but we are still dreaming about piña coladas! These piña colada bombs are the perfect poolside treat.",
+    "Author": "Presented by Butterfinger",
+    "ImageUrl": "https://img.buzzfeed.com/video-api-prod/assets/1e7c7fc59cd940c0916a244f77186cda/ButterfingerCheesecake_Pinterest.jpg",
+    "VideoUrl": "https://youtu.be/9wNqn0FgErc",
+    "PrepTime": "25",
+    "PersonServ": "1"
+  },
+
+  {
+    "Name": "Vegan Ground Beef",
+    "Description": "This vegan ground beef is super easy to make and can be used as a substitute for meat in many recipes, like tacos, casseroles, soups, and more. High in protein, nut-free, and easily made oil-free.",
+    "Author": "Karissa's Vegan",
+    "ImageUrl": "https://powerhungry.com/wp-content/uploads/2019/06/vegan-ground-beef-9.png",
+    "VideoUrl": "https://youtu.be/htZB8YgaTwI",
+    "PrepTime": "30",
+    "PersonServ": "2"
+  },
+
+  {
+    "Name": "Lemon Meringue Pie",
+    "Description": "Did you know you can make meringue out of... chickpea water!? This plant based version of a classic dessert is egg and dairy-free and is just as delicious as the original!",
+    "Author": "Amy Harriott-Gregory",
+    "ImageUrl": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/A50154CE-C1EB-4C45-BA60-6D2FBE5C3BE6/Derivates/42B7F080-E960-404C-AF41-AB8A85CAE790.jpg",
+    "VideoUrl": "https://youtu.be/BbXyiyBDsEQ",
+    "PrepTime": "105",
+    "PersonServ": "6"
+  },
+
+  {
+    "Name": "Strawberry Cream Bites",
+    "Description": "Strawberry Cheesecake Ice Cream Bites Servings: 64 pieces",
+    "Author": "Tiffany Lo",
+    "ImageUrl": "https://www.thepkpway.com/wp-content/uploads/2015/05/Strawberries-n-Cream-Bites-1a.jpg",
+    "VideoUrl": "https://youtu.be/YNwJwveu_ho",
+    "PrepTime": "20",
+    "PersonServ": "3"
+  }
+
+
+]

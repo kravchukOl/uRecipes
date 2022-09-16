@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:model="clr-namespace:uRecipes.Models"
+             xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+             x:DataType="viewmodel:ExploreViewModel"
+             x:Class="uRecipes.ExplorePage"
+             x:Name="ExpPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <tools:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding InitialiseCommand}"/>
+    </ContentPage.Behaviors>
+    
+    <StackLayout Orientation="Vertical"
+                 Margin="24,24,24,0">
+        
+        <!--Header-->
+        <Grid Margin="0,0,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Spacing="22">
+                <Label Text="{Binding GreatingMessage}" 
+                       FontSize="28"
+                       TextColor="{StaticResource GreenAccent}"
+                       FontFamily="Leto Text Sans Defect"/>
+
+                <Label Text="{Binding HeaderMessage}"
+                       FontSize="Default"
+                       TextColor="{StaticResource VioletAccent}"
+                       FontFamily="Heletica"/>
+            </VerticalStackLayout>
+
+            <!--User photo frame-->
+            <Frame CornerRadius="40"
+                   Padding="0"
+                   HeightRequest="80" 
+                   WidthRequest="80"
+                   BackgroundColor="Transparent"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Grid.Column="1">
+
+                <!--Demo photo!!!-->
+                <ImageButton Source="user_photo.jpg"
+                       Aspect="Fill"
+                       HeightRequest="80"
+                       WidthRequest="80"/>
+
+            </Frame>
+
+        </Grid>
+
+        <!--Search field frame-->
+        <Frame CornerRadius="20"
+               HeightRequest="40"
+               Padding="16,0"
+               Margin="0,0,0,12"
+               BorderColor="Transparent"
+               BackgroundColor="#F6F6F6"
+               HorizontalOptions="Fill">
+
+            <StackLayout Orientation="Horizontal">
+
+                <Image Source="{StaticResource SearchIcon}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       VerticalOptions="Center">
+                    
+                </Image>
+                <Entry Placeholder="Search for recipes"
+                       VerticalOptions="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="#9E9E9E"
+                       PlaceholderColor="#9E9E9E"
+                       FontSize="Body">
+                   
+                </Entry>
+            </StackLayout>
+
+        </Frame>
+
+        <!--Categories Buttons-->
+        <CollectionView Margin="0,0,0,12"
+                        ItemsSource="{Binding PopCategories}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+
+            <!-- Demo Array of Buttons -->
+            <!--<CollectionView.ItemsSource>
+                <x:Array Type="{x:Type Button}">
+
+                    <Button Text="Under 30 min."/>
+
+                    <Button Text="Breakfast"/>
+
+                    <Button Text="Vegan"/>
+
+                    <Button Text="Easy Dinner"/>
+
+                    <Button Text="Deserts"/>
+
+                    <Button Text="5 Engredients or Less"/>
+
+                    <Button Text="Kid-Friendly" />
+                </x:Array>
+            </CollectionView.ItemsSource>-->
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Category">
+                    <Button Text="{Binding CategoryName}"
+                                             CornerRadius="20"
+                                             HeightRequest="25"
+                                             FontSize="Caption"
+                                             Padding="12,4,12,4"
+                                             BackgroundColor="{StaticResource GreenAccent}"
+                                             FontFamily="Helvetica"
+                                             Margin="4,0,4,4">
+                        <Button.Shadow>
+                            <Shadow Brush="Black"
+                                                Offset="0,4"
+                                                Radius="5"
+                                                Opacity="0.25"/>
+                        </Button.Shadow>
+                    </Button>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+        
+        <!--Recipes Collections-->
+        <ScrollView VerticalOptions="EndAndExpand"
+                    VerticalScrollBarVisibility="Never">
+
+            <VerticalStackLayout Spacing="22">
+                
+                <!--Trending recipes title and button-->
+                <Grid ColumnDefinitions="*,*">
+
+                    <Label Text="Trending recipes"
+                           TextColor="{StaticResource VioletAccent}"
+                           FontSize="Medium" 
+                           FontFamily="Leto Text Sans Defect"
+                           VerticalOptions="Center"
+                           />
+                    
+                    <Button Text="View All"
+                        Padding="0"
+                        Margin="0"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource Gray450}"
+                        FontFamily="Leto Text Sans Defect"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        Grid.Column="1"/>
+                    
+                </Grid>
+                
+                <!--Trending recipes Horisontal CollectionView -->
+                <CollectionView HeightRequest="250"
+                                BackgroundColor="Transparent"
+                                ItemsSource="{Binding TrendingRecipes}">
+
+                    <!-- Demo Array of Recipes -->
+                    <!--<CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type model:Recipe}">
+
+                            <model:Recipe Name="Flaffy Pancakes"
+                                          PrepTime="45"
+                                          PersonServ="2"
+                                          ImageUrl="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/119674.jpg"/>
+
+                            <model:Recipe Name="Heart Crepes"
+                                          PrepTime="30"
+                                          PersonServ="2"
+                                          ImageUrl="https://www.prettyprudent.com/wp-content/uploads/2012/02/14080111/1.jpg"/>
+
+                            <model:Recipe Name="Black Been Burgers"
+                                          PrepTime="15"
+                                          PersonServ="1"
+                                          ImageUrl="https://sallysbakingaddiction.com/wp-content/uploads/2018/07/best-black-bean-burgers-2.jpg"/>
+                        </x:Array>
+                    </CollectionView.ItemsSource>-->
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Recipe">
+                            <Frame Padding="0"
+                                   Margin="5"
+                                   CornerRadius="8"
+                                   HeightRequest="250"
+                                   WidthRequest="192"
+                                   BorderColor="Transparent">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter = "{Binding .}"
+                                                          Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
+                                                                      Source={Reference ExpPage}}"/>
+                                </Frame.GestureRecognizers>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height = "187"/>
+                                        <RowDefinition  Height= "63"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Image Grid.RowSpan="2"
+                                           Source="{Binding ImageUrl.AbsoluteUri}"
+                                           Aspect="AspectFill"/>
+
+                                    <Frame Margin="8,0,8,8"
+                                           Padding="8"
+                                           HeightRequest="55"
+                                           BackgroundColor="#959E9E9E"
+                                           VerticalOptions="Center"
+                                           BorderColor="Transparent"
+                                           Grid.Row="1">
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="22"/>
+                                                <RowDefinition Height="22"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="28"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding Name}"
+                                               FontFamily="Leto Text Sans Defect"
+                                               TextColor="White"
+                                               FontSize="Body"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               VerticalOptions="Start"/>
+
+                                            <Label FontFamily="Leto Text Sans Defect"
+                                               TextColor="White"
+                                               FontSize="Default"
+                                               Grid.Row="1"
+                                               Grid.Column="0"
+                                               VerticalOptions="Start">
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat ="{}{0}min | {1} serving">
+                                                        <Binding Path="PrepTime"/>
+                                                        <Binding Path="PersonServ"/>
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+
+                                            <ImageButton
+                                                Source="{DynamicResource FavoriteIcon}"
+                                                   HeightRequest="25"
+                                                   WidthRequest="25"
+                                                   Grid.Column="1"
+                                                   Grid.RowSpan="2">
+
+                                            </ImageButton>
+
+                                        </Grid>
+
+                                    </Frame>
+
+                                </Grid>
+
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                <!--Season Recipes title and button-->
+                <Grid ColumnDefinitions="*,*" >
+
+                    <Label Text="Season recipes"
+                           TextColor="{StaticResource VioletAccent}"
+                           FontSize="Medium" 
+                           FontFamily="Leto Text Sans Defect"/>
+
+                    <Button Text="View All"
+                            Padding="0"
+                            Margin="0"
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource Gray450}"
+                            FontFamily="Leto Text Sans Defect"
+                            Grid.Column="1"
+                            HorizontalOptions="End"/>
+
+                </Grid>
+
+                <!-- Season recipes Horisontal CollectionView-->
+                <CollectionView HeightRequest="152"
+                                BackgroundColor="Transparent"
+                                ItemsSource="{Binding SeasonRecipes}">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"/>
+                    </CollectionView.ItemsLayout>
+
+                    <!-- Demo Array of Recipes -->
+                    <!--<CollectionView.ItemsSource>
+
+                        <x:Array Type="{x:Type model:Recipe}">
+
+                            <model:Recipe Name="Scalloped Potatoes"
+                                          ImageUrl="https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18132359/051103025-01-classic-scalloped-potatoes-recipe-main.jpg"/>
+
+                            <model:Recipe Name="Bacon Egg Cups"
+                                          ImageUrl="https://healthyrecipesblogs.com/wp-content/uploads/2016/11/bacon-egg-cups-square-2020.jpg"/>
+
+                            <model:Recipe Name="Cookies and Cream Truffles Easy Dessert"
+                                          ImageUrl="https://celebrationsathomeblog.com/wp-content/uploads/2010/01/Oreo-truffles-easy-recipe.jpg"/>
+
+                        </x:Array>
+
+                    </CollectionView.ItemsSource>-->
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Recipe">
+
+                            <Frame
+                                WidthRequest="130"
+                                HeightRequest="152"
+                                Padding="0"
+                                Margin="5,0,5,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="Transparent">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter = "{Binding .}"
+                                                          Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
+                                                                      Source={Reference ExpPage}}"/>
+                                </Frame.GestureRecognizers>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="120"/>
+                                        <RowDefinition Height="32"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Frame CornerRadius="8"
+                                           Grid.Row="0"
+                                           WidthRequest="130"
+                                           HeightRequest="120">
+
+                                        <Image Source="{Binding ImageUrl.AbsoluteUri}"
+                                           Aspect="AspectFill"
+                                           WidthRequest="130"
+                                           HeightRequest="120"/>
+                                    </Frame>
+
+                                    <Label Text="{Binding Name}"
+                                           FontSize="Default"
+                                           TextColor="{StaticResource VioletAccent}"
+                                           FontFamily="Leto Text Sans Defect"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Grid.Row="1"/>
+
+                                </Grid>
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </StackLayout>
+
+</ContentPage>

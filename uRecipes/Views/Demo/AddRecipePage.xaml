@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:uRecipes.ViewModels.Demo"
+             x:Class="uRecipes.Views.Demo.AddRecipePage"
+             x:DataType="viewmodel:AddRecipeViewModel"
+             Title="Add Recipe to Favorits"
+             Shell.NavBarIsVisible="True">
+
+
+    <ContentPage.Resources>
+        <Style x:Key="InvalidInputStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>
+
+        <Style x:Key="ValidInputStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="{StaticResource GreenAccent2}"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="16">
+
+        
+        <!--TEST FRAME Quick Recipe Add-->
+
+        <ScrollView VerticalOptions="EndAndExpand"
+                    VerticalScrollBarVisibility="Never"
+                    Margin="24,16">
+            
+            <Border StrokeShape="RoundRectangle 20,20,20,20" 
+                Stroke="{StaticResource GreenAccent2}"
+                StrokeThickness="2"
+                    Padding="16">
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="6,6"
+                            Radius="10"
+                            Opacity="0.3" />
+                </Border.Shadow>
+            
+                <StackLayout>
+
+                    <Frame BorderColor="Transparent"
+                           HeightRequest="200"
+                           CornerRadius="20">
+                        <Image HeightRequest="200"
+                               Aspect="AspectFill"
+                               Source="{Binding PhotoURL}"
+                               x:Name="RecipeImage"/>
+
+                    </Frame>
+
+                    <!--Name entry-->
+                    <Frame CornerRadius="20"
+                           HeightRequest="40"
+                           Margin="0,12"
+                           Padding="16,0"
+                           BorderColor="Transparent"
+                           BackgroundColor="#F6F6F6"
+                           HorizontalOptions="Fill">
+
+
+                        <HorizontalStackLayout>
+                            
+                            <Entry Placeholder="Name"
+                                   Text="{Binding Name}"
+                               VerticalOptions="Center"
+                               PlaceholderColor="#9E9E9E"
+                               FontSize="Body"
+                               WidthRequest="280">
+                                <Entry.Behaviors>
+                                    <tools:TextValidationBehavior 
+                                        MaximumLength="60"
+                                        MinimumLength="8"
+                                        InvalidStyle="{StaticResource InvalidInputStyle}"
+                                        ValidStyle="{StaticResource ValidInputStyle}"
+                                        Flags="ValidateOnValueChanged"
+                                        IsNotValid="{Binding NameIsNotValid}"
+                                        />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </HorizontalStackLayout>
+                    </Frame>
+                    <Label Text="* Enter text from 8 to 60 characters"
+                           FontSize="Micro"
+                           TextColor="Red"
+                           IsVisible="{Binding NameIsNotValid}"/>
+                    
+                    <!--Author entry-->
+                    <Frame CornerRadius="20"
+                           HeightRequest="40"
+                           Padding="16,0"
+                           Margin="0,0,0,12"
+                           BorderColor="Transparent"
+                           BackgroundColor="#F6F6F6"
+                           HorizontalOptions="Fill">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <Entry Placeholder="Author"
+                                   Text="{Binding Author}"
+                                   VerticalOptions="Center"
+                                   PlaceholderColor="#9E9E9E"
+                                   FontSize="Body"
+                                   WidthRequest="280">
+                                <Entry.Behaviors>
+                                    <tools:TextValidationBehavior 
+                                                    MaximumLength="80"
+                                                    MinimumLength="8"
+                                                    InvalidStyle="{StaticResource InvalidInputStyle}"
+                                                    ValidStyle="{StaticResource ValidInputStyle}"
+                                                    Flags="ValidateOnValueChanged"
+                                                    IsNotValid="{Binding AuthorIsNotValid}"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="* Enter text from 8 to 60 characters"
+                           FontSize="Micro"
+                           TextColor="Red"
+                           IsVisible="{Binding AuthorIsNotValid}"/>
+                    
+                    <!--Description entry-->
+                    <Frame CornerRadius="20"
+                           HeightRequest="40"
+                           Padding="16,0"
+                           Margin="0,0,0,12"
+                           BorderColor="Transparent"
+                           BackgroundColor="#F6F6F6"
+                           HorizontalOptions="Fill">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <Entry Placeholder="Description"
+                                   Text="{Binding Description}"
+                                   VerticalOptions="Center"
+                                   PlaceholderColor="#9E9E9E"
+                                   FontSize="Body"
+                                   WidthRequest="280"
+                                   HeightRequest="100">
+                                <Entry.Behaviors>
+                                    <tools:TextValidationBehavior 
+                                        MaximumLength="500"
+                                        MinimumLength="20"
+                                        InvalidStyle="{StaticResource InvalidInputStyle}"
+                                        ValidStyle="{StaticResource ValidInputStyle}"
+                                        Flags="ValidateOnValueChanged"
+                                        IsNotValid="{Binding DescriptionIsNotValid}"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="* Enter text from 20 to 500 characters"
+                           FontSize="Micro"
+                           TextColor="Red"
+                           IsVisible="{Binding DescriptionIsNotValid}"/>
+                    
+                    <!--Photo URL entry-->
+                    <Frame CornerRadius="20"
+                           HeightRequest="40"
+                           Padding="16,0"
+                           Margin="0,0,0,12"
+                           BorderColor="Transparent"
+                           BackgroundColor="#F6F6F6"
+                           HorizontalOptions="Fill">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <Entry Placeholder="Photo URL"
+                                   Text="{Binding PhotoURL}"
+                                   VerticalOptions="Center"
+                                   PlaceholderColor="#9E9E9E"
+                                   FontSize="Body"
+                                   WidthRequest="280"
+                                   HeightRequest="100">
+                                <Entry.Behaviors>
+                                    <tools:UriValidationBehavior 
+                                                    UriKind="Absolute"
+                                                    InvalidStyle="{StaticResource InvalidInputStyle}"
+                                                    ValidStyle="{StaticResource ValidInputStyle}"
+                                                    Flags="ValidateOnValueChanged"
+                                                    IsNotValid="{Binding PhotoURLIsNotValid}"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="* URL is not valid"
+                           FontSize="Micro"
+                           TextColor="Red"
+                           IsVisible="{Binding PhotoURLIsNotValid}"/>
+                    
+                    <!--Video URL entry-->
+                    <Frame CornerRadius="20"
+                           HeightRequest="40"
+                           Padding="16,0"
+                           Margin="0,0,0,12"
+                           BorderColor="Transparent"
+                           BackgroundColor="#F6F6F6"
+                           HorizontalOptions="Fill">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <Entry Placeholder="Video URL"
+                                               Text="{Binding VideoURL}"
+                                   VerticalOptions="Center"
+                                   PlaceholderColor="#9E9E9E"
+                                   FontSize="Body"
+                                   WidthRequest="280"
+                                   HeightRequest="100">
+                                <Entry.Behaviors>
+                                    <tools:UriValidationBehavior 
+                                                    UriKind="Absolute"
+                                                    InvalidStyle="{StaticResource InvalidInputStyle}"
+                                                    ValidStyle="{StaticResource ValidInputStyle}"
+                                                    Flags="ValidateOnValueChanged"
+                                                    IsNotValid="{Binding VideoURLIsNotValid}"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="* URL is not valid"
+                           FontSize="Micro"
+                           TextColor="Red"
+                           IsVisible="{Binding VideoURLIsNotValid}"/>
+
+                    <!--Preparation time & Persons serving entries-->
+                    <Grid ColumnDefinitions="*,*"
+                          RowDefinitions="Auto,Auto">
+                        <!--Preparation time-->
+                        <Frame CornerRadius="20"
+                               HeightRequest="40"
+                               Padding="16,0"
+                               Margin="0,0,0,12"
+                               BorderColor="Transparent"
+                               BackgroundColor="#F6F6F6"
+                               HorizontalOptions="Fill"
+                               Grid.Row="0"
+                               Grid.Column="0">
+                            
+                            <StackLayout Orientation="Horizontal">
+
+                                <Entry Placeholder="Prep. time"
+                                       Text="{Binding PrepTime}"
+                                       VerticalOptions="Center"
+                                       PlaceholderColor="#9E9E9E"
+                                       FontSize="Body"
+                                       WidthRequest="280"
+                                       HeightRequest="100">
+                                    <Entry.Behaviors>
+                                        <tools:NumericValidationBehavior
+                                            MinimumValue="1"
+                                            MaximumValue="1440"
+                                            InvalidStyle="{StaticResource InvalidInputStyle}"
+                                            ValidStyle="{StaticResource ValidInputStyle}"
+                                            Flags="ValidateOnValueChanged"
+                                            IsNotValid="{Binding PrepTimeIsNotValid}"/>
+                                    </Entry.Behaviors>
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+
+                        <!--Persons serving-->
+                        <Frame CornerRadius="20"
+                               HeightRequest="40"
+                               Padding="16,0"
+                               Margin="0,0,0,12"
+                               BorderColor="Transparent"
+                               BackgroundColor="#F6F6F6"
+                               HorizontalOptions="Fill"
+                               Grid.Row="0"
+                               Grid.Column="1">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Entry Placeholder="Persons serv."
+                                           Text="{Binding PersServ}"
+                                       VerticalOptions="Center"
+                                       PlaceholderColor="#9E9E9E"
+                                       FontSize="Body"
+                                       WidthRequest="280"
+                                       HeightRequest="100">
+                                    <Entry.Behaviors>
+                                        <tools:NumericValidationBehavior
+                                            MinimumValue="1"
+                                            MaximumValue="20"
+                                            InvalidStyle="{StaticResource InvalidInputStyle}"
+                                            ValidStyle="{StaticResource ValidInputStyle}"
+                                            Flags="ValidateOnValueChanged"
+                                                IsNotValid="{Binding PersServIsNotValid}"/>
+                                    </Entry.Behaviors>
+                                </Entry>
+
+                            </StackLayout>
+                        </Frame>
+                    <Label Text="* Enter number from 1 to 1440"
+                           FontSize="Micro"
+                           TextColor="Red"
+                           IsVisible="{Binding PrepTimeIsNotValid}"
+                           Grid.Row="1"
+                           Grid.Column="0"/>
+                        
+                    <Label Text="* Enter number from 1 to 20"
+                           FontSize="Micro"
+                           TextColor="Red"
+                           IsVisible="{Binding PersServIsNotValid}"
+                           Grid.Row="1"
+                           Grid.Column="1"/>
+                    </Grid>
+
+                    <!--Comleated switch-->
+                    <HorizontalStackLayout Spacing="15">
+                        <Label Text="Compeated"
+                           TextColor="{StaticResource VioletAccent}"
+                           VerticalOptions="Center"/>
+                        <Switch OnColor="{StaticResource GreenAccent2}"
+                                IsToggled="{Binding IsCompleted}"/>
+                    </HorizontalStackLayout>
+
+                    <!--Button Add recipe-->
+                    <Button Text="Add recipe"
+                    HeightRequest="34"
+                    WidthRequest="114"
+                    CornerRadius="40"
+                    Padding="16,2"
+                    BackgroundColor="{StaticResource GreenAccent}"
+                    FontFamily="Helvetica"
+                            Command="{Binding AddRecipeCommand}">
+                        <Button.Shadow>
+                            <Shadow Brush="Black"
+                            Offset="0,4"
+                            Radius="5"
+                            Opacity="0.25"/>
+                        </Button.Shadow>
+                    </Button>
+                </StackLayout>
+            </Border>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
