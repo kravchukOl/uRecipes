@@ -243,7 +243,8 @@
                                                FontSize="Body"
                                                Grid.Row="0"
                                                Grid.Column="0"
-                                               VerticalOptions="Start"/>
+                                               VerticalOptions="Start"
+                                               MaxLines="1"/>
 
                                             <Label FontFamily="Leto Text Sans Defect"
                                                TextColor="White"

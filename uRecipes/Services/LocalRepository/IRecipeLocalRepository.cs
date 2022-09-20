@@ -13,11 +13,10 @@ namespace uRecipes.Services.LocalRepository
         event EventHandler<Recipe> OnItemUpdated;
         event EventHandler<Recipe> OnItemDeleted;
 
-        // Recipe operated methods (async):
         Task <List<Recipe>> GetRecipesAsync();
-        Task<List<Category>> GetAllCategories();
-
         Task<Recipe> GetRecipeAsync(int id);
+        Task<List<Category>> GetAllCategories();
+        Task<List<Category>> GetCategoriesByTag(string tag);
 
         Task <int> AddItem (Recipe item);
         Task <int> AddItem
@@ -38,11 +37,11 @@ namespace uRecipes.Services.LocalRepository
         Task<NutritionInfo> GetNutrition(Recipe item);
 
         // Ingredients GET; SET;
-        Task <int> SetIngredients(List<Ingredient> categories, Recipe item);
+        Task <int> SetIngredients(List<Ingredient> ingredients, Recipe item);
         Task<List<Ingredient>> GetIngredients(Recipe item);
 
         // Ingredients GET; SET;
-        Task <int> SetInstruction(List<Instruction> categories, Recipe item);
+        Task <int> SetInstruction(List<Instruction> instruction, Recipe item);
         Task<List<Instruction>> GetInstructions(Recipe item);
 
 

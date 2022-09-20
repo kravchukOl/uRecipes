@@ -64,9 +64,6 @@ namespace uRecipes.ViewModels
 
                 var recipes = await localRepository.GetRecipesAsync();
 
-                //if (recipes.Count == 0)
-                //    FavRecipes.Clear();
-
                 recipes.ForEach((x) => FavRecipes.Add(x));
 
                 UpdateHeaderMesange();
@@ -211,6 +208,8 @@ namespace uRecipes.ViewModels
 
             foreach (var item in RecipeList)
                 FavRecipes.Add(item);
+
+            UpdateHeaderMesange();
 
             IsBusy = false;
 

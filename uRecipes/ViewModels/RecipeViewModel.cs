@@ -81,8 +81,8 @@ namespace uRecipes.ViewModels
                 ImageUrl = RecipeItem.ImageUrl.AbsoluteUri;
                 VideoUrl = RecipeItem.VideoUrl.AbsoluteUri;
 
-                prepTime = RecipeItem.PrepTime;
-                personServ = RecipeItem.PersonServ;
+                PrepTime = RecipeItem.PrepTime;
+                PersonServ = RecipeItem.PersonServ;
                 isCompleted = RecipeItem.IsCompleted;
 
                 //  Categories = new (await localRepository.GetCategoriesOfRecipe(RecipeItem));

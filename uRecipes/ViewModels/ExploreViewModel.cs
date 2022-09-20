@@ -1,4 +1,6 @@
 ﻿using AndroidX.Navigation;
+using System.Collections.Generic;
+using System.Diagnostics;
 using uRecipes.Services.LocalRepository;
 using uRecipes.Views;
 
@@ -49,11 +51,12 @@ namespace uRecipes.ViewModels
             GreatingMessage = "Hello May,"; // Enhance !!!
         }
 
-
         private async Task LoadPopCategories()
         {
-            List<Category> catList = await localRepository.GetAllCategories();
-            catList = new(catList.Where(x => x.CategoryTag.Equals("Popular")));
+            //List<Category> catList = await localRepository.GetAllCategories();
+            //catList = new(catList.Where(x => x.CategoryTag.Equals("Popular")));
+
+            List<Category> catList = new(await localRepository.GetCategoriesByTag("Popular"));
 
             PopCategories.Clear();
             foreach (var item in catList)
