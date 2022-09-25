@@ -87,8 +87,6 @@ namespace uRecipes.ViewModels
 
                 //  Categories = new (await localRepository.GetCategoriesOfRecipe(RecipeItem));
 
-
-
             }
             catch (Exception ex)
             {
@@ -134,7 +132,11 @@ namespace uRecipes.ViewModels
         }
 
         [RelayCommand]
-        private void SwithcIsCompleted() => IsCompleted = !IsCompleted;
+        private async Task SwithcIsCompleted()
+        {
+            IsCompleted = !IsCompleted;
+            await localRepository.UpdateItem(RecipeItem);
+        }
 
 
 

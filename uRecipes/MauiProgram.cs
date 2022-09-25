@@ -28,8 +28,9 @@ public static class MauiProgram
 
         // Services registrations:
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
-        builder.Services.AddSingleton<INavigator>(new PageNavigator());
-        builder.Services.AddSingleton<IRecipeLocalRepository>(new RecipeLocalRepository());
+        //builder.Services.AddSingleton(Shell.Current); 
+        builder.Services.AddSingleton<INavigator, PageNavigator>();
+        builder.Services.AddSingleton<IRecipeLocalRepository, RecipeLocalRepository>();
 
         // ViewModel registrations:
         builder.Services.AddSingleton<FavoritesViewModel>();

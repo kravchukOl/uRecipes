@@ -16,15 +16,6 @@
     </ContentPage.Behaviors>
 
 
-    <!--<ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="GreenAccent">#01B8A2</Color>
-            <Color x:Key="GreenAccent2">#18B48C</Color>
-            <Color x:Key="VioletAccent">#442244</Color>
-            <Color x:Key="Gray450">#9E9E9E</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>-->
-
 
     <StackLayout Margin="24,24,24,0">
 
@@ -137,10 +128,28 @@
 
             <!--Collection of Favortite Recipes-->
             <CollectionView ItemsSource="{Binding FavRecipes}"
-                            Grid.Row="0"
-                            EmptyView="">
+                            Grid.Row="0">
                 
                 <!-- !!! Add the empty views!!!  -->
+                <CollectionView.EmptyView>
+                    <StackLayout VerticalOptions="CenterAndExpand"
+                                         Spacing="20">
+                        
+                        <Image Source="recipe_alert.png"
+                               WidthRequest="125"/>
+
+                        <Label Text="Nothing to display here"
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource VioletAccent}"
+                               FontSize="Medium"
+                               FontFamily="Helvetica"/>
+
+                        <Button Text="Back to Recipes"
+                                Style="{StaticResource BaseButtonStyle}"
+                                HorizontalOptions="Center"/>
+
+                    </StackLayout>
+                </CollectionView.EmptyView>
                 
 
                 <CollectionView.ItemTemplate>
@@ -224,6 +233,7 @@
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                
             </CollectionView>
 
             <ActivityIndicator IsVisible="{Binding IsBusy}"

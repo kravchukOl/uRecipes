@@ -7,6 +7,7 @@
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
              x:DataType="viewmodel:RecipeViewModel"
              Shell.NavBarIsVisible="False"
+             Shell.PresentationMode="ModalAnimated"
              Title="RecipePage">
 
     <!--Setting Appearing Event to Command-->
@@ -218,7 +219,7 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <Grid ColumnDefinitions="*,85">
+                    <Grid ColumnDefinitions="*, Auto">
 
                         <Label FontSize="Medium"
                                FontFamily="HelveticaBold"
@@ -233,6 +234,35 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
+
+                        <Border WidthRequest="100"
+                                HeightRequest="36"
+                                Stroke="{StaticResource Gray450}"
+                                BackgroundColor="Transparent"
+                                Grid.Column="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8"/>
+                            </Border.StrokeShape>
+
+                            <FlexLayout AlignContent="SpaceBetween"
+                                        Padding="0">
+                                
+                                <Label Text="-"
+                                       Margin="10,0"
+                                       FontSize="Title"
+                                       VerticalOptions="Center"/>
+                                
+                                <Label Text="{Binding PersonServ}"
+                                       VerticalOptions="Center"
+                                       FontSize="Medium"/>
+                                
+                                <Label Text="+"
+                                       Margin="10"
+                                       VerticalOptions="Center"/>
+                                
+                            </FlexLayout>
+                        </Border>
+                                
                     </Grid>
                 </Border>
                 
@@ -259,7 +289,7 @@
                            Grid.Column="0">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Nutrition" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
+                                    <Span Text="Nutrition Values" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>

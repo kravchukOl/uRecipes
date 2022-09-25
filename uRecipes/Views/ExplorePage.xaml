@@ -378,6 +378,10 @@
 
                 </CollectionView>
 
+                <!--<ActivityIndicator IsVisible="{Binding IsBusy}"
+                                   IsRunning="{Binding IsBusy}"
+                                   VerticalOptions="CenterAndExpand"/>-->
+
             </VerticalStackLayout>
 
         </ScrollView>

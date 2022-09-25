@@ -1,7 +1,4 @@
-﻿using AndroidX.Navigation;
-using System.Collections.Generic;
-using System.Diagnostics;
-using uRecipes.Services.LocalRepository;
+﻿using uRecipes.Services.LocalRepository;
 using uRecipes.Views;
 
 namespace uRecipes.ViewModels
@@ -26,7 +23,7 @@ namespace uRecipes.ViewModels
         public ObservableCollection <Recipe> TrendingRecipes { get; set; }
         public ObservableCollection <Recipe> SeasonRecipes { get; set; }
         public ObservableCollection <Category> PopCategories { get; set; }
-        public ObservableCollection<Recipe> LatestRecipes { get; set; } // Not implemented control in XAML !!!
+        public ObservableCollection <Recipe> LatestRecipes { get; set; } // Not implemented control in XAML !!!
 
         public EventHandler Search { get; set; }
 
@@ -53,6 +50,8 @@ namespace uRecipes.ViewModels
 
         private async Task LoadPopCategories()
         {
+            IsBusy = true;
+
             //List<Category> catList = await localRepository.GetAllCategories();
             //catList = new(catList.Where(x => x.CategoryTag.Equals("Popular")));
 
@@ -61,27 +60,48 @@ namespace uRecipes.ViewModels
             PopCategories.Clear();
             foreach (var item in catList)
                 PopCategories.Add(item);
+
+            IsBusy = false;
         }
 
         private async Task LoadDemoRecipes()
         {
+            IsBusy = true;
+
             if (TrendingRecipes.Count > 0) return;
             if (SeasonRecipes.Count > 0) return;
             if (LatestRecipes.Count > 0) return;
 
-            using var stream = await FileSystem.OpenAppPackageFileAsync("recipes_demo.json");
-            using var reader = new StreamReader(stream);
+            try
+            {
 
-            var contents = await reader.ReadToEndAsync();
-            List<Recipe> demoRecipes = JsonSerializer.Deserialize<List<Recipe>>(contents);
+                using var stream = await FileSystem.OpenAppPackageFileAsync("recipes_demo.json");
+                using var reader = new StreamReader(stream);
 
-            Random rand = new Random();
+                var contents = await reader.ReadToEndAsync();
+                List<Recipe> demoRecipes = JsonSerializer.Deserialize<List<Recipe>>(contents);
 
-            for(int i = 0; i < 5; i++)
-                TrendingRecipes.Add(demoRecipes[rand.Next(demoRecipes.Count)]);
+                Random rand = new Random();
 
-            for (int i = 0; i < 5; i++)
-                SeasonRecipes.Add(demoRecipes[rand.Next(demoRecipes.Count)]);
+                for (int i = 0; i < 5; i++)
+                    TrendingRecipes.Add(demoRecipes[rand.Next(demoRecipes.Count)]);
+
+                for (int i = 0; i < 5; i++)
+                    SeasonRecipes.Add(demoRecipes[rand.Next(demoRecipes.Count)]);
+
+                IsBusy = false;
+            }
+
+            catch (Exception ex) 
+            {
+                
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+
+          
         }
 
         [RelayCommand]

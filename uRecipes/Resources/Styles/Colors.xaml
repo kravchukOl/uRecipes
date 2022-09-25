@@ -9,6 +9,7 @@
     <Color x:Key="GreenAccent">#01B8A2</Color>
     <Color x:Key="GreenAccent2">#18B48C</Color>
     <Color x:Key="VioletAccent">#442244</Color>
+    <Color x:Key="UltraViolet">#726EB8</Color>
     <Color x:Key="Gray450">#9E9E9E</Color>
 
 

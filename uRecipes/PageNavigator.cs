@@ -20,7 +20,7 @@ namespace uRecipes
         {
             await Shell.Current.GoToAsync(route, true, new Dictionary<string, object>
             {
-                {propertyName, item }
+                {propertyName, item}
             });
         }
 

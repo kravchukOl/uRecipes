@@ -112,6 +112,7 @@
 		<MauiImage Include="Resources\Images\icons_svg\slider03.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\trash.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\wlan.svg" />
+		<MauiImage Include="Resources\Images\status_imgs\recipe_alert.png" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -166,6 +167,7 @@
 	  <None Remove="Resources\Images\icons_svg\slider03.svg" />
 	  <None Remove="Resources\Images\icons_svg\trash.svg" />
 	  <None Remove="Resources\Images\icons_svg\wlan.svg" />
+	  <None Remove="Resources\Images\status_imgs\recipe_alert.png" />
 	  <None Remove="Resources\Images\ucuisine_front2.png" />
 	</ItemGroup>
 
