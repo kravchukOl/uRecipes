@@ -1,0 +1,395 @@
+[
+  {
+    "Name": "Chicken Breasts",
+    "Quantity": 12,
+    "Units": "ounce"
+  },
+
+  {
+    "Name": "Roma Tomato",
+    "Quantity": 2,
+    "Units": "unit"
+  },
+
+  {
+    "Name": "Paprika",
+    "Quantity": 1,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "Dried Oregano",
+    "Quantity": 1,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "Mozzarella Cheese",
+    "Quantity": 0.5,
+    "Units": "cup",
+    "Allergens":"Milk"
+  },
+
+  {
+    "Name": "Flatbreads",
+    "Quantity": 2,
+    "Units": "unit",
+    "Allergens":"Wheat"
+  },
+
+  {
+    "Name": "Cream Cheese",
+    "Quantity": 4,
+    "Units": "tablespoon",
+    "Allergens":"Milk"
+  },
+
+  {
+    "Name": "Butter",
+    "Quantity": 1,
+    "Units": "tablespoon",
+    "Allergens":"Milk"
+  },
+
+  {
+    "Name": "Lobster Ravioli",
+    "Quantity": 9,
+    "Units": "ounce",
+    "Allergens":"Eggs, Milk, Shellfish, Wheat"
+  },
+
+  {
+    "Name": "Parmesan Cheese",
+    "Quantity": 5,
+    "Units": "ounce",
+    "Allergens":"Milk"
+  },
+
+  {
+    "Name": "Marinara Sauce",
+    "Quantity": 14,
+    "Units": "ounce"
+  },
+
+
+  {
+    "Name": "Red Onion",
+    "Quantity": 1,
+    "Units": "unit"
+  },
+
+  {
+    "Name": "Yellow Onion",
+    "Quantity": 1,
+    "Units": "unit"
+  },
+
+  {
+    "Name": "Garlic",
+    "Quantity": 1,
+    "Units": "clove"
+  },
+
+  {
+    "Name": "Cooking Oil",
+    "Quantity": 1,
+    "Units": "tablespoon"
+  },
+
+  {
+    "Name": "Kosher Salt"
+  },
+  {
+    "Name": "Pepper"
+  },
+
+  {
+    "Name": "Mayonnaise",
+    "Quantity": 2,
+    "Units": "tablespoon",
+    "Allergens": "Eggs"
+  },
+
+  {
+    "Name": "BBQ Sauce",
+    "Quantity": 4,
+    "Units": "tablespoon"
+  },
+
+  {
+    "Name": "Red Pepper Jam",
+    "Quantity": 1,
+    "Units": "unit"
+  },
+
+  {
+    "Name": "Sun-Dried Tomatoes",
+    "Quantity": 1.5,
+    "Units": "ounce"
+  },
+
+  {
+    "Name": "Ancho Chili Powder",
+    "Quantity": 1,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "White Wine Vinegar",
+    "Quantity": 5,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "Tomato",
+    "Quantity": 1,
+    "Units": "unit"
+  },
+
+  {
+    "Name": "Chives",
+    "Quantity": 0.25,
+    "Units": "ounce"
+  },
+
+  {
+    "Name": "Chili Flakes",
+    "Quantity": 1,
+    "Units": "tablespoon"
+  },
+
+  {
+    "Name": "Dijon Mustard",
+    "Quantity": 2,
+    "Units": "teaspoon"
+  },
+
+
+  {
+    "Name": "Panko Breadcrumbs",
+    "Quantity": 0.25,
+    "Units": "cup",
+    "Allergens":"Wheat"
+  },
+
+  {
+    "Name": "Demi Baguette",
+    "Quantity": 1,
+    "Units": "unit",
+    "Allergens":"Wheat, Soy"
+  },
+
+  {
+    "Name": "Italian Cheese Blend",
+    "Quantity": 0.5,
+    "Units": "cup",
+    "Allergens":"Milk"
+  },
+
+  {
+    "Name": "Shrimp",
+    "Quantity": 10,
+    "Units": "ounce",
+    "Allergens":"Shellfish"
+  },
+
+  {
+    "Name": "Potato Buns",
+    "Quantity": 2,
+    "Units": "unit",
+    "Allergens": "Wheat, Eggs, Milk, Soy"
+  },
+
+  {
+    "Name": "Cheese Tortelloni",
+    "Quantity": 9,
+    "Units": "ounce",
+    "Allergens": "Wheat, Eggs, Milk"
+  },
+
+  {
+    "Name": "Sweetened condensed milk",
+    "Quantity": 14,
+    "Units": "ounce",
+    "Allergens": "Milk"
+  },
+
+  {
+    "Name": "chocolate sandwich cookies",
+    "Quantity": 12,
+    "Units": "unit",
+    "Allergens": "Milk, Wheat"
+  },
+
+  {
+    "Name": " tablespoons butter, melted",
+    "Quantity": 2,
+    "Units": "tablespoon",
+    "Allergens": "Milk"
+  },
+
+  {
+    "Name": " heavy whipping cream",
+    "Quantity": 1,
+    "Units": "cup",
+    "Allergens": "Milk"
+  },
+
+  {
+    "Name": "condensed milk",
+    "Quantity": 7,
+    "Units": "ounce",
+    "Allergens": "Milk"
+  },
+
+
+  {
+    "Name": "cup confectioners sugar",
+    "Quantity": 0.25,
+    "Units": "cup"
+  },
+
+  {
+    "Name": "teaspoon vanilla extract",
+    "Quantity": 0.5,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "chocolate sandwich cookies, crumbled",
+    "Quantity": 6,
+    "Units": "unit"
+  },
+
+  {
+    "Name": "lime juice",
+    "Quantity": 0.5,
+    "Units": "cup"
+  },
+
+  {
+    "Name": "egg yolks",
+    "Quantity": 4,
+    "Units": "unit",
+    "Allergens": "Eggs"
+  },
+
+  {
+    "Name": "lime zest, grated",
+    "Quantity": 4.5,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "Chili Flakes",
+    "Quantity": 1,
+    "Units": "tablespoon"
+  },
+
+  {
+    "Name": "Potatoes",
+    "Quantity": 12,
+    "Units": "ounce"
+  },
+
+  {
+    "Name": "Flour Tortillas",
+    "Quantity": 6,
+    "Units": "unit",
+    "Allergens": "Wheat,Soy"
+  },
+
+  {
+    "Name": "Southwest Spice Blend",
+    "Quantity": 1,
+    "Units": "tablespoon"
+  },
+
+  {
+    "Name": "Pineapple",
+    "Quantity": 4,
+    "Units": "ounce"
+  },
+
+  {
+    "Name": "Poblano Pepper",
+    "Quantity": 1,
+    "Units": "unit"
+  },
+
+  {
+    "Name": "Ground Beef",
+    "Quantity": 10,
+    "Units": "ounce"
+  },
+
+  {
+    "Name": "Sour Cream",
+    "Quantity": 4,
+    "Units": "tablespoon",
+    "Allergens": "Milk"
+  },
+
+  {
+    "Name": "Lime",
+    "Quantity": 1,
+    "Units": "unit"
+  },
+  {
+    "Name": "Panko Breadcrumbs",
+    "Quantity": 0.5,
+    "Units": "cup"
+  },
+
+  {
+    "Name": "Yukon Gold Potatoes",
+    "Quantity": 0.5,
+    "Units": "cup"
+  },
+
+  {
+    "Name": "Pepper",
+    "Quantity": 0.5,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "Salt",
+    "Quantity": 0.5,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "Red pepper flakes",
+    "Quantity": 1,
+    "Units": "teaspoon"
+  },
+
+  {
+    "Name": "Flour tortillas, 8-inch",
+    "Quantity": 4,
+    "Units": "unit",
+    "Allergens":"Milk, Wheat"
+  },
+
+  {
+    "Name": "Cup parmesan cheese",
+    "Quantity": 0.33,
+    "Units": "cup",
+    "Allergens": "Milk"
+  },
+
+  {
+    "Name": "Shredded mozzarella cheese",
+    "Quantity": 8,
+    "Units": "ounce",
+    "Allergens": "Milk"
+  },
+
+  {
+    "Name": "cups marinara sauce",
+    "Quantity": 1.5,
+    "Units": "cup"
+  }
+
+]

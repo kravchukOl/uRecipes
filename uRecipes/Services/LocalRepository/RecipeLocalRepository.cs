@@ -27,8 +27,8 @@ namespace uRecipes.Services.LocalRepository
 
             connection = new SQLiteAsyncConnection(databasePath);
 
-            await connection.CreateTablesAsync <Recipe, Category, Recipe_Category>();
-            await connection.CreateTablesAsync <NutritionInfo, Ingredients, Instructions>();
+            await connection.CreateTablesAsync<Recipe, Category, Recipe_Category>();
+            await connection.CreateTablesAsync<NutritionInfo, Ingredients, Instructions>();
 
             await InintializeCategories();
         }
@@ -49,11 +49,10 @@ namespace uRecipes.Services.LocalRepository
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
 
-            int id;
             await CreateConnection();
-            id = await connection.InsertAsync(item);
+            await connection.InsertAsync(item);
             OnItemAdded?.Invoke(this, item);
-            return id;
+            return item.Id;
         }
 
         public async Task<int> AddItem(
@@ -116,7 +115,7 @@ namespace uRecipes.Services.LocalRepository
             List<Recipe> recipes = new List<Recipe>();
             List<Recipe_Category> rcp_ctg = new List<Recipe_Category>();
 
-            foreach(Category item in categories)
+            foreach (Category item in categories)
                 rcp_ctg.AddRange(
                     await connection.Table<Recipe_Category>().Where(x => x.CategoryId == item.Id).ToListAsync());
 
@@ -130,7 +129,7 @@ namespace uRecipes.Services.LocalRepository
                 Author = r.Author,
                 ImageUrl = r.ImageUrl,
                 VideoUrl = r.VideoUrl,
-                PrepTime = r.PrepTime,
+                TotalTime = r.TotalTime,
                 PersonServ = r.PersonServ,
                 IsCompleted = r.IsCompleted,
 
@@ -148,6 +147,16 @@ namespace uRecipes.Services.LocalRepository
             if (item == null) throw new ArgumentNullException(nameof(item));
 
             await CreateConnection();
+
+            await connection.Table<Recipe_Category>().DeleteAsync(x => x.RecipeId == item.Id);
+
+            if(item.IngredientId != 0)
+                await connection.Table<Ingredients>().DeleteAsync(x => x.Id == item.IngredientId);
+            if(item.NutritionId != 0)
+                await connection.Table<NutritionInfo>().DeleteAsync(x => x.Id == item.NutritionId);
+            if(item.InstructionId != 0)
+                await connection.Table<Instructions>().DeleteAsync(x => x.Id == item.InstructionId);
+
             await connection.DeleteAsync(item);
             OnItemDeleted?.Invoke(this, item);
         }
@@ -179,8 +188,8 @@ namespace uRecipes.Services.LocalRepository
 
             await CreateConnection();
 
-            if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
-                throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
+            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
+            //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
             foreach (Category category in categories)
                 await connection.InsertAsync(
@@ -196,36 +205,36 @@ namespace uRecipes.Services.LocalRepository
                 throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
 
-            List<Recipe_Category> recipe_categories = 
+            List<Recipe_Category> recipe_categories =
                 await connection.Table<Recipe_Category>().Where(x => x.RecipeId == item.Id).ToListAsync();
 
             if (recipe_categories.Count == 0)
                 return new List<Category>();
 
             List<Category> result = new(categories.Join(
-                recipe_categories, c => c.Id, rc => rc.CategoryId, 
-                (c, rc) => new Category 
+                recipe_categories, c => c.Id, rc => rc.CategoryId,
+                (c, rc) => new Category
                 {
                     Id = rc.CategoryId,
                     CategoryName = c.CategoryName,
-                    CategoryTag  = c.CategoryTag,
+                    CategoryTag = c.CategoryTag,
                     Image = c.Image,
                 }));
 
             return result;
         }
-       
+
 
 
         public async Task<int> SetNutrition(NutritionInfo nutrition, Recipe item)
         {
-            if(item == null) throw new ArgumentNullException(nameof(item));
-            if(nutrition == null) throw new ArgumentNullException(nameof(nutrition));
+            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (nutrition == null) throw new ArgumentNullException(nameof(nutrition));
 
             await CreateConnection();
 
-            if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
-                throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
+            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
+            //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
             int nutritonId = await connection.InsertAsync(nutrition);
 
@@ -254,21 +263,21 @@ namespace uRecipes.Services.LocalRepository
 
             await CreateConnection();
 
-            if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
-                throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
+            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
+            //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
             Ingredients res = new Ingredients
             {
                 IngredientsJSON = JsonSerializer.Serialize(ingredients),
             };
 
-            int ingredientId = await connection.InsertAsync(res);
+            await connection.InsertAsync(res);
 
-            item.IngredientId= ingredientId;
+            item.IngredientId = res.Id;
 
             await UpdateItem(item);
 
-            return ingredientId;
+            return item.IngredientId;
         }
         public async Task<List<Ingredient>> GetIngredients(Recipe item)
         {
@@ -288,12 +297,15 @@ namespace uRecipes.Services.LocalRepository
         {
             throw new NotImplementedException();
         }
-        public Task<List<Instruction>> GetInstructions(Recipe item)
+        public async Task<List<Instruction>> GetInstructions(Recipe item)
         {
             throw new NotImplementedException();
         }
 
-        
+
+
+        // Demo methods:
+
         public async Task LoadDemoRecipes()
         {
             await CreateConnection();
@@ -307,8 +319,46 @@ namespace uRecipes.Services.LocalRepository
             var contents = await reader.ReadToEndAsync();
             List<Recipe> demoRecipes = JsonSerializer.Deserialize<List<Recipe>>(contents);
 
-            demoRecipes.ForEach(async recipe => await AddItem(recipe));
+            demoRecipes.ForEach(async recipe => 
+            {
+                await AddItem(recipe);
+
+            });
+
+            await AsignRandIngredients(demoRecipes, 10);
         }
+
+        private async Task AsignRandIngredients(List <Recipe> recipes, int count)
+        {
+            if (recipes == null) throw new ArgumentNullException(nameof(recipes));
+            if (count <= 0 || count > 40) return;
+
+            await CreateConnection();
+
+            using var stream = await FileSystem.OpenAppPackageFileAsync("ingredients_demo.json");
+            using var reader = new StreamReader(stream);
+            
+            var contents = await reader.ReadToEndAsync();
+            List<Ingredient> demoIngredients = JsonSerializer.Deserialize<List<Ingredient>>(contents);
+
+
+            Random random = new Random();
+
+            List<Ingredient> ingredients = new List<Ingredient>();
+
+            foreach (Recipe recipe in recipes)
+            {
+                ingredients.Clear();
+
+                for(int i = 0; i < count; i++)
+                    ingredients.Add(demoIngredients[random.Next(demoIngredients.Count)]);
+
+                SetIngredients(ingredients, recipe);
+            }
+
+            
+        }
+
     }
 
 }

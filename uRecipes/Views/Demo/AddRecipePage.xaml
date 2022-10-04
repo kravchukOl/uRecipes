@@ -241,7 +241,7 @@
                             <StackLayout Orientation="Horizontal">
 
                                 <Entry Placeholder="Prep. time"
-                                       Text="{Binding PrepTime}"
+                                       Text="{Binding TotalTime}"
                                        VerticalOptions="Center"
                                        PlaceholderColor="#9E9E9E"
                                        FontSize="Body"
@@ -254,7 +254,7 @@
                                             InvalidStyle="{StaticResource InvalidInputStyle}"
                                             ValidStyle="{StaticResource ValidInputStyle}"
                                             Flags="ValidateOnValueChanged"
-                                            IsNotValid="{Binding PrepTimeIsNotValid}"/>
+                                            IsNotValid="{Binding TotalTimeIsNotValid}"/>
                                     </Entry.Behaviors>
                                 </Entry>
                             </StackLayout>
@@ -296,7 +296,7 @@
                     <Label Text="* Enter number from 1 to 1440"
                            FontSize="Micro"
                            TextColor="Red"
-                           IsVisible="{Binding PrepTimeIsNotValid}"
+                           IsVisible="{Binding TotalTimeIsNotValid}"
                            Grid.Row="1"
                            Grid.Column="0"/>
                         

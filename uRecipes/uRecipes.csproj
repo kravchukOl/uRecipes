@@ -107,7 +107,9 @@
 		<MauiImage Include="Resources\Images\icons_svg\arrowback.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\completed.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\heart_outline.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\minus.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\playico.svg" />
+		<MauiImage Include="Resources\Images\icons_svg\plus.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\share_outline.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\slider03.svg" />
 		<MauiImage Include="Resources\Images\icons_svg\trash.svg" />
@@ -162,13 +164,16 @@
 	  <None Remove="Resources\Images\icons_svg\arrowback.svg" />
 	  <None Remove="Resources\Images\icons_svg\completedCompleted.svg" />
 	  <None Remove="Resources\Images\icons_svg\heart_outline.svg" />
+	  <None Remove="Resources\Images\icons_svg\minus.svg" />
 	  <None Remove="Resources\Images\icons_svg\playico.svg" />
+	  <None Remove="Resources\Images\icons_svg\plus.svg" />
 	  <None Remove="Resources\Images\icons_svg\share_outline.svg" />
 	  <None Remove="Resources\Images\icons_svg\slider03.svg" />
 	  <None Remove="Resources\Images\icons_svg\trash.svg" />
 	  <None Remove="Resources\Images\icons_svg\wlan.svg" />
 	  <None Remove="Resources\Images\status_imgs\recipe_alert.png" />
 	  <None Remove="Resources\Images\ucuisine_front2.png" />
+	  <None Remove="Resources\Raw\ingredients_demo.json" />
 	</ItemGroup>
 
 	<ItemGroup>

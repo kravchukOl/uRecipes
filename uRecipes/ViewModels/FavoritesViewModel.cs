@@ -220,6 +220,8 @@ namespace uRecipes.ViewModels
         {
             foreach (var item in FavRecipes)
                 await localRepository.RemoveItem(item);
+
+            FavRecipes.Clear();
         }
     }
 }

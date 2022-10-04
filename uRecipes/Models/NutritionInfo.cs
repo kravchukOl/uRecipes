@@ -12,11 +12,15 @@ namespace uRecipes.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Calories { get; set; }
-        public string Fat { get; set; }
-        public string Carbs { get; set; }
-        public string Fiber { get; set; }
-        public string Sugar { get; set; }
-        public string Protein { get; set; }
+        
+        public int Energy_kJ { get; set; }
+        public int Calories_kcal { get; set; }
+        public int Fat_g { get; set; }
+        public int Carbohydrate_g { get; set; }
+        public int Sugar_g { get; set; }
+        public int Fiber_g { get; set; }
+        public int Protein_g { get; set; }
+        public int Cholesterol_mg { get; set; }
+        public int Sodium_mg { get; set; }
     }
 }

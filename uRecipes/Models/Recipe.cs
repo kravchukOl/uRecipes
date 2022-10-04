@@ -12,7 +12,7 @@ namespace uRecipes.Models
         public string Author { get; set; }
         public Uri ImageUrl { get; set; }
         public Uri VideoUrl { get; set; }
-        public string PrepTime { get; set; }
+        public string TotalTime { get; set; }
         public string PersonServ { get; set; }
         public bool IsCompleted { get; set; }
 
@@ -20,6 +20,7 @@ namespace uRecipes.Models
         public int AuthorId { get; set; }
         public int NutritionId { get; set; }
         public int IngredientId { get; set; }
+        public int InstructionId { get; set; }
 
     }
 }

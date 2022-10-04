@@ -14,7 +14,7 @@ namespace uRecipes.ViewModels.Demo
         public string Description{ get; set; }
         public string PhotoURL { get; set; }
         public string VideoURL { get; set; }
-        public string PrepTime { get; set; }
+        public string TotalTime { get; set; }
         public string PersServ { get; set; }
         public bool IsCompleted { get; set; }
 
@@ -30,7 +30,7 @@ namespace uRecipes.ViewModels.Demo
         [ObservableProperty]
         bool videoURLIsNotValid;
         [ObservableProperty]
-        bool prepTimeIsNotValid;
+        bool totalTimeIsNotValid;
         [ObservableProperty]
         bool persServIsNotValid;
 
@@ -45,11 +45,11 @@ namespace uRecipes.ViewModels.Demo
         {
             if (Name == null || Author == null || Description == null 
                 || PhotoURL == null || VideoURL == null 
-                || PrepTime == null || PersServ == null )
+                || TotalTime == null || PersServ == null )
                 return;
 
             if (nameIsNotValid || authorIsNotValid || descriptionIsNotValid ||
-                photoURLIsNotValid || videoURLIsNotValid || prepTimeIsNotValid
+                photoURLIsNotValid || videoURLIsNotValid || totalTimeIsNotValid
                 || persServIsNotValid)
                 return;
 
@@ -62,7 +62,7 @@ namespace uRecipes.ViewModels.Demo
                 Description = this.Description,
                 ImageUrl =  new Uri(this.PhotoURL),
                 VideoUrl = new Uri(this.VideoURL),
-                PrepTime = this.PrepTime,
+                TotalTime = this.TotalTime,
                 PersonServ = this.PersServ,
                 IsCompleted = this.IsCompleted,
 

@@ -8,6 +8,7 @@ namespace uRecipes.ViewModels
     {
         private IRecipeLocalRepository localRepository;
         private IRecipeCloudRepository cloudRepository;
+
         private IConnectivity connectivity;
         public Recipe RecipeItem { get; set; }
 
@@ -19,7 +20,7 @@ namespace uRecipes.ViewModels
         string author;
 
         [ObservableProperty]
-        string prepTime;
+        string totalTime;
         [ObservableProperty]
         string personServ;
 
@@ -41,7 +42,7 @@ namespace uRecipes.ViewModels
 
         public ObservableCollection<Category> Categories { get; private set; }
         public ObservableCollection<Instruction> Instructions { get; private set; }
-        public ObservableCollection<Ingredient> Ingredients { get; private set; }
+        public ObservableCollection <Ingredient> Ingredients { get; private set; }
 
 
 
@@ -54,6 +55,11 @@ namespace uRecipes.ViewModels
             this.localRepository = localRepository;
             //this.cloudRepository = cloudRepository;
             this.connectivity = connectivity;
+
+            Categories = new ObservableCollection<Category>();
+            Ingredients = new ObservableCollection<Ingredient>();
+            Instructions = new ObservableCollection<Instruction>();
+            NutritionInfo = new NutritionInfo();
 
 
         }
@@ -81,11 +87,16 @@ namespace uRecipes.ViewModels
                 ImageUrl = RecipeItem.ImageUrl.AbsoluteUri;
                 VideoUrl = RecipeItem.VideoUrl.AbsoluteUri;
 
-                PrepTime = RecipeItem.PrepTime;
+                TotalTime = RecipeItem.TotalTime;
                 PersonServ = RecipeItem.PersonServ;
                 isCompleted = RecipeItem.IsCompleted;
 
                 //  Categories = new (await localRepository.GetCategoriesOfRecipe(RecipeItem));
+
+                List<Ingredient> ingredients = await localRepository.GetIngredients(RecipeItem);
+
+                foreach(Ingredient ingredient in ingredients)
+                    this.Ingredients.Add(ingredient);
 
             }
             catch (Exception ex)

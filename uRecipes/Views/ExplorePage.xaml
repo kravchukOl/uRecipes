@@ -169,27 +169,6 @@
                                 BackgroundColor="Transparent"
                                 ItemsSource="{Binding TrendingRecipes}">
 
-                    <!-- Demo Array of Recipes -->
-                    <!--<CollectionView.ItemsSource>
-                        <x:Array Type="{x:Type model:Recipe}">
-
-                            <model:Recipe Name="Flaffy Pancakes"
-                                          PrepTime="45"
-                                          PersonServ="2"
-                                          ImageUrl="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/119674.jpg"/>
-
-                            <model:Recipe Name="Heart Crepes"
-                                          PrepTime="30"
-                                          PersonServ="2"
-                                          ImageUrl="https://www.prettyprudent.com/wp-content/uploads/2012/02/14080111/1.jpg"/>
-
-                            <model:Recipe Name="Black Been Burgers"
-                                          PrepTime="15"
-                                          PersonServ="1"
-                                          ImageUrl="https://sallysbakingaddiction.com/wp-content/uploads/2018/07/best-black-bean-burgers-2.jpg"/>
-                        </x:Array>
-                    </CollectionView.ItemsSource>-->
-
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal"/>
                     </CollectionView.ItemsLayout>
@@ -206,7 +185,7 @@
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter = "{Binding .}"
                                                           Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
-                                                                      Source={Reference ExpPage}}"/>
+                                                                              Source={Reference ExpPage}}"/>
                                 </Frame.GestureRecognizers>
 
                                 <Grid>
@@ -254,7 +233,7 @@
                                                VerticalOptions="Start">
                                                 <Label.Text>
                                                     <MultiBinding StringFormat ="{}{0}min | {1} serving">
-                                                        <Binding Path="PrepTime"/>
+                                                        <Binding Path="TotalTime"/>
                                                         <Binding Path="PersonServ"/>
                                                     </MultiBinding>
                                                 </Label.Text>

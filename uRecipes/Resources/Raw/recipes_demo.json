@@ -5,7 +5,7 @@
     "Author": "Ivanna Lopez Guajardo",
     "ImageUrl": "https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/4c4107c8426746d4bad6f6975b6a366f.jpeg",
     "VideoUrl": "https://youtu.be/PrtSuidNYT8",
-    "PrepTime": "30",
+    "TotalTime": "30",
     "PersonServ": "2"
   },
 
@@ -15,7 +15,7 @@
     "Author": "uCreators Team",
     "ImageUrl": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/119674.jpg",
     "VideoUrl": "https://youtu.be/tBTNMo77h2Q",
-    "PrepTime": "45",
+    "TotalTime": "45",
     "PersonServ": "2"
   },
 
@@ -25,7 +25,7 @@
     "Author": "uCreators Team",
     "ImageUrl": "https://www.prettyprudent.com/wp-content/uploads/2012/02/14080111/1.jpg",
     "VideoUrl": "https://youtu.be/R4kCdrtNwIo",
-    "PrepTime": "30",
+    "TotalTime": "30",
     "PersonServ": "2"
 
   },
@@ -36,7 +36,7 @@
     "Author": "Ivanna Lopez Guajardo",
     "ImageUrl": "https://static01.nyt.com/images/2020/06/28/dining/jo-black-bean-burgers/merlin_167531589_227b9414-ffad-4b44-ae53-67483bd2bae5-articleLarge.jpg",
     "VideoUrl": "https://youtu.be/Ws9DPXVbeFA",
-    "PrepTime": "15",
+    "TotalTime": "15",
     "PersonServ": "1"
   },
 
@@ -46,7 +46,7 @@
     "Author": "Alvin Zhou. Tasty Team",
     "ImageUrl": "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18132359/051103025-01-classic-scalloped-potatoes-recipe-main.jpg",
     "VideoUrl": "https://youtu.be/ufvkklHEeMI",
-    "PrepTime": "30",
+    "TotalTime": "30",
     "PersonServ": "2"
   },
 
@@ -56,7 +56,7 @@
     "Author": "Alix Traeger. Tasty Team",
     "ImageUrl": "https://cdn.cookingperfected.com/wp-content/uploads/2020/10/bacon-egg-cups-v2.jpg",
     "VideoUrl": "https://youtu.be/qC_GOEE7alA",
-    "PrepTime": "60",
+    "TotalTime": "60",
     "PersonServ": "4"
   },
 
@@ -66,7 +66,7 @@
     "Author": "Ivanna Lopez Guajardo",
     "ImageUrl": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/33731c6a8f5f4704a9dce477f6d40237/BFV11286_3IngredientDesserts2.jpg",
     "VideoUrl": "https://youtu.be/4_YBELE4LpM",
-    "PrepTime": "60",
+    "TotalTime": "60",
     "PersonServ": "4"
   },
 
@@ -76,7 +76,7 @@
     "Author": "Amy Harriott-Gregory & Chloe Olivia Morgan",
     "ImageUrl": "https://static01.nyt.com/images/2020/03/04/dining/03fakemeatrex-cheeseburgers/merlin_168791004_aad8d605-35c1-4037-800f-4ea3260fc410-articleLarge.jpg",
     "VideoUrl": "https://youtu.be/qyaQ-wfojbM",
-    "PrepTime": "25",
+    "TotalTime": "25",
     "PersonServ": "1"
   },
 
@@ -86,7 +86,7 @@
     "Author": "Presented by Butterfinger",
     "ImageUrl": "https://img.buzzfeed.com/video-api-prod/assets/1e7c7fc59cd940c0916a244f77186cda/ButterfingerCheesecake_Pinterest.jpg",
     "VideoUrl": "https://youtu.be/9wNqn0FgErc",
-    "PrepTime": "25",
+    "TotalTime": "25",
     "PersonServ": "1"
   },
 
@@ -96,7 +96,7 @@
     "Author": "Karissa's Vegan",
     "ImageUrl": "https://powerhungry.com/wp-content/uploads/2019/06/vegan-ground-beef-9.png",
     "VideoUrl": "https://youtu.be/htZB8YgaTwI",
-    "PrepTime": "30",
+    "TotalTime": "30",
     "PersonServ": "2"
   },
 
@@ -106,7 +106,7 @@
     "Author": "Amy Harriott-Gregory",
     "ImageUrl": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/A50154CE-C1EB-4C45-BA60-6D2FBE5C3BE6/Derivates/42B7F080-E960-404C-AF41-AB8A85CAE790.jpg",
     "VideoUrl": "https://youtu.be/BbXyiyBDsEQ",
-    "PrepTime": "105",
+    "TotalTime": "105",
     "PersonServ": "6"
   },
 
@@ -116,7 +116,7 @@
     "Author": "Tiffany Lo",
     "ImageUrl": "https://www.thepkpway.com/wp-content/uploads/2015/05/Strawberries-n-Cream-Bites-1a.jpg",
     "VideoUrl": "https://youtu.be/YNwJwveu_ho",
-    "PrepTime": "20",
+    "TotalTime": "20",
     "PersonServ": "3"
   }
 

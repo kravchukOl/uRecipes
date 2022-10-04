@@ -215,8 +215,8 @@
                                                    Grid.Column="1"
                                                    Grid.Row="13">
                                             <Label.Text>
-                                                <MultiBinding StringFormat ="{}{0}min | {1} serving">
-                                                    <Binding Path="PrepTime"/>
+                                                <MultiBinding StringFormat ="{}{0} min | {1} serving">
+                                                    <Binding Path="TotalTime"/>
                                                     <Binding Path="PersonServ"/>
                                                 </MultiBinding>
                                             </Label.Text>
