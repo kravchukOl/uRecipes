@@ -25,6 +25,9 @@ namespace uRecipes.ViewModels
         string personServ;
 
         [ObservableProperty]
+        string allergens;
+
+        [ObservableProperty]
         NutritionInfo nutritionInfo;
 
         [ObservableProperty]

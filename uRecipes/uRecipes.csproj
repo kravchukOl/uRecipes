@@ -230,6 +230,6 @@
 	  <Resource Include="Resources\JSON\recipes_demo.json" />
 	</ItemGroup>
 
-	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionuRecipesHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionuRecipesHideInfoBar="False" /></VisualStudio></ProjectExtensions>
 
 </Project>

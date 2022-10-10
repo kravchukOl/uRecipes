@@ -4,12 +4,19 @@
              x:Class="uRecipes.Views.RecipePage"
              xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:uRecipes.Models"
+             xmlns:converters="clr-namespace:uRecipes.Views.Converters"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
              x:DataType="viewmodel:RecipeViewModel"
              Shell.NavBarIsVisible="False"
              Shell.PresentationMode="ModalAnimated"
              Title="RecipePage">
 
+    <ContentPage.Resources>
+        <tools:IsNullConverter x:Key="IsNullConverter" />
+        <converters:IsNotNullConverter x:Key="IsNotNullConverter"/>
+        <converters:SpecCharConverter x:Key="SpecCharConverter"/>
+    </ContentPage.Resources>
+    
     <!--Setting Appearing Event to Command-->
     <ContentPage.Behaviors>
         <tools:EventToCommandBehavior
@@ -92,7 +99,6 @@
                     </HorizontalStackLayout>
                 </Grid>
 
-                
                 <!--Image/Viedeo frame-->
                 <Frame Padding="0"
                CornerRadius="0"
@@ -198,10 +204,50 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <Label Text="{Binding Description}"
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="{Binding Description}"
                                TextColor="{StaticResource VioletAccent}"
                                FontFamily="OpenSansRegular">
-                    </Label>
+                        </Label>
+
+                        <Label TextColor="{StaticResource VioletAccent}"
+                               FontFamily="OpenSansRegular">
+
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Total Time: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding TotalTime}"/>
+                                    <Span Text=" minutes"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+
+                        </Label>
+
+                        <Label TextColor="{StaticResource VioletAccent}"
+                               FontFamily="OpenSansRegular">
+
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Cooking difficulty: " FontAttributes="Bold"/>
+                                    <Span Text="Medium (N/I)"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+
+                        </Label>
+
+                        <Label TextColor="{StaticResource VioletAccent}"
+                               FontFamily="OpenSansRegular">
+                            
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Allergens: " FontAttributes="Bold"/>
+                                    <Span Text="(N/I)"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                            
+                        </Label>
+
+                    </VerticalStackLayout>
 
                 </Border>
                 
@@ -308,19 +354,25 @@
                                 <DataTemplate x:DataType="model:Ingredient">
 
                                     <Grid ColumnDefinitions="*,3,128"
-                                          RowDefinitions="*,3"
-                                          >
+                                          RowDefinitions="*,3">
+
+                                        <Label Text="{Binding Name}"
+                                               FontSize="Subtitle"
+                                               FontFamily="Helvetica"
+                                               FontAttributes="None"
+                                               TextColor="{StaticResource VioletAccent}" 
+                                               Margin="24,10,10,10"/>
 
                                         <Label FontSize="Subtitle"
                                                FontFamily="Helvetica"
                                                FontAttributes="None"
                                                VerticalOptions="Center"
-                                               Margin="24,10,10,10">
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="{Binding Name}" TextColor="{StaticResource VioletAccent}" FontAttributes="None" />
-                                                        <Span Text="&#10;Contains: " TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"/>
-                                                        <Span Text="{Binding Allergens}" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                               Margin="24,10,10,10"
+                                               IsVisible="{Binding Allergens, Converter={StaticResource IsNotNullConverter}}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="&#10;Contains: " TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                                        <Span Text="{Binding Allergens}" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -334,7 +386,8 @@
                                                Grid.Column="2">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="{Binding Quantity}" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                                    <Span Text="{Binding Quantity, Converter={StaticResource SpecCharConverter}}" 
+                                                          TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
                                                     <Span Text=" " TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"/>
                                                     <Span Text="{Binding Units}" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
                                                 </FormattedString>
@@ -409,7 +462,6 @@
                     </Grid>
                 </Border>
                 
-            
                 <!--Instructions/Preparation Card-->
                 <Border Padding="24,24,24,44"
                         Margin="0,-20,0,0"

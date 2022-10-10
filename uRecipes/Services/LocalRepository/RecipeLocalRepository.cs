@@ -37,13 +37,18 @@ namespace uRecipes.Services.LocalRepository
             if (categories != null)
                 return;
 
-            using var stream = await FileSystem.OpenAppPackageFileAsync("categories.json");
-            using var reader = new StreamReader(stream);
+            categories = await connection.Table<Category>().ToListAsync();
 
-            var contents = await reader.ReadToEndAsync();
-            categories = JsonSerializer.Deserialize<List<Category>>(contents);
+            if(categories.Count == 0)
+            {
+                using var stream = await FileSystem.OpenAppPackageFileAsync("categories.json");
+                using var reader = new StreamReader(stream);
 
-            await connection.InsertAllAsync(categories);
+                var contents = await reader.ReadToEndAsync();
+                categories = JsonSerializer.Deserialize<List<Category>>(contents);
+
+                await connection.InsertAllAsync(categories);
+            }
         }
         public async Task<int> AddItem(Recipe item)
         {
@@ -322,7 +327,6 @@ namespace uRecipes.Services.LocalRepository
             demoRecipes.ForEach(async recipe => 
             {
                 await AddItem(recipe);
-
             });
 
             await AsignRandIngredients(demoRecipes, 10);
@@ -353,7 +357,7 @@ namespace uRecipes.Services.LocalRepository
                 for(int i = 0; i < count; i++)
                     ingredients.Add(demoIngredients[random.Next(demoIngredients.Count)]);
 
-                SetIngredients(ingredients, recipe);
+                await SetIngredients(ingredients, recipe);
             }
 
             
