@@ -15,6 +15,8 @@
         <tools:IsNullConverter x:Key="IsNullConverter" />
         <converters:IsNotNullConverter x:Key="IsNotNullConverter"/>
         <converters:SpecCharConverter x:Key="SpecCharConverter"/>
+        <converters:IsNotZeroConverter x:Key="IsNotZeroConverter"/>
+        <converters:IntToStringConverter x:Key="IntToStringConverter"/>
     </ContentPage.Resources>
     
     <!--Setting Appearing Event to Command-->
@@ -267,7 +269,7 @@
                     </Border.Shadow>
 
                     <VerticalStackLayout>
-                        <!--Header Card Info-->
+                        <!--Header Card-->
                         <Grid ColumnDefinitions="*,3,128"
                               RowDefinitions="*,3">
 
@@ -350,6 +352,7 @@
                                 <Label Text="Unable to load ingredients"/>
                             </CollectionView.EmptyView>
 
+                            <!--Items collection view-->
                             <CollectionView.ItemTemplate>
                                 <DataTemplate x:DataType="model:Ingredient">
 
@@ -366,7 +369,6 @@
                                         <Label FontSize="Subtitle"
                                                FontFamily="Helvetica"
                                                FontAttributes="None"
-                                               VerticalOptions="Center"
                                                Margin="24,10,10,10"
                                                IsVisible="{Binding Allergens, Converter={StaticResource IsNotNullConverter}}">
                                             <Label.FormattedText>
@@ -431,37 +433,74 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <Grid ColumnDefinitions="*, Auto">
+                    <VerticalStackLayout>
+                        
+                        <!--Header Card-->
+                        <Grid ColumnDefinitions="*, Auto">
 
-                        <Label FontSize="Medium"
+                            <Label FontSize="Medium"
                            FontFamily="HelveticaBold"
                            FontAttributes="Bold"
                            VerticalOptions="Center"
                            Grid.Column="0">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Nutrition Values" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Nutrition Values" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
-                        <Label FontSize="Medium"
+                            <Label FontSize="Medium"
                                FontFamily="HelveticaBold"
                                FontAttributes="Bold"
                                VerticalOptions="Center"
                                Grid.Column="1">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Calories:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
-                                    <Span Text="N/A" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
-                                    <Span Text=" kcal" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Calories:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
+                                        <Span Text="N/A" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                        <Span Text=" kcal" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
-                    </Grid>
+                        </Grid>
+
+                        <CollectionView ItemsSource="{Binding NutritionInfo}"
+                                        MinimumHeightRequest="250">
+                            
+                            <!--Append Empty View!!!-->
+                            <CollectionView.EmptyView>
+                                <Label Text="Unable to load ingredients"
+                                       HorizontalOptions="Center"
+                                       Margin="24,24"/>
+                            </CollectionView.EmptyView>
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:NutritionInfo">
+
+                                    <!--<Grid ColumnDefinitions="*,128"
+                                          IsVisible="{Binding Energy_kJ ,Converter={StaticResource IsNotZeroConverter}}">
+                                        
+                                        <Label Text="Energy (kJ)"
+                                               FontAttributes="Bold"
+                                               FontFamily="Helvetica"/>
+
+                                        <Label Grid.Column="1"
+                                               Text="{Binding Energy_kJ, Converter={StaticResource IntToStringConverter}}"
+                                               FontFamily="Helvetica"/>
+
+
+                                    </Grid>-->
+                                    
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            
+                        </CollectionView>
+                    </VerticalStackLayout>
                 </Border>
                 
+
                 <!--Instructions/Preparation Card-->
                 <Border Padding="24,24,24,44"
                         Margin="0,-20,0,0"

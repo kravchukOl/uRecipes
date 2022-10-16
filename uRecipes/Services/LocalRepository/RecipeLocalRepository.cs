@@ -241,13 +241,13 @@ namespace uRecipes.Services.LocalRepository
             //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
             //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
-            int nutritonId = await connection.InsertAsync(nutrition);
+            await connection.InsertAsync(nutrition);
 
-            item.NutritionId = nutritonId;
+            item.NutritionId = nutrition.Id;
 
             await UpdateItem(item);
 
-            return nutritonId;
+            return nutrition.Id;
         }
         public async Task<NutritionInfo> GetNutrition(Recipe item)
         {
@@ -330,7 +330,9 @@ namespace uRecipes.Services.LocalRepository
             });
 
             await AsignRandIngredients(demoRecipes, 10);
+            await AsignRandNutritions(demoRecipes);
         }
+
 
         private async Task AsignRandIngredients(List <Recipe> recipes, int count)
         {
@@ -362,7 +364,30 @@ namespace uRecipes.Services.LocalRepository
 
             
         }
+        private async Task AsignRandNutritions(List<Recipe> recipes)
+        {
+            if (recipes == null) throw new ArgumentNullException(nameof(recipes));
 
+            Random rand_int = new();
+
+            foreach(Recipe recipe in recipes)
+            {
+                NutritionInfo nutrition = new NutritionInfo
+                {
+                    Calories_kcal = rand_int.Next(50, 600),
+                    Energy_kJ = rand_int.Next(50, 500),
+                    Fat_g = rand_int.Next(0, 80),
+                    Carbohydrate_g = rand_int.Next(0, 80),
+                    Sugar_g = rand_int.Next(0, 20),
+                    Fiber_g = rand_int.Next(0, 20),
+                    Protein_g = rand_int.Next(0, 80),
+                    Cholesterol_mg = rand_int.Next(0,250),
+                    Sodium_mg = rand_int.Next(0,600)
+                };
+
+                await SetNutrition(nutrition, recipe);
+            }
+        }
     }
 
 }

@@ -101,6 +101,8 @@ namespace uRecipes.ViewModels
                 foreach(Ingredient ingredient in ingredients)
                     this.Ingredients.Add(ingredient);
 
+                nutritionInfo = await localRepository.GetNutrition(RecipeItem);
+
             }
             catch (Exception ex)
             {
