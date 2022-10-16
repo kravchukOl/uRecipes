@@ -16,7 +16,6 @@
         <converters:IsNotNullConverter x:Key="IsNotNullConverter"/>
         <converters:SpecCharConverter x:Key="SpecCharConverter"/>
         <converters:IsNotZeroConverter x:Key="IsNotZeroConverter"/>
-        <converters:IntToStringConverter x:Key="IntToStringConverter"/>
     </ContentPage.Resources>
     
     <!--Setting Appearing Event to Command-->
@@ -433,8 +432,9 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
+
                     <VerticalStackLayout>
-                        
+
                         <!--Header Card-->
                         <Grid ColumnDefinitions="*, Auto">
 
@@ -445,7 +445,8 @@
                            Grid.Column="0">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Nutrition Values" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
+                                        <Span Text="Nutrition Values" TextColor="{StaticResource VioletAccent}" 
+                                              FontAttributes="Bold" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -454,11 +455,13 @@
                                FontFamily="HelveticaBold"
                                FontAttributes="Bold"
                                VerticalOptions="Center"
+                               HorizontalOptions="End"
                                Grid.Column="1">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="Calories:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
-                                        <Span Text="N/A" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                        <Span Text="{Binding NutritionInfo.Calories_kcal}" 
+                                              TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
                                         <Span Text=" kcal" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -466,38 +469,153 @@
 
                         </Grid>
 
-                        <CollectionView ItemsSource="{Binding NutritionInfo}"
-                                        MinimumHeightRequest="250">
-                            
-                            <!--Append Empty View!!!-->
-                            <CollectionView.EmptyView>
-                                <Label Text="Unable to load ingredients"
-                                       HorizontalOptions="Center"
-                                       Margin="24,24"/>
-                            </CollectionView.EmptyView>
+                        <Grid ColumnDefinitions="*, 50, 28, *, 60"
+                              RowDefinitions="28,28,28,28"
+                              Margin="0,24,0,0">
 
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate x:DataType="model:NutritionInfo">
+                            <Label Text="Energy (kJ):"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Row="0"/>
 
-                                    <!--<Grid ColumnDefinitions="*,128"
-                                          IsVisible="{Binding Energy_kJ ,Converter={StaticResource IsNotZeroConverter}}">
-                                        
-                                        <Label Text="Energy (kJ)"
-                                               FontAttributes="Bold"
-                                               FontFamily="Helvetica"/>
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="0"
+                               Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Energy_kJ}" FontSize="Subtitle"/>
+                                        <Span Text=" kJ" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
-                                        <Label Grid.Column="1"
-                                               Text="{Binding Energy_kJ, Converter={StaticResource IntToStringConverter}}"
-                                               FontFamily="Helvetica"/>
+                            <Label Text="Fat:"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Row="1"/>
 
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="1"
+                               Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Fat_g}" FontSize="Subtitle"/>
+                                        <Span Text=" g" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
-                                    </Grid>-->
-                                    
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                            
-                        </CollectionView>
+                            <Label Text="Carbohydrate:"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Row="2"/>
+
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="2"
+                               Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Carbohydrate_g}" FontSize="Subtitle"/>
+                                        <Span Text=" g" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Text="Sugar:"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Row="3"/>
+
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="3"
+                               Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Sugar_g}" FontSize="Subtitle"/>
+                                        <Span Text=" g" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Text="Fiber:"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Column="3"
+                               Grid.Row="0"/>
+
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="0"
+                               Grid.Column="4">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Fiber_g}" FontSize="Subtitle"/>
+                                        <Span Text=" g" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Text="Protein:"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Column="3"
+                               Grid.Row="1"/>
+
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="1"
+                               Grid.Column="4">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Protein_g}" FontSize="Subtitle"/>
+                                        <Span Text=" g" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Text="Cholesterol:"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Row="2"
+                               Grid.Column="3"/>
+
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="2"
+                               Grid.Column="4">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Cholesterol_mg}" FontSize="Subtitle"/>
+                                        <Span Text=" mg" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Text="Sodium:"
+                               FontAttributes="Bold"
+                               Style="{StaticResource HelveticaSubtitleViolet}"
+                               Grid.Row="3"
+                               Grid.Column="3"/>
+
+                            <Label Style="{StaticResource HelveticaSubtitleViolet}"
+                               HorizontalOptions="End"
+                               Grid.Row="3"
+                               Grid.Column="4">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NutritionInfo.Sodium_mg}" FontSize="Subtitle"/>
+                                        <Span Text=" mg" FontSize="Subtitle"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                        </Grid>
                     </VerticalStackLayout>
+
                 </Border>
                 
 
