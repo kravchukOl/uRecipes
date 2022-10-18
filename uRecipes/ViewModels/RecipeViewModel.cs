@@ -10,6 +10,7 @@ namespace uRecipes.ViewModels
         private IRecipeCloudRepository cloudRepository;
 
         private IConnectivity connectivity;
+
         public Recipe RecipeItem { get; set; }
 
         [ObservableProperty]
@@ -62,9 +63,6 @@ namespace uRecipes.ViewModels
             Categories = new ObservableCollection<Category>();
             Ingredients = new ObservableCollection<Ingredient>();
             Instructions = new ObservableCollection<Instruction>();
-            NutritionInfo = new NutritionInfo();
-
-
         }
 
         [RelayCommand]
@@ -94,26 +92,48 @@ namespace uRecipes.ViewModels
                 PersonServ = RecipeItem.PersonServ;
                 isCompleted = RecipeItem.IsCompleted;
 
-                //  Categories = new (await localRepository.GetCategoriesOfRecipe(RecipeItem));
 
-                List<Ingredient> ingredients = await localRepository.GetIngredients(RecipeItem);
-
-                foreach(Ingredient ingredient in ingredients)
-                    this.Ingredients.Add(ingredient);
-
-                NutritionInfo = await localRepository.GetNutrition(RecipeItem);
+                //await GetCategories();
+                await GetIngredients();
+                await GetNutrition();
+                //await GetInstructions();
 
             }
             catch (Exception ex)
             {
-                // Arrange error view
+                
             }
             finally
             {
-                // Initialise Eror view
+                
             }
         }
 
+        private async Task GetNutrition()
+        {
+            NutritionInfo = await localRepository.GetNutrition(RecipeItem);
+        }
+
+        private async Task GetCategories()
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task GetInstructions()
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task GetIngredients()
+        {
+            IsBusy = true;
+
+            List<Ingredient> ingredients = await localRepository.GetIngredients(RecipeItem);
+            foreach (Ingredient ingredient in ingredients)
+                this.Ingredients.Add(ingredient);
+
+            IsBusy = false;
+        }
 
         [RelayCommand]
         public async Task ShowRecipesByAuthor(int authorId)

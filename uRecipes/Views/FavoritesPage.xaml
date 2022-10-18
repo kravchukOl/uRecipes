@@ -72,10 +72,10 @@
         <!--Filter Buttons-->
         <FlexLayout JustifyContent="SpaceBetween">
 
-            <!--Add icon here-->
             <Button Text="Filters"
                     Style="{StaticResource BaseButtonStyle}"
-                    ImageSource="slider03.svg">
+                    ImageSource="slider03.svg"
+                    Command="{Binding ShowFiltersCommand}">
 
                 <Button.Shadow>
                     <Shadow Brush="Black"

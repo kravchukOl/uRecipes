@@ -87,32 +87,11 @@
         </Frame>
 
         <!--Categories Buttons-->
-        <CollectionView Margin="0,0,0,12"
-                        ItemsSource="{Binding PopCategories}">
+        <CollectionView ItemsSource="{Binding PopCategories}"
+                        Margin="0,0,0,20">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal"/>
             </CollectionView.ItemsLayout>
-
-            <!-- Demo Array of Buttons -->
-            <!--<CollectionView.ItemsSource>
-                <x:Array Type="{x:Type Button}">
-
-                    <Button Text="Under 30 min."/>
-
-                    <Button Text="Breakfast"/>
-
-                    <Button Text="Vegan"/>
-
-                    <Button Text="Easy Dinner"/>
-
-                    <Button Text="Deserts"/>
-
-                    <Button Text="5 Engredients or Less"/>
-
-                    <Button Text="Kid-Friendly" />
-                </x:Array>
-            </CollectionView.ItemsSource>-->
-
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Category">
                     <Button Text="{Binding CategoryName}"
@@ -137,15 +116,15 @@
         </CollectionView>
         
         <!--Recipes Collections-->
-        <ScrollView VerticalOptions="EndAndExpand"
+        <ScrollView VerticalOptions="StartAndExpand"
                     VerticalScrollBarVisibility="Never">
 
             <VerticalStackLayout Spacing="22">
-                
-                <!--Trending recipes title and button-->
+
+                <!--Specially for You recipes title and button-->
                 <Grid ColumnDefinitions="*,*">
 
-                    <Label Text="Trending recipes"
+                    <Label Text="Specially for You:"
                            TextColor="{StaticResource VioletAccent}"
                            FontSize="Medium" 
                            FontFamily="Leto Text Sans Defect"
@@ -163,8 +142,8 @@
                         Grid.Column="1"/>
                     
                 </Grid>
-                
-                <!--Trending recipes Horisontal CollectionView -->
+
+                <!--Specially for You recipes Horisontal -->
                 <CollectionView HeightRequest="250"
                                 BackgroundColor="Transparent"
                                 ItemsSource="{Binding TrendingRecipes}">
@@ -261,10 +240,10 @@
 
                 </CollectionView>
 
-                <!--Season Recipes title and button-->
+                <!--Trending Recipes title and button-->
                 <Grid ColumnDefinitions="*,*" >
 
-                    <Label Text="Season recipes"
+                    <Label Text="Trending recipes:"
                            TextColor="{StaticResource VioletAccent}"
                            FontSize="Medium" 
                            FontFamily="Leto Text Sans Defect"/>
@@ -280,7 +259,7 @@
 
                 </Grid>
 
-                <!-- Season recipes Horisontal CollectionView-->
+                <!--Trending recipes Horisontal-->
                 <CollectionView HeightRequest="152"
                                 BackgroundColor="Transparent"
                                 ItemsSource="{Binding SeasonRecipes}">

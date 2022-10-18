@@ -8,5 +8,6 @@ public partial class RecipePage : ContentPage
 		InitializeComponent();
 
 		BindingContext = viewModel;
+
+		Appearing += RecipePage_Appearing;
 	}
-}

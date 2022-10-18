@@ -112,6 +112,12 @@ namespace uRecipes.ViewModels
         }
 
         [RelayCommand]
+        private async Task ShowFilters()
+        {
+            await pageNavigator.MakeToast("This command in not implemented");
+        }
+
+        [RelayCommand]
         public async Task DeleteRecipe (Recipe item)
         {
             if (IsBusy)
@@ -129,6 +135,12 @@ namespace uRecipes.ViewModels
 
             IsBusy = false;
         }
+        [RelayCommand]
+        private async Task GoToRecipe( Recipe item )
+        {
+            await pageNavigator.GoToPagePassObj(nameof(RecipePage), "Recipe", item);
+        }
+
         [RelayCommand]
         private  void ShowCompleted()
         {
@@ -153,12 +165,6 @@ namespace uRecipes.ViewModels
             await LoadData();
 
         }
-        [RelayCommand]
-        private async Task GoToRecipe( Recipe item )
-        {
-            await pageNavigator.GoToPagePassObj(nameof(RecipePage), "Recipe", item);
-        }
-
 
         // Design mode Commands:
         [RelayCommand]

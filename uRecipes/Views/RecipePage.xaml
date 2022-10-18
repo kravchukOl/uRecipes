@@ -267,8 +267,8 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <VerticalStackLayout>
-                        <!--Header Card-->
+                    <VerticalStackLayout  MinimumHeightRequest="250">
+                        <!--Header-->
                         <Grid ColumnDefinitions="*,3,128"
                               RowDefinitions="*,3">
 
@@ -342,7 +342,6 @@
                         </Grid>
 
                         <CollectionView ItemsSource="{Binding Ingredients}"
-                                        MinimumHeightRequest="250"
                                         HorizontalOptions="Fill">
                                         
                             
@@ -414,6 +413,12 @@
                             </CollectionView.ItemTemplate>
                             
                         </CollectionView>
+
+                        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                           IsRunning="{Binding IsBusy}"
+                                           VerticalOptions="CenterAndExpand"/>
+
+
                     </VerticalStackLayout>
 
                 </Border>
@@ -469,7 +474,7 @@
 
                         </Grid>
 
-                        <Grid ColumnDefinitions="*, 50, 28, *, 60"
+                        <Grid ColumnDefinitions="*, Auto, 28, *, Auto"
                               RowDefinitions="28,28,28,28"
                               Margin="0,24,0,0">
 
