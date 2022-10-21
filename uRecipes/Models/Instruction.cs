@@ -1,5 +1,8 @@
 ﻿public class Instruction
 {
-    /* !!! Not implemented !!! */
-    /* !!! Not defined !!! */
+    public Uri ImageUrl { get; set; }
+    public Uri VideoUrl { get; set; }
+    public string Descreption { get; set; }
+
+    // public DeviceInstruction DeviceInstructions;
 }
