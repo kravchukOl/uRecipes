@@ -63,7 +63,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#01B8A2" BaseSize="126,126" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#01B8A2" BaseSize="256,256" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -94,6 +94,21 @@
 		<MauiImage Include="Resources\Images\categories_png\stopwatch.png" />
 		<MauiImage Include="Resources\Images\categories_png\vegan.png" />
 		<MauiImage Include="Resources\Images\categories_png\vegetarian.png" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation0.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation1.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation10.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation11.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation12.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation13.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation14.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation2.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation3.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation4.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation5.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation6.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation7.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation8.PNG" />
+		<MauiImage Include="Resources\Images\Demo\instruction_imgs\preparation9.PNG" />
 		
 		<!--Demo Images-->
 		<MauiImage Include="Resources\Images\Demo\user_photo.jpg" />
@@ -154,6 +169,21 @@
 	  <None Remove="Resources\Images\categories_png\stopwatch.png" />
 	  <None Remove="Resources\Images\categories_png\vegan.png" />
 	  <None Remove="Resources\Images\categories_png\vegetarian.png" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation0.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation1.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation10.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation11.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation12.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation13.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation14.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation2.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation3.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation4.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation5.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation6.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation7.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation8.PNG" />
+	  <None Remove="Resources\Images\Demo\instruction_imgs\preparation9.PNG" />
 	  <None Remove="Resources\Images\Demo\user_photo1.jpg" />
 	  <None Remove="Resources\Images\Demo\user_photo2.jpg" />
 	  <None Remove="Resources\Images\Demo\user_photo3.jpg" />
@@ -177,7 +207,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />

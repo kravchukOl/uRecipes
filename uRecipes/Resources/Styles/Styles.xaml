@@ -41,6 +41,12 @@
         <Setter Property="TextColor" Value="{StaticResource VioletAccent}"/>
     </Style>
 
+    <Style x:Key="HelveticaBodyViolet" TargetType="Label">
+        <Setter Property="FontFamily" Value="Helvetica"/>
+        <Setter Property="FontSize" Value="Body"/>
+        <Setter Property="TextColor" Value="{StaticResource VioletAccent}"/>
+    </Style>
+
     <!---->
     
     <Style TargetType="ActivityIndicator">

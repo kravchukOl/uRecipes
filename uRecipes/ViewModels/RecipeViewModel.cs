@@ -173,10 +173,5 @@ namespace uRecipes.ViewModels
             IsCompleted = !IsCompleted;
             await localRepository.UpdateItem(RecipeItem);
         }
-
-
-
-
-
     }
 }

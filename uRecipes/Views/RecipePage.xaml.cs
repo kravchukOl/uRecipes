@@ -9,5 +9,5 @@ public partial class RecipePage : ContentPage
 
 		BindingContext = viewModel;
 
-		Appearing += RecipePage_Appearing;
 	}
+}

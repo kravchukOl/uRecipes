@@ -1,8 +1,12 @@
-﻿public class Instruction
+﻿namespace uRecipes.Models
 {
-    public Uri ImageUrl { get; set; }
-    public Uri VideoUrl { get; set; }
-    public string Descreption { get; set; }
+    public class Instruction
+    {
+        public int Step { get; set; }
+        public string ImageUrl { get; set; }
+        public string SnapshotTimeCode { get; set; }
+        public string Descreption { get; set; }
 
-    // public DeviceInstruction DeviceInstructions;
+        // public DeviceCommands DeviceCommands;
+    }
 }
