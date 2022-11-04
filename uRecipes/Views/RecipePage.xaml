@@ -26,15 +26,12 @@
             Command="{Binding InitialiseCommand}"/>
     </ContentPage.Behaviors>
 
-    <StackLayout>
+    <Grid RowDefinitions="128,*">
         <!--Header-->
-        <Grid Margin="24,24,24,24"
-              MinimumHeightRequest="80">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="80"/>
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0"
+              Margin="24,16,24,16"
+              MinimumHeightRequest="80"
+              ColumnDefinitions="50,*,80">
 
             <Image WidthRequest="50"
                    HeightRequest="50"
@@ -64,13 +61,14 @@
                 </Label.GestureRecognizers>
             </Label>
 
-                <Image Source="completed.svg"
+            <Image Source="completed.svg"
                    WidthRequest="30"
                    Grid.Column="2"
                    IsVisible="{Binding IsCompleted}"/>
         </Grid>
 
-        <ScrollView VerticalOptions="EndAndExpand">
+        <ScrollView Grid.Row="1" 
+                    VerticalOptions="EndAndExpand">
             <StackLayout >
                 <!--Main Buttons-->
                 <Grid Margin="24,0,24,24"
@@ -118,7 +116,7 @@
                  WidthRequest="380"/>-->
 
                 </Frame>
-                
+
                 <!--Author and social info-->
                 <Grid Margin="24,10"
                       ColumnDefinitions="*,75,85"
@@ -193,11 +191,11 @@
                     </HorizontalStackLayout>
 
                 </Grid>
-             
+
                 <!--Decription Card-->
                 <Border Padding="24,24,24,44"
-                       BackgroundColor="#E0FCF8"
-                       Stroke="#E0FCF8">
+                        BackgroundColor="#E0FCF8"
+                        Stroke="#E0FCF8">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -240,26 +238,26 @@
 
                         <Label TextColor="{StaticResource VioletAccent}"
                                FontFamily="OpenSansRegular">
-                            
+
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Allergens: " FontAttributes="Bold"/>
                                     <Span Text="(N/I)"/>
                                 </FormattedString>
                             </Label.FormattedText>
-                            
+
                         </Label>
 
                     </VerticalStackLayout>
-
                 </Border>
-                
+
                 <!--Ingredients Card-->
                 <Border Padding="0,0,0,44"
                         Margin="0,-20,0,0"
                         BackgroundColor="#FFF9E4"
-                        Stroke="#FFF9E4">
-                    
+                        Stroke="#FFF9E4"
+                        MinimumHeightRequest="250">
+
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -269,29 +267,24 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <VerticalStackLayout  MinimumHeightRequest="250">
-                        
-
+                    <Grid>
                         <CollectionView ItemsSource="{Binding Ingredients}"
                                         HorizontalOptions="Fill">
-                                        
-                            
-                            <!--Append Empty View!!!-->
+
                             <CollectionView.EmptyView>
                                 <Label Text="Unable to load ingredients"/>
                             </CollectionView.EmptyView>
 
-                            <!--Header-->
                             <CollectionView.Header>
                                 <Grid ColumnDefinitions="*,3,128"
                               RowDefinitions="*,3">
 
                                     <Label FontSize="Medium"
-                                   FontFamily="HelveticaBold"
-                                   FontAttributes="Bold"
-                                   VerticalOptions="Center"
-                                   Grid.Column="0"
-                                   Margin="24,24,0,16">
+                                           FontFamily="HelveticaBold"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           Grid.Column="0"
+                                           Margin="24,24,0,16">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="Ingredients for &#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
@@ -356,7 +349,6 @@
                                 </Grid>
                             </CollectionView.Header>
 
-                            <!--Items collection view-->
                             <CollectionView.ItemTemplate>
                                 <DataTemplate x:DataType="model:Ingredient">
 
@@ -378,10 +370,10 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span Text="&#10;Contains: " TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
-                                                        <Span Text="{Binding Allergens}" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"/>
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
+                                                    <Span Text="{Binding Allergens}" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
                                         <Label FontSize="Subtitle"
                                                FontFamily="Helvetica"
@@ -414,21 +406,19 @@
                                                  VerticalOptions="FillAndExpand"  
                                                  HorizontalOptions="End"/>
                                     </Grid>
-                                    
+
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
-                            
+
                         </CollectionView>
 
                         <ActivityIndicator IsVisible="{Binding IsBusy}"
                                            IsRunning="{Binding IsBusy}"
                                            VerticalOptions="CenterAndExpand"/>
-
-
-                    </VerticalStackLayout>
+                    </Grid>
 
                 </Border>
-                
+
                 <!--Nutrition Card-->
                 <Border Padding="24,24,24,44"
                         Margin="0,-20,0,0"
@@ -628,7 +618,6 @@
                     </VerticalStackLayout>
 
                 </Border>
-                
 
                 <!--Instructions/Preparation Card-->
                 <Border Padding="24,24,24,44"
@@ -685,9 +674,9 @@
 
                             </Grid>
                         </CollectionView.Header>
-                        
 
-                        <!--Demo collection of Instruction-->
+
+
                         <CollectionView.ItemsSource>
                             <x:Array Type="{x:Type model:Instruction}">
                                 <model:Instruction Descreption="Add the porcini mushrooms to a bowl and cover with 150ml (½ cup) of hot water. Leave to sit for 30 minutes. (As you do this your kitchen will smell of so much goodness!)"
@@ -699,7 +688,7 @@
 
                                 <model:Instruction Descreption="Once you have soaked the porcini mushroom, drain and reserve the water. Roughly chop the mushrooms and add to your blitzed mushrooms."
                                                    Step="3"/>
-                                
+
                                 <model:Instruction Descreption="Add the reserved porcini mushroom water and beetroot juice to the bowl. Stir to combine and leave to soak for 15 minutes."
                                                    ImageUrl="preparation4.PNG"
                                                    Step="4"/>
@@ -784,7 +773,7 @@
                                                IsClippedToBounds="True"
                                                Grid.Column="2"
                                                BorderColor="Transparent">
-                                            
+
                                             <Image Source="{Binding ImageUrl}"
                                                    WidthRequest="86"
                                                    HeightRequest="86"
@@ -792,7 +781,7 @@
                                         </Frame>
 
                                     </Grid>
-                                    
+
                                 </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -810,21 +799,17 @@
                                         <Shadow Brush="Black"
                                         Offset="1,6"
                                         Radius="6"
-                                        Opacity="0.25"/>    
+                                        Opacity="0.25"/>
                                     </Button.Shadow>
                                 </Button>
                             </Grid>
                         </CollectionView.Footer>
 
                     </CollectionView>
-                    
+
                 </Border>
 
             </StackLayout>
         </ScrollView>
-    </StackLayout>
-
-
-
-
+    </Grid>
 </ContentPage>

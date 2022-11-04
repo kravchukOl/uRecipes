@@ -163,11 +163,11 @@
                                    WidthRequest="192"
                                    BorderColor="Transparent">
 
-                                <Frame.GestureRecognizers>
+                                <!--<Frame.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter = "{Binding .}"
                                                           Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
                                                                               Source={Reference ExpPage}}"/>
-                                </Frame.GestureRecognizers>
+                                </Frame.GestureRecognizers>-->
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -270,24 +270,6 @@
                         <LinearItemsLayout Orientation="Horizontal"/>
                     </CollectionView.ItemsLayout>
 
-                    <!-- Demo Array of Recipes -->
-                    <!--<CollectionView.ItemsSource>
-
-                        <x:Array Type="{x:Type model:Recipe}">
-
-                            <model:Recipe Name="Scalloped Potatoes"
-                                          ImageUrl="https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18132359/051103025-01-classic-scalloped-potatoes-recipe-main.jpg"/>
-
-                            <model:Recipe Name="Bacon Egg Cups"
-                                          ImageUrl="https://healthyrecipesblogs.com/wp-content/uploads/2016/11/bacon-egg-cups-square-2020.jpg"/>
-
-                            <model:Recipe Name="Cookies and Cream Truffles Easy Dessert"
-                                          ImageUrl="https://celebrationsathomeblog.com/wp-content/uploads/2010/01/Oreo-truffles-easy-recipe.jpg"/>
-
-                        </x:Array>
-
-                    </CollectionView.ItemsSource>-->
-
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
 
@@ -299,11 +281,11 @@
                                 BackgroundColor="Transparent"
                                 BorderColor="Transparent">
 
-                                <Frame.GestureRecognizers>
+                                <!--<Frame.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter = "{Binding .}"
                                                           Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
                                                                       Source={Reference ExpPage}}"/>
-                                </Frame.GestureRecognizers>
+                                </Frame.GestureRecognizers>-->
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -338,9 +320,9 @@
 
                 </CollectionView>
 
-                <!--<ActivityIndicator IsVisible="{Binding IsBusy}"
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
                                    IsRunning="{Binding IsBusy}"
-                                   VerticalOptions="CenterAndExpand"/>-->
+                                   VerticalOptions="CenterAndExpand"/>
 
             </VerticalStackLayout>
 

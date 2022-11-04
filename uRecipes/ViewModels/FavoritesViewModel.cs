@@ -27,7 +27,6 @@ namespace uRecipes.ViewModels
 
         public ObservableCollection<Recipe> FavRecipes { get; set; }
 
-
         public FavoritesViewModel(IRecipeLocalRepository localRepository, INavigator navigator)
         {
             IsDesignMode = false;
@@ -161,6 +160,9 @@ namespace uRecipes.ViewModels
         [RelayCommand]
         private async Task ShowAll()
         {
+            if (IsBusy == true)
+                return;
+
             FavRecipes.Clear();
             await LoadData();
 
