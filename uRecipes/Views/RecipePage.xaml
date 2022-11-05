@@ -69,10 +69,10 @@
 
         <ScrollView Grid.Row="1" 
                     VerticalOptions="EndAndExpand">
-            <StackLayout >
+            <VerticalStackLayout>
                 <!--Main Buttons-->
                 <Grid Margin="24,0,24,24"
-              ColumnDefinitions="Auto,*,Auto">
+                      ColumnDefinitions="Auto,*,Auto">
 
                     <!--Step-by-step-->
                     <Button Text="Step-by-step"
@@ -89,7 +89,7 @@
                     </Button>
 
                     <HorizontalStackLayout Spacing="16"
-                                   Grid.Column="2">
+                                    Grid.Column="2">
 
                         <Button Style="{StaticResource StrokedButtonStyle}"
                         ImageSource="share_outline.svg"/>
@@ -809,7 +809,7 @@
 
                 </Border>
 
-            </StackLayout>
+            </VerticalStackLayout>
         </ScrollView>
     </Grid>
 </ContentPage>

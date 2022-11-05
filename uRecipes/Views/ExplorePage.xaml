@@ -4,6 +4,7 @@
              xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:uRecipes.Models"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+             xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
              x:DataType="viewmodel:ExploreViewModel"
              x:Class="uRecipes.ExplorePage"
              x:Name="ExpPage"
@@ -74,7 +75,7 @@
                        VerticalOptions="Center">
                     
                 </Image>
-                <Entry Placeholder="Search for recipes"
+                <Entry Placeholder="{x:Static localisation:AppResources.exploreSearchPlaceHolder}"
                        VerticalOptions="Center"
                        HorizontalOptions="CenterAndExpand"
                        TextColor="#9E9E9E"
@@ -91,7 +92,7 @@
                         Margin="0,0,0,12">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal"
-                                   ItemSpacing="8"/>
+                                   ItemSpacing="8" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Category">
@@ -126,14 +127,14 @@
                 <!--Specially for You recipes Header and button-->
                 <Grid ColumnDefinitions="*,*">
 
-                    <Label Text="Specially for You:"
+                    <Label Text="{x:Static localisation:AppResources.exploreSpecially}"
                            TextColor="{StaticResource VioletAccent}"
                            FontSize="Medium" 
                            FontFamily="Leto Text Sans Defect"
                            VerticalOptions="Center"
                            />
-                    
-                    <Button Text="View All"
+
+                    <Button Text="{x:Static localisation:AppResources.viewAll}"
                         Padding="0"
                         Margin="0"
                         BackgroundColor="Transparent"
@@ -169,12 +170,8 @@
                                                                               Source={Reference ExpPage}}"/>
                                 </Frame.GestureRecognizers>-->
 
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height = "187"/>
-                                        <RowDefinition  Height= "63"/>
-                                    </Grid.RowDefinitions>
-
+                                <Grid RowDefinitions="187,63">
+                                   
                                     <Image Grid.RowSpan="2"
                                            Source="{Binding ImageUrl.AbsoluteUri}"
                                            Aspect="AspectFill"/>
@@ -187,16 +184,9 @@
                                            BorderColor="Transparent"
                                            Grid.Row="1">
 
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="22"/>
-                                                <RowDefinition Height="22"/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="28"/>
-                                            </Grid.ColumnDefinitions>
-
+                                        <Grid RowDefinitions="22,22"
+                                              ColumnDefinitions="*">
+                                           
                                             <Label Text="{Binding Name}"
                                                FontFamily="Leto Text Sans Defect"
                                                TextColor="White"
@@ -220,14 +210,13 @@
                                                 </Label.Text>
                                             </Label>
 
-                                            <ImageButton
+                                            <!--<ImageButton
                                                 Source="{DynamicResource FavoriteIcon}"
                                                    HeightRequest="25"
                                                    WidthRequest="25"
                                                    Grid.Column="1"
                                                    Grid.RowSpan="2">
-
-                                            </ImageButton>
+                                            </ImageButton>-->
 
                                         </Grid>
 
@@ -245,12 +234,12 @@
                 <!--Trending Recipes Header and button-->
                 <Grid ColumnDefinitions="*,*" >
 
-                    <Label Text="Trending recipes:"
+                    <Label Text="{x:Static localisation:AppResources.exploreTrending}"
                            TextColor="{StaticResource VioletAccent}"
                            FontSize="Medium" 
                            FontFamily="Leto Text Sans Defect"/>
 
-                    <Button Text="View All"
+                    <Button Text="{x:Static localisation:AppResources.viewAll}"
                             Padding="0"
                             Margin="0"
                             BackgroundColor="Transparent"

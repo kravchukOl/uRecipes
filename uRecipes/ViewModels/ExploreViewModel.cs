@@ -116,6 +116,8 @@ namespace uRecipes.ViewModels
             await LoadPopCategories();
 
             await LoadDemoRecipes();
+
+            IsBusy = false;
         }
 
         [RelayCommand]
