@@ -219,10 +219,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Resources\Localization\AppResources.Designer.cs">
+	  <Compile Update="Resources\Localization\AppResources.en.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>AppResources.resx</DependentUpon>
+	    <DependentUpon>AppResources.en.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\ExplorePage.xaml.cs">
 	    <DependentUpon>ExplorePage.xaml</DependentUpon>
@@ -270,9 +270,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Localization\AppResources.resx">
+	  <EmbeddedResource Update="Resources\Localization\AppResources.en.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>AppResources.en.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 

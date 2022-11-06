@@ -74,7 +74,6 @@
                 <Grid Margin="24,0,24,24"
                       ColumnDefinitions="Auto,*,Auto">
 
-                    <!--Step-by-step-->
                     <Button Text="Step-by-step"
                     Style="{StaticResource BaseButtonStyle}"
                     ImageSource="playico.svg"

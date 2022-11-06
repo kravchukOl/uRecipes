@@ -125,7 +125,7 @@
             <VerticalStackLayout Spacing="22">
 
                 <!--Specially for You recipes Header and button-->
-                <Grid ColumnDefinitions="*,*">
+                <Grid ColumnDefinitions="Auto,*">
 
                     <Label Text="{x:Static localisation:AppResources.exploreSpecially}"
                            TextColor="{StaticResource VioletAccent}"
