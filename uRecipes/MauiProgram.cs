@@ -4,6 +4,7 @@ using uRecipes.Views.Login;
 using uRecipes.Views.Demo;
 using uRecipes.ViewModels;
 using uRecipes.Services.LocalRepository;
+using uRecipes.Services.LocalisationSevice;
 using uRecipes.ViewModels.Demo;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,7 @@ public static class MauiProgram
 
         // Services registrations:
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+        builder.Services.AddSingleton<ILocalizationResourceManager,LocalizationResourceManager>();
         //builder.Services.AddSingleton(Shell.Current); 
         builder.Services.AddSingleton<INavigator, PageNavigator>();
         builder.Services.AddSingleton<IRecipeLocalRepository, RecipeLocalRepository>();

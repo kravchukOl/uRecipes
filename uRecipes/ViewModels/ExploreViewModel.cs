@@ -1,4 +1,5 @@
-﻿using uRecipes.Services.LocalRepository;
+﻿using uRecipes.Services.LocalisationSevice;
+using uRecipes.Services.LocalRepository;
 using uRecipes.Views;
 
 namespace uRecipes.ViewModels
@@ -12,6 +13,7 @@ namespace uRecipes.ViewModels
 
         private IRecipeLocalRepository localRepository;
         private IConnectivity connectivity;
+        private ILocalizationResourceManager localization; 
 
         [ObservableProperty]
         string greatingMessage;
@@ -20,31 +22,29 @@ namespace uRecipes.ViewModels
         [ObservableProperty]
         string headerImage;
 
-        public ObservableCollection <Recipe> TrendingRecipes { get; set; }
-        public ObservableCollection <Recipe> SeasonRecipes { get; set; }
-        public ObservableCollection <Category> PopCategories { get; set; }
-        public ObservableCollection <Recipe> LatestRecipes { get; set; } // Not implemented control in XAML !!!
+        public ObservableCollection<Recipe> TrendingRecipes { get; set; } = new();
+        public ObservableCollection<Recipe> SeasonRecipes { get; set; } = new();
+        public ObservableCollection <Category> PopCategories { get; set; } = new();
+        public ObservableCollection<Recipe> LatestRecipes { get; set; } = new(); // Not implemented control in XAML !!!
 
         public EventHandler Search { get; set; }
 
         //public Command SearchFor { get; set; }
 
 
-        public ExploreViewModel (IRecipeLocalRepository localRepository, IConnectivity connectivity, INavigator navigator)
+        public ExploreViewModel (IRecipeLocalRepository localRepository,
+            IConnectivity connectivity, INavigator navigator, ILocalizationResourceManager localization)
         {
             isDesignMode = false;
-            pageNavigator = navigator;
 
+            pageNavigator = navigator;
             this.localRepository = localRepository;
             this.connectivity = connectivity;
+            this.localization = localization;
 
-            TrendingRecipes = new ObservableCollection <Recipe> ();
-            SeasonRecipes = new ObservableCollection <Recipe> ();
-            LatestRecipes = new ObservableCollection <Recipe> ();
+            HeaderMessage = (String) localization["exploreDeafaultMessage"] 
+                ?? "What are we going to cook today?";
 
-            PopCategories = new ObservableCollection <Category> ();
-
-            HeaderMessage = "What are we going to cook today?"; // Enhance !!!
             GreatingMessage = "Hello May,"; // Enhance !!!
         }
 
@@ -107,6 +107,8 @@ namespace uRecipes.ViewModels
         [RelayCommand]
         private async Task Initialise()
         {
+            IsBusy = true;
+
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 // Do stuff if it's no internet connection on device

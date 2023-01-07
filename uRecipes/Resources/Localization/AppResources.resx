@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="exploreDeafaultMessage" xml:space="preserve">
-    <value>Що будемо готувати сьогодні?</value>
+    <value>What are we going to cook today?</value>
   </data>
   <data name="exploreGreating0" xml:space="preserve">
-    <value>Привіт</value>
+    <value>Hello</value>
   </data>
   <data name="exploreSearchPlaceHolder" xml:space="preserve">
-    <value>Знайти рецепти</value>
+    <value>Search for recipes</value>
   </data>
   <data name="exploreSpecially" xml:space="preserve">
-    <value>Спеціально для Вас:</value>
+    <value>Specially for You:</value>
   </data>
   <data name="exploreTrending" xml:space="preserve">
-    <value>Популярні рецепти:</value>
+    <value>Trending recipes:</value>
   </data>
   <data name="viewAll" xml:space="preserve">
-    <value>Переглянути Всі</value>
+    <value>View All</value>
   </data>
 </root>

@@ -61,6 +61,7 @@
                 </Label.GestureRecognizers>
             </Label>
 
+            <!-- Test IsCompleate Image !!!-->
             <Image Source="completed.svg"
                    WidthRequest="30"
                    Grid.Column="2"
@@ -104,15 +105,9 @@
                CornerRadius="0"
                IsClippedToBounds="True">
 
-                    <Image Source="{Binding ImageUrl}"
+                    <Image Source="{Binding ImageSource}"
                     HeightRequest="240"
                     Aspect="AspectFill"/>
-
-                    <!--<WebView Source="{Binding VideoUrl}"
-                 MinimumHeightRequest="324"
-                 MinimumWidthRequest="380"
-                 HeightRequest="324"
-                 WidthRequest="380"/>-->
 
                 </Frame>
 
@@ -276,7 +271,7 @@
 
                             <CollectionView.Header>
                                 <Grid ColumnDefinitions="*,3,128"
-                              RowDefinitions="*,3">
+                                      RowDefinitions="*,3">
 
                                     <Label FontSize="Medium"
                                            FontFamily="HelveticaBold"

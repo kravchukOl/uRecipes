@@ -33,6 +33,10 @@ namespace uRecipes.ViewModels
 
         [ObservableProperty]
         string imageUrl;
+
+        [ObservableProperty]
+        ImageSource imageSource;
+
         [ObservableProperty]
         string videoUrl;
 
@@ -85,8 +89,12 @@ namespace uRecipes.ViewModels
                 Author = RecipeItem.Author;
                 AuthorId = RecipeItem.AuthorId;
 
+
                 ImageUrl = RecipeItem.ImageUrl.AbsoluteUri;
+                ImageSource =  ImageSource.FromUri(RecipeItem.ImageUrl);
+
                 VideoUrl = RecipeItem.VideoUrl.AbsoluteUri;
+
 
                 TotalTime = RecipeItem.TotalTime;
                 PersonServ = RecipeItem.PersonServ;
@@ -130,7 +138,7 @@ namespace uRecipes.ViewModels
 
             List<Ingredient> ingredients = await localRepository.GetIngredients(RecipeItem);
             foreach (Ingredient ingredient in ingredients)
-                this.Ingredients.Add(ingredient);
+                    Ingredients.Add(ingredient);
 
             IsBusy = false;
         }

@@ -5,7 +5,7 @@ namespace uRecipes.Services.LocalisationSevice
 {
     public class LocalizationResourceManager : INotifyPropertyChanged, ILocalizationResourceManager
     {
-        private LocalizationResourceManager()
+        public LocalizationResourceManager()
         {
             AppResources.Culture = CultureInfo.CurrentCulture;
         }

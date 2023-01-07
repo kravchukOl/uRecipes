@@ -61,6 +61,15 @@ namespace uRecipes.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to What are we going to cook today?.
+        /// </summary>
+        internal static string exploreDeafaultMessage {
+            get {
+                return ResourceManager.GetString("exploreDeafaultMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
         internal static string exploreGreating0 {
