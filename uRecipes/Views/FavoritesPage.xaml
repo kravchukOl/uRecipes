@@ -20,12 +20,8 @@
     <StackLayout Margin="24,24,24,0">
 
         <!--Header-->
-        <Grid Margin="0,0,0,24">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="80"/>
-            </Grid.ColumnDefinitions>
+        <Grid Margin="0,0,0,24"
+              ColumnDefinitions="50,*,80">
 
             <Image WidthRequest="50"
                    HeightRequest="50"
@@ -49,15 +45,14 @@
                        VerticalOptions="CenterAndExpand"/>
 
             <!--User photo frame-->
-            <Frame CornerRadius="40"
+            <Border StrokeShape="RoundRectangle 40"
                    Padding="0"
                    HeightRequest="80" 
                    WidthRequest="80"
                    BackgroundColor="Transparent"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   Grid.Column="2"
-                   IsClippedToBounds="True">
+                   Grid.Column="2">
 
                 <!--Demo photo!!!-->
 
@@ -65,7 +60,7 @@
                        Aspect="Fill"
                        HeightRequest="80"
                        WidthRequest="80"/>
-            </Frame>
+            </Border>
         </Grid>
 
         
@@ -129,10 +124,11 @@
             <!--Collection of Favortite Recipes-->
             <CollectionView ItemsSource="{Binding FavRecipes}"
                             Grid.Row="0">
+
                 
                 <!-- !!! Add the empty views!!!  -->
                 <CollectionView.EmptyView>
-                    <StackLayout VerticalOptions="CenterAndExpand"
+                    <VerticalStackLayout VerticalOptions="CenterAndExpand"
                                          Spacing="20">
                         
                         <Image Source="recipe_alert.png"
@@ -148,10 +144,9 @@
                                 Style="{StaticResource BaseButtonStyle}"
                                 HorizontalOptions="Center"/>
 
-                    </StackLayout>
+                    </VerticalStackLayout>
                 </CollectionView.EmptyView>
                 
-
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Recipe">
                         <SwipeView>
@@ -164,51 +159,46 @@
                                                    IsDestructive="True"
                                                    Command="{Binding Path=BindingContext.DeleteRecipeCommand, Source={Reference FavPage}}"
                                                    CommandParameter="{Binding .}"/>
-                                    <!--Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FavoritesViewModel}}, Path={DeleteRecipeCommand}}"-->
                                 </SwipeItems>
                             </SwipeView.RightItems>
                             
 
                             <!--ItemTamplate layout-->
-                            <Border Stroke="{StaticResource GreenAccent}"
+                            <Border     Stroke="{StaticResource GreenAccent}"
                                         StrokeThickness="2"
                                         StrokeShape="RoundRectangle 8"
                                         HorizontalOptions="FillAndExpand"
-                                        Margin="0,0,0,16">
+                                        Margin="0,0,0,16"
+                                        Padding="16,10">
 
-                                <Frame HeightRequest="120"
-                                           BorderColor="Transparent"
-                                           Padding="16,10">
-                                    
-                                    <Frame.GestureRecognizers>
+                                    <Border.GestureRecognizers>
                                         <TapGestureRecognizer CommandParameter = "{Binding .}"
                                                               Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
                                                                          Source={Reference FavPage}}"/>
-                                    </Frame.GestureRecognizers>
+                                    </Border.GestureRecognizers>
                                     
                                     <Grid RowDefinitions="70,30"
                                           ColumnDefinitions="100,*,25">
-                                        
-                                        <Frame CornerRadius="8"
-                                               BorderColor="Transparent"
-                                               WidthRequest="100"
-                                               HeightRequest="100"
-                                               Grid.Column="0"
-                                               Grid.RowSpan="2"
-                                               IsClippedToBounds="True">
 
-                                            <Frame.GestureRecognizers>
+                                    <Border StrokeShape="RoundRectangle 8"
+                                            Stroke="Transparent"
+                                            WidthRequest="100"
+                                            HeightRequest="100"
+                                            Grid.Column="0"
+                                            Grid.RowSpan="2">
+
+                                            <Border.GestureRecognizers>
                                                 <TapGestureRecognizer CommandParameter = "{Binding .}"
                                                                       Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
                                                                          Source={Reference FavPage}}"/>
-                                            </Frame.GestureRecognizers>
+                                            </Border.GestureRecognizers>
 
-                                            <Image Source="{Binding ImageUrl.AbsoluteUri}"
+                                        <Image Source="{Binding ImageUrl.AbsoluteUri}"
                                                        Aspect="AspectFill"
                                                        HeightRequest="100"
                                                        WidthRequest="100"/>
-                                        </Frame>
-                                        
+                                    </Border>
+        
                                         <Label Text="{Binding Name}"
                                                    TextColor="{StaticResource VioletAccent}"
                                                    FontFamily="Roboto"
@@ -236,7 +226,7 @@
                                                    Grid.RowSpan="2"
                                                    IsVisible="{Binding IsCompleted}"/>
                                     </Grid>
-                                </Frame>
+                                
                             </Border>
                         </SwipeView>
                     </DataTemplate>

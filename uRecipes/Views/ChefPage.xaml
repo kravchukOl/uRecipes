@@ -24,13 +24,9 @@
                  VerticalOptions="FillAndExpand">
         
         <!--Header-->
-        <Grid Margin="0,0,0,24">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="80"/>
-            </Grid.ColumnDefinitions>
-
+        <Grid Margin="0,0,0,24"
+              ColumnDefinitions="50,*,80">
+            
             <Image WidthRequest="50"
                    HeightRequest="50"
                    Grid.Column="0"
@@ -54,7 +50,7 @@
 
 
             <!--User photo frame-->
-            <Frame CornerRadius="40"
+            <Border StrokeShape="RoundRectangle 40"
                    Padding="0"
                    HeightRequest="80" 
                    WidthRequest="80"
@@ -70,7 +66,7 @@
                        HeightRequest="80"
                        WidthRequest="80"/>
 
-            </Frame>
+            </Border>
 
         </Grid>
 
@@ -80,10 +76,10 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Category">
                     
-                    <Frame Margin="8,8"
-                           BorderColor="{StaticResource GreenAccent}"
-                           Padding="8"
-                           CornerRadius="8">
+                    <Border StrokeShape="RoundRectangle 8"
+                            Margin="8,8"
+                            Stroke="{StaticResource GreenAccent}"
+                            Padding="8">
                         <HorizontalStackLayout Spacing="20">
 
                             <Image WidthRequest="50"
@@ -101,7 +97,7 @@
                                    TextColor="{StaticResource VioletAccent}"/>
 
                         </HorizontalStackLayout>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
