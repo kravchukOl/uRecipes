@@ -10,4 +10,9 @@ public partial class RecipePage : ContentPage
 		BindingContext = viewModel;
 
 	}
+
+    //protected override void OnAppearing()
+    //{
+    //    base.OnAppearing();
+    //}
 }
