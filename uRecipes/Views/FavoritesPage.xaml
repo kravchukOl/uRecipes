@@ -11,7 +11,7 @@
 
     <ContentPage.Behaviors>
         <tools:EventToCommandBehavior 
-            EventName="Appearing"
+            EventName="Loaded"
             Command="{Binding InitialiseCommand}"/>
     </ContentPage.Behaviors>
 
@@ -173,17 +173,19 @@
                             <Border Stroke="{StaticResource GreenAccent}"
                                         StrokeThickness="2"
                                         StrokeShape="RoundRectangle 8"
-                                        HorizontalOptions="Center"
+                                        HorizontalOptions="FillAndExpand"
                                         Margin="0,0,0,16">
 
                                 <Frame HeightRequest="120"
                                            BorderColor="Transparent"
                                            Padding="16,10">
+                                    
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer CommandParameter = "{Binding .}"
                                                               Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
                                                                          Source={Reference FavPage}}"/>
                                     </Frame.GestureRecognizers>
+                                    
                                     <Grid RowDefinitions="70,30"
                                           ColumnDefinitions="100,*,25">
                                         
@@ -194,13 +196,19 @@
                                                Grid.Column="0"
                                                Grid.RowSpan="2"
                                                IsClippedToBounds="True">
-                                            
+
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter = "{Binding .}"
+                                                                      Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
+                                                                         Source={Reference FavPage}}"/>
+                                            </Frame.GestureRecognizers>
 
                                             <Image Source="{Binding ImageUrl.AbsoluteUri}"
                                                        Aspect="AspectFill"
                                                        HeightRequest="100"
                                                        WidthRequest="100"/>
                                         </Frame>
+                                        
                                         <Label Text="{Binding Name}"
                                                    TextColor="{StaticResource VioletAccent}"
                                                    FontFamily="Roboto"

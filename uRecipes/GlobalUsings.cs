@@ -3,6 +3,7 @@ global using CommunityToolkit.Mvvm.Input;
 global using System.Collections.ObjectModel;
 global using System.Linq;
 global using System.ComponentModel;
+global using System.Globalization;
 global using System.Diagnostics;
 global using System.Runtime.CompilerServices;
 global using System.Text.Json;

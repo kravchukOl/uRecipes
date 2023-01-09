@@ -113,7 +113,7 @@ namespace uRecipes.ViewModels
         [RelayCommand]
         private async Task ShowFilters()
         {
-            await pageNavigator.MakeToast("This command in not implemented");
+            await pageNavigator.MakeToast("This command is still not implemented yet");
         }
 
         [RelayCommand]

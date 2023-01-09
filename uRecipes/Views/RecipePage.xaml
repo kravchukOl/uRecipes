@@ -25,6 +25,7 @@
             EventName="Appearing"
             Command="{Binding InitialiseCommand}"/>
     </ContentPage.Behaviors>
+    
 
     <Grid RowDefinitions="128,*">
         <!--Header-->
@@ -92,7 +93,8 @@
                                     Grid.Column="2">
 
                         <Button Style="{StaticResource StrokedButtonStyle}"
-                        ImageSource="share_outline.svg"/>
+                                ImageSource="share_outline.svg"
+                                Command="{Binding AddToFavoritesCommand}"/>
 
                         <Button Style="{StaticResource StrokedButtonStyle}"
                         ImageSource="heart_outline.svg"/>
@@ -728,11 +730,11 @@
                                         StrokeThickness="2"
                                         StrokeShape="RoundRectangle 8"
                                         HorizontalOptions="Center"
-                                        MinimumHeightRequest="116"
                                         Padding="16">
 
                                     <Grid ColumnDefinitions="30,*,Auto"
-                                          RowDefinitions="Auto">
+                                          RowDefinitions="*"
+                                          MinimumHeightRequest="100">
 
                                         <Border Stroke="{StaticResource GreenAccent}"
                                                 BackgroundColor="Transparent"
@@ -755,9 +757,9 @@
 
                                         <Label Text="{Binding Descreption}"
                                                Style="{StaticResource HelveticaBodyViolet}"
-                                               VerticalOptions="Center"
+                                               VerticalOptions="CenterAndExpand"
                                                FontFamily="Helvetica"
-                                               Margin="8,0,0,0"
+                                               Margin="8,0,8,0"
                                                Grid.Column="1"/>
 
                                         <Frame IsVisible="{Binding ImageUrl, Converter={StaticResource IsNotNullConverter}}"
@@ -798,11 +800,8 @@
                                 </Button>
                             </Grid>
                         </CollectionView.Footer>
-
                     </CollectionView>
-
                 </Border>
-
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

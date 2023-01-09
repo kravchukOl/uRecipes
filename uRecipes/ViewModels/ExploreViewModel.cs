@@ -123,6 +123,12 @@ namespace uRecipes.ViewModels
         }
 
         [RelayCommand]
+        private async Task ShowAll (ObservableCollection <Recipe> recipes)
+        {
+           await pageNavigator.MakeToast("This command is still not implementated yet ");
+        }
+
+        [RelayCommand]
         private async Task GoToRecipe(Recipe item)
         {
             await pageNavigator.GoToPagePassObj(nameof(RecipePage), "Recipe", item);

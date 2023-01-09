@@ -161,6 +161,18 @@ namespace uRecipes.ViewModels
         }
 
         [RelayCommand]
+        public async Task AddToFavorites()
+        {
+            await pageNavigator.MakeToast("This command is still not implemented yet");
+        }
+
+        [RelayCommand]
+        public async Task ShareRecipe()
+        {
+            await pageNavigator.MakeToast("This command is still not implemented yet");
+        }
+
+        [RelayCommand]
         public async Task GoBack() => await pageNavigator.GoBackward();
 
         // Design mode Commands:
@@ -181,5 +193,6 @@ namespace uRecipes.ViewModels
             IsCompleted = !IsCompleted;
             await localRepository.UpdateItem(RecipeItem);
         }
+
     }
 }

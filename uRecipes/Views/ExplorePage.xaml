@@ -80,9 +80,9 @@
                        HorizontalOptions="CenterAndExpand"
                        TextColor="#9E9E9E"
                        PlaceholderColor="#9E9E9E"
-                       FontSize="Body">
-                   
-                </Entry>
+                       FontSize="Body"/>
+
+
             </StackLayout>
 
         </Frame>
