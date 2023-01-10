@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="uRecipes.Controls.QuantitySelector">
+    <VerticalStackLayout>
+        <!--Quantity Selector -->
+        <Border WidthRequest="100"
+                                HeightRequest="36"
+                                Stroke="{StaticResource Gray450}"
+                                BackgroundColor="Transparent"
+                                Grid.Column="2">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8"/>
+            </Border.StrokeShape>
+
+            <Grid  ColumnDefinitions="Auto,*,Auto"
+                                   Padding="12,0"
+                                   VerticalOptions="CenterAndExpand">
+
+                <Image Source="minus.svg"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       VerticalOptions="CenterAndExpand"
+                                       Grid.Column="0"/>
+
+                <Label Text="{Binding PersonServ}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource VioletAccent}"
+                                       VerticalOptions="Center"
+                                       FontSize="Medium"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Grid.Column="1"/>
+
+                <Image Source="plus.svg"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       VerticalOptions="CenterAndExpand"
+                                       Grid.Column="2"/>
+
+
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentView>
