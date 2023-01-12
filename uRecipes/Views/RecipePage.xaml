@@ -6,6 +6,7 @@
              xmlns:model="clr-namespace:uRecipes.Models"
              xmlns:converters="clr-namespace:uRecipes.Views.Converters"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+             xmlns:controls="clr-namespace:uRecipes.Controls"
              x:DataType="viewmodel:RecipeViewModel"
              Shell.NavBarIsVisible="False"
              Shell.PresentationMode="ModalAnimated"
@@ -192,7 +193,8 @@
                 <!--Decription Card-->
                 <Border Padding="24,24,24,44"
                         BackgroundColor="#F1F1F1"
-                        Stroke="#E0FCF8">
+                        Stroke="#ECF6FF"
+                        StrokeThickness="3">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -202,15 +204,17 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <VerticalStackLayout Spacing="10">
+                    <Grid RowSpacing="10"
+                          RowDefinitions="Auto,20,20,20">
                         <Label Text="{Binding Description}"
                                TextColor="{StaticResource VioletAccent}"
-                               FontFamily="OpenSansRegular">
+                               FontFamily="OpenSansRegular"
+                               Grid.Row="0">
                         </Label>
 
                         <Label TextColor="{StaticResource VioletAccent}"
-                               FontFamily="OpenSansRegular">
-
+                               FontFamily="OpenSansRegular"
+                               Grid.Row="1">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Total Time: " FontAttributes="Bold"/>
@@ -222,7 +226,8 @@
                         </Label>
 
                         <Label TextColor="{StaticResource VioletAccent}"
-                               FontFamily="OpenSansRegular">
+                               FontFamily="OpenSansRegular"
+                               Grid.Row="2">
 
                             <Label.FormattedText>
                                 <FormattedString>
@@ -234,7 +239,8 @@
                         </Label>
 
                         <Label TextColor="{StaticResource VioletAccent}"
-                               FontFamily="OpenSansRegular">
+                               FontFamily="OpenSansRegular"
+                                Grid.Row="3">
 
                             <Label.FormattedText>
                                 <FormattedString>
@@ -245,14 +251,15 @@
 
                         </Label>
 
-                    </VerticalStackLayout>
+                    </Grid>
                 </Border>
 
                 <!--Ingredients Card-->
                 <Border Padding="0,0,0,44"
                         Margin="0,-20,0,0"
                         BackgroundColor="#F2E8C9"
-                        Stroke="#FFF9E4"
+                        Stroke="#ECF6FF"
+                        StrokeThickness="3"
                         MinimumHeightRequest="250">
 
                     <Border.StrokeShape>
@@ -289,6 +296,9 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
+
+                                <controls:QuantitySelector Grid.Column="4"
+                                                           Quantity="{Binding PersonServ}"/>
 
                                 <Line Grid.Row="1"
                                       X2="5000"
@@ -382,7 +392,8 @@
                 <Border Padding="24,24,24,44"
                         Margin="0,-20,0,0"
                         BackgroundColor="#DDE7EC"
-                        Stroke="#ffebee">
+                        Stroke="#ECF6FF"
+                        StrokeThickness="3">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -430,7 +441,6 @@
                         <Label Text="Energy (kJ):"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Row="2"/>
 
                         <Label Style="{StaticResource HelveticaSubtitleViolet}"
@@ -448,7 +458,6 @@
                         <Label Text="Fat:"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Row="3"/>
 
                         <Label Style="{StaticResource HelveticaSubtitleViolet}"
@@ -466,7 +475,6 @@
                         <Label Text="Carbohydrate:"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Row="4"/>
 
                         <Label Style="{StaticResource HelveticaSubtitleViolet}"
@@ -484,7 +492,6 @@
                         <Label Text="Sugar:"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Row="5"/>
 
                         <Label Style="{StaticResource HelveticaSubtitleViolet}"
@@ -502,7 +509,6 @@
                         <Label Text="Fiber:"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Column="3"
                                Grid.Row="2"/>
 
@@ -521,7 +527,6 @@
                         <Label Text="Protein:"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Column="3"
                                Grid.Row="3"/>
 
@@ -540,7 +545,6 @@
                         <Label Text="Cholesterol:"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Row="4"
                                Grid.Column="3"/>
 
@@ -559,7 +563,6 @@
                         <Label Text="Sodium:"
                                FontAttributes="Bold"
                                Style="{StaticResource HelveticaSubtitleViolet}"
-                               TextColor="{StaticResource GreenAccent}"
                                Grid.Row="5"
                                Grid.Column="3"/>
 
@@ -581,7 +584,8 @@
                 <Border Padding="24,24,24,44"
                         Margin="0,-20,0,0"
                         BackgroundColor="#D7E6D4"
-                        Stroke="#ECF6FF">
+                        Stroke="#ECF6FF"
+                        StrokeThickness="3">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -718,8 +722,8 @@
                                         <Label Text="{Binding Descreption}"
                                                Style="{StaticResource HelveticaBodyViolet}"
                                                VerticalOptions="CenterAndExpand"
-                                               FontFamily="Helvetica"
-                                               Margin="8,0,8,0"
+                                               FontFamily="OpenSansRegular"
+                                               Margin="8,8,8,8"
                                                Grid.Column="1"/>
 
                                         <Border IsVisible="{Binding ImageUrl, Converter={StaticResource IsNotNullConverter}}"
@@ -759,7 +763,6 @@
                         </CollectionView.Footer>
                     </CollectionView>
                 </Border>
-
             </VerticalStackLayout>
         </ScrollView>
     </Grid>
