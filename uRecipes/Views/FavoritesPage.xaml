@@ -4,6 +4,7 @@
              xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:uRecipes.Models"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+             xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
              x:DataType="viewmodel:FavoritesViewModel"
              x:Class="uRecipes.Views.FavoritesPage"
              x:Name="FavPage"
@@ -67,7 +68,7 @@
         <!--Filter Buttons-->
         <FlexLayout JustifyContent="SpaceBetween">
 
-            <Button Text="Filters"
+            <Button Text="{x:Static localisation:AppResources.filters}"
                     Style="{StaticResource BaseButtonStyle}"
                     ImageSource="slider03.svg"
                     Command="{Binding ShowFiltersCommand}">

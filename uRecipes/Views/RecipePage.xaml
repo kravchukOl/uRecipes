@@ -96,11 +96,13 @@
 
                         <Button Style="{StaticResource StrokedButtonStyle}"
                                 ImageSource="share_outline.svg"
-                                Command="{Binding AddToFavoritesCommand}"/>
+                                Command="{Binding AddToFavoritesCommand}"
+                                BorderWidth="2"/>
 
                         <Button Style="{StaticResource StrokedButtonStyle}"
                         ImageSource="heart_outline.svg"
-                                Command="{Binding AddToFavoritesCommand}"/>
+                        Command="{Binding AddToFavoritesCommand}"
+                        BorderWidth="2"/>
 
                     </HorizontalStackLayout>
                 </Grid>

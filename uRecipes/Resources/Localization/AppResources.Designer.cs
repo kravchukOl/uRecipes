@@ -106,6 +106,33 @@ namespace uRecipes.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filters.
+        /// </summary>
+        internal static string filters {
+            get {
+                return ResourceManager.GetString("filters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to min.
+        /// </summary>
+        internal static string min {
+            get {
+                return ResourceManager.GetString("min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to serving.
+        /// </summary>
+        internal static string serving {
+            get {
+                return ResourceManager.GetString("serving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View All.
         /// </summary>
         internal static string viewAll {

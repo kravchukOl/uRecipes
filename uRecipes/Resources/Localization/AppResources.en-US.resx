@@ -132,6 +132,15 @@
   <data name="exploreTrending" xml:space="preserve">
     <value>Trending recipes:</value>
   </data>
+  <data name="filters" xml:space="preserve">
+    <value>Filters</value>
+  </data>
+  <data name="min" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="serving" xml:space="preserve">
+    <value>serving</value>
+  </data>
   <data name="viewAll" xml:space="preserve">
     <value>View All</value>
   </data>

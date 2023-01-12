@@ -169,7 +169,7 @@
                                    Stroke="Transparent"
                                    StrokeThickness="0">
 
-                                <!--<Frame.GestureRecognizers>
+                                <!--<Border.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter = "{Binding .}"
                                                           Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
                                                                               Source={Reference ExpPage}}"/>
@@ -181,12 +181,13 @@
                                            Source="{Binding ImageUrl.AbsoluteUri}"
                                            Aspect="AspectFill"/>
 
-                                    <Frame Margin="8,0,8,8"
-                                           Padding="8"
+                                    <Border StrokeShape="RoundRectangle 8"
+                                           Margin="8,0,8,8"
+                                           Padding="8,8,8,0"
                                            HeightRequest="55"
                                            BackgroundColor="#959E9E9E"
                                            VerticalOptions="Center"
-                                           BorderColor="Transparent"
+                                           Stroke="Transparent"
                                            Grid.Row="1">
 
                                         <Grid RowDefinitions="22,22"
@@ -207,12 +208,23 @@
                                                Grid.Row="1"
                                                Grid.Column="0"
                                                VerticalOptions="Start">
-                                                <Label.Text>
-                                                    <MultiBinding StringFormat ="{}{0}min | {1} serving">
+                                                <!--<Label.Text>
+                                                    --><!--<MultiBinding StringFormat ="{}{0} {1} | {2} {3)">
                                                         <Binding Path="TotalTime"/>
                                                         <Binding Path="PersonServ"/>
                                                     </MultiBinding>
-                                                </Label.Text>
+                                                </Label.Text>-->
+
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding TotalTime}" FontFamily="Leto Text Sans Defect" />
+                                                        <Span Text="{x:Static localisation:AppResources.min}" FontFamily="Leto Text Sans Defect"/>
+                                                        <Span Text=" | " FontFamily="Leto Text Sans Defect" />
+                                                        <Span Text="{Binding PersonServ}" FontFamily="Leto Text Sans Defect"/>
+                                                        <Span Text=" " />
+                                                        <Span Text="{x:Static localisation:AppResources.serving}" FontFamily="Leto Text Sans Defect"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
                                             </Label>
 
                                             <!--<ImageButton
@@ -225,7 +237,7 @@
 
                                         </Grid>
 
-                                    </Frame>
+                                    </Border>
 
                                 </Grid>
                             </Border>

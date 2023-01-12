@@ -132,6 +132,15 @@
   <data name="exploreTrending" xml:space="preserve">
     <value>Популярні рецепти:</value>
   </data>
+  <data name="filters" xml:space="preserve">
+    <value>Фільтри</value>
+  </data>
+  <data name="min" xml:space="preserve">
+    <value>хвилин</value>
+  </data>
+  <data name="serving" xml:space="preserve">
+    <value>порцій</value>
+  </data>
   <data name="viewAll" xml:space="preserve">
     <value>Переглянути Всі</value>
   </data>
