@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:uRecipes.Models"
+             xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+             x:Class="uRecipes.Views.RecipePageViews.IngredientsSheet">
+    
+    <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding Ingredients}"
+                        HorizontalOptions="Fill"
+                        Grid.Row="1">
+
+            <CollectionView.EmptyView>
+                <Label Text="Unable to load ingredients"/>
+            </CollectionView.EmptyView>
+
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Ingredient">
+
+                    <Grid ColumnDefinitions="*,3,128"
+                                          RowDefinitions="*,3">
+
+                        <Label Text="{Binding Name}"
+                                               FontSize="Subtitle"
+                                               FontFamily="Helvetica"
+                                               FontAttributes="None"
+                                               TextColor="{StaticResource VioletAccent}" 
+                                               Margin="24,10,10,10"/>
+
+                        <Label FontSize="Subtitle"
+                                               FontFamily="Helvetica"
+                                               FontAttributes="None"
+                                               Margin="24,10,10,10"
+                                               IsVisible="{Binding Allergens, Converter={StaticResource IsNotNullConverter}}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="&#10;Contains: " TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                    <Span Text="{Binding Allergens}" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label FontSize="Subtitle"
+                                               FontFamily="Helvetica"
+                                               FontAttributes="None"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="End"
+                                               Margin="10,10,24,10"
+                                               Grid.Column="2">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Quantity, Converter={StaticResource SpecCharConverter}}" 
+                                                          TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                    <Span Text=" " TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"/>
+                                    <Span Text="{Binding Units}" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+
+                        <Line Grid.Row="1"
+                                          X2="5000"
+                                           Grid.ColumnSpan="3"
+                                               StrokeThickness="1"
+                                               HeightRequest="1"
+                                               Stroke="#77B0B7"
+                                               HorizontalOptions="FillAndExpand"/>
+
+                        <Rectangle Grid.Column="1"
+                                           Grid.RowSpan="2"
+                                           Stroke="#D48469"
+                                           StrokeThickness="1"
+                                           WidthRequest="1"
+                                           VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="End"
+                                          TranslationY="0"/>
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>

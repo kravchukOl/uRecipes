@@ -8,6 +8,7 @@ using uRecipes.Services.LocalisationSevice;
 using uRecipes.ViewModels.Demo;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.DependencyInjection;
+using Sharpnado.Tabs;
 
 namespace uRecipes;
 public static class MauiProgram
@@ -25,7 +26,9 @@ public static class MauiProgram
             fonts.AddFont("Helvetica-Bold.otf", "HelveticaBold");
             // icon Fonts:
             fonts.AddFont("uRecipe.ttf", "uRecipeIconFont");
-        }).UseMauiCommunityToolkit();
+        })
+            .UseMauiCommunityToolkit()
+            .UseSharpnadoTabs(loggerEnable: false);
 
         // Services registrations:
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
