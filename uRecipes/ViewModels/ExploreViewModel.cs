@@ -12,13 +12,11 @@ namespace uRecipes.ViewModels
 
 
         private IRecipeLocalRepository localRepository;
-        private IConnectivity connectivity;
-        private ILocalizationResourceManager localization; 
+
+        private  IConnectivity connectivity;
 
         [ObservableProperty]
         string greatingMessage;
-        [ObservableProperty]
-        string headerMessage;
         [ObservableProperty]
         string headerImage;
 

@@ -1,19 +1,25 @@
-﻿namespace uRecipes.ViewModels
+﻿using uRecipes.Services.LocalisationSevice;
+using uRecipes.Services.LocalRepository;
+using uRecipes.ViewModels;
+using uRecipes.Views;
+using uRecipes.Views.Demo;
+namespace uRecipes.ViewModels
 {
     public partial class BaseViewModel : ObservableObject
     {
         protected INavigator pageNavigator;
+        protected ILocalizationResourceManager localization;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(isNotBusy))]
         bool isBusy;
 
-        [ObservableProperty]
-        public string title;
-
         // Design Mode flag
         [ObservableProperty]
         public bool isDesignMode;
+
+        [ObservableProperty]
+        string headerMessage;
 
         bool isNotBusy => !IsBusy;
 

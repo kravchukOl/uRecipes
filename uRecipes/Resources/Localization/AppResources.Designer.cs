@@ -61,6 +61,15 @@ namespace uRecipes.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Here, you can adjust setting of your uCuisine device..
+        /// </summary>
+        internal static string deviceDefaultMessage {
+            get {
+                return ResourceManager.GetString("deviceDefaultMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What are we going to cook today?.
         /// </summary>
         internal static string exploreDeafaultMessage {

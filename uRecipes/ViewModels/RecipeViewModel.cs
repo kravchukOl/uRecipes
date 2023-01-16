@@ -1,4 +1,5 @@
 ﻿using uRecipes.Services.CloudRepository;
+using uRecipes.Services.LocalisationSevice;
 using uRecipes.Services.LocalRepository;
 
 namespace uRecipes.ViewModels
@@ -54,11 +55,13 @@ namespace uRecipes.ViewModels
 
 
 
-        public RecipeViewModel(IRecipeLocalRepository localRepository, IConnectivity connectivity, INavigator navigator)
+        public RecipeViewModel(IRecipeLocalRepository localRepository, IConnectivity connectivity,
+            ILocalizationResourceManager localization, INavigator navigator)
         {
             isDesignMode = false;
             isOffline = false;
             pageNavigator = navigator;
+            this.localization= localization;
 
             this.localRepository = localRepository;
             //this.cloudRepository = cloudRepository;

@@ -33,6 +33,7 @@ public static class MauiProgram
         // Services registrations:
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
         builder.Services.AddSingleton<ILocalizationResourceManager,LocalizationResourceManager>();
+
         //builder.Services.AddSingleton(Shell.Current); 
         builder.Services.AddSingleton<INavigator, PageNavigator>();
         builder.Services.AddSingleton<IRecipeLocalRepository, RecipeLocalRepository>();
@@ -41,6 +42,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<FavoritesViewModel>();
         builder.Services.AddSingleton<ChefViewModel>();
         builder.Services.AddSingleton<ExploreViewModel>();
+        builder.Services.AddSingleton<DeviceViewModel>();
 
         builder.Services.AddTransient<RecipeViewModel>();
 
@@ -48,6 +50,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<FavoritesPage>();
         builder.Services.AddSingleton<ExplorePage>();
         builder.Services.AddSingleton<ChefPage>();
+        builder.Services.AddSingleton<DevicePage>();
 
         builder.Services.AddTransient<RecipePage>();
 

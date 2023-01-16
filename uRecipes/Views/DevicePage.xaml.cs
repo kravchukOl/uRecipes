@@ -1,9 +1,15 @@
+using uRecipes.ViewModels;
+
 namespace uRecipes.Views;
 
 public partial class DevicePage : ContentPage
 {
-	public DevicePage()
+
+
+    public DevicePage( DeviceViewModel viewModel )
 	{
 		InitializeComponent();
+
+		BindingContext = viewModel;
 	}
 }

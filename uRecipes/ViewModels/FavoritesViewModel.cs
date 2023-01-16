@@ -8,12 +8,6 @@ namespace uRecipes.ViewModels
     [QueryProperty (nameof(NewFavItem), "Recipe")]
     public partial class FavoritesViewModel : BaseViewModel
     {
-
-        /* User's property needed !!! */
-        // public User User { get; set; }
-
-        [ObservableProperty]
-        string headerMessage;
         [ObservableProperty]
         string headerImage;
 

@@ -16,12 +16,11 @@
                    Source="knobs.png"/>
 
             <Label Text="This is Settings Page..."
-                       FontSize="14"
-                       WidthRequest="178"
+                       FontSize="Header"
                        TextColor="#442244"
                        FontFamily="Heletica"
                        Grid.Column="1"
-                       Padding="16,0"
+                       Margin="24,0,16,0"
                        VerticalOptions="CenterAndExpand"/>
 
 
