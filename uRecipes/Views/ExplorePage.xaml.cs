@@ -1,16 +1,11 @@
 ﻿using uRecipes.ViewModels;
 namespace uRecipes;
 
-public partial class ExplorePage : ContentPage
+public partial class ExplorePage : BasePage
 {
 
-	public ExplorePage( ExploreViewModel viewModel )
+	public ExplorePage( ExploreViewModel viewModel ):base(viewModel)
 	{
 		InitializeComponent();
-
-		BindingContext = viewModel;
 	}
-
-	
 }
-

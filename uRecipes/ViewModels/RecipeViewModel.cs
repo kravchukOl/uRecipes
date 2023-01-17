@@ -73,7 +73,7 @@ namespace uRecipes.ViewModels
         }
 
         [RelayCommand]
-        public async Task Initialise()
+        public override async Task Initialise()
         {
             try
             {
@@ -102,7 +102,6 @@ namespace uRecipes.ViewModels
                 TotalTime = RecipeItem.TotalTime;
                 PersonServ = RecipeItem.PersonServ;
                 isCompleted = RecipeItem.IsCompleted;
-
 
                 //await GetCategories();
                 await GetIngredients();
@@ -140,6 +139,13 @@ namespace uRecipes.ViewModels
             IsBusy = true;
 
             List<Ingredient> ingredients = await localRepository.GetIngredients(RecipeItem);
+            ingredients.Add(new Ingredient()
+            {
+                Allergens = "a",
+                Name = "name",
+                Quantity = 2,
+                Units = "kg"
+            });
             foreach (Ingredient ingredient in ingredients)
                     Ingredients.Add(ingredient);
 

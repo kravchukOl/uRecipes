@@ -294,6 +294,11 @@ namespace uRecipes.Services.LocalRepository
             Ingredients ing = await connection.Table<Ingredients>().
                 Where(x => x.Id == item.IngredientId).FirstOrDefaultAsync();
 
+            if (ing is null)
+            {
+                return Enumerable.Empty<Ingredient>().ToList();
+            }
+
             return new List<Ingredient>(JsonSerializer.Deserialize<List<Ingredient>>(ing.IngredientsJSON));
         }
 

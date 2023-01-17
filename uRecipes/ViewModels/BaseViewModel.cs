@@ -39,6 +39,10 @@ namespace uRecipes.ViewModels
         //}
 
         //public bool IsNotBusy => !IsBusy;
-       
+
+        public virtual Task Initialise()
+        {
+            return Task.CompletedTask;
+        }
     }
 }

@@ -103,7 +103,7 @@ namespace uRecipes.ViewModels
         }
 
         [RelayCommand]
-        private async Task Initialise()
+        public override async Task Initialise()
         {
             IsBusy = true;
 

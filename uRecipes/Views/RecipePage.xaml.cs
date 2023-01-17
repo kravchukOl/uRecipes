@@ -1,18 +1,17 @@
 using uRecipes.ViewModels;
 
 namespace uRecipes.Views;
-public partial class RecipePage : ContentPage
+public partial class RecipePage : BasePage
 {
-	public RecipePage(RecipeViewModel viewModel)
+	public RecipePage(RecipeViewModel viewModel) : base(viewModel)
 	{
 		InitializeComponent();
 
-		BindingContext = viewModel;
-
 	}
 
-    //protected override void OnAppearing()
-    //{
-    //    base.OnAppearing();
-    //}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        MyDelayView.LoadView();
+    }
 }
