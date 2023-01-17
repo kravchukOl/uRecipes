@@ -7,15 +7,27 @@
              xmlns:converters="clr-namespace:uRecipes.Views.Converters"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
              xmlns:controls="clr-namespace:uRecipes.Controls"
+             xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
              x:Class="uRecipes.Views.DevicePage"
              x:DataType="viewmodel:DeviceViewModel"
              Shell.NavBarIsVisible="False"
              Title="DevicePage">
 
-    <VerticalStackLayout>
-        <VerticalStackLayout Margin="24,24,24,0">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+                <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="#23C62F" />
+                <Setter Property="FontFamily" Value="LetoTextSans" />
+                <Setter Property="LabelSize" Value="18" />
+                <Setter Property="UnselectedLabelColor" Value="White"/>
+                <Setter Property="UnderlineHeight" Value="4"/>
+            </Style>
+            </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <!--Header-->
+    <VerticalStackLayout Margin="24,24,24,0">
+
+        <!--Header-->
             <Grid Margin="0,0,0,24"
                   ColumnDefinitions="50,*,80">
 
@@ -55,29 +67,29 @@
 
             </Grid>
             
-            <!--Buttons-->
-            <FlexLayout JustifyContent="SpaceBetween">
-                <Button Text="Connect device"
+        <!--Buttons-->
+        <FlexLayout JustifyContent="SpaceBetween">
+            <Button Text="{x:Static localisation:AppResources.deviceConnectDevice}"
                         Style="{StaticResource BaseButtonStyle}"
                         ImageSource="wlan.svg"
                         Command="{Binding ConnectDeviceCommand}">
-                    <Button.Shadow>
-                        <Shadow Brush="Black"
+                <Button.Shadow>
+                    <Shadow Brush="Black"
                         Offset="1,6"
                         Radius="6"
                         Opacity="0.25"/>
-                    </Button.Shadow>
-                    
-                    
-                </Button>
-            </FlexLayout>
-        </VerticalStackLayout>
+                </Button.Shadow>
+
+
+            </Button>
+        </FlexLayout>
 
         <Grid RowDefinitions="*,*"
               ColumnDefinitions="*,*"
               RowSpacing="22"
-              Margin="0,22,0,0">
-
+              Margin="-24,22,-24,0">
+            
+            <!--Device model and greating-->
             <Label VerticalOptions="Center"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center">
@@ -97,14 +109,29 @@
                 </Label.FormattedText>
             </Label>
             
-            
-
+            <!--Device image-->
             <Image Source="ucuisine_front2.png"
                    Grid.ColumnSpan="2"
                    Grid.RowSpan="3"
                    Aspect="Fill"/>
 
         </Grid>
+
+        <tabs:TabHostView x:Name="TabHost"
+                          Margin="-24,0"
+                          BackgroundColor="#9EA5AF"
+                          HeightRequest="40">
+
+            <tabs:UnderlinedTabItem Label="Basics" Style="{StaticResource TabStyle}"/>
+            <tabs:UnderlinedTabItem Label="Surface" Style="{StaticResource TabStyle}"/>
+            <tabs:UnderlinedTabItem Label="Display" Style="{StaticResource TabStyle}"/>
+            <tabs:UnderlinedTabItem Label="Connection" Style="{StaticResource TabStyle}"/>
+
+
+
+        </tabs:TabHostView>
+        
+        
     </VerticalStackLayout>
 
 </ContentPage>

@@ -61,6 +61,15 @@ namespace uRecipes.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connect device.
+        /// </summary>
+        internal static string deviceConnectDevice {
+            get {
+                return ResourceManager.GetString("deviceConnectDevice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Here, you can adjust setting of your uCuisine device..
         /// </summary>
         internal static string deviceDefaultMessage {
