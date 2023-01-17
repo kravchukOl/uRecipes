@@ -1,12 +1,14 @@
 using uRecipes.ViewModels;
 namespace uRecipes.Views;
 
-public partial class ChefPage : ContentPage
+public partial class ChefPage : BasePage
 {
-	public ChefPage( ChefViewModel viewmodel )
+	public ChefPage( ChefViewModel viewmodel ) : base( viewmodel )
 	{
 		InitializeComponent();
-
-		BindingContext = viewmodel; 
 	}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 }

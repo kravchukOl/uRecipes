@@ -92,7 +92,7 @@ namespace uRecipes.ViewModels
 
 
         [RelayCommand]
-        public async Task Initialise()
+        public override async Task Initialise()
         {
             if (NewFavItem != null)
             {

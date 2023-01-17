@@ -2,15 +2,19 @@ using uRecipes.ViewModels;
 
 namespace uRecipes.Views;
 
-public partial class FavoritesPage : ContentPage
+public partial class FavoritesPage : BasePage
 {
-	public FavoritesPage (FavoritesViewModel viewModel)
+	public FavoritesPage(FavoritesViewModel viewModel) : base(viewModel)
 	{
 		InitializeComponent();
-		BindingContext = viewModel;		
 	}
 
-	private void ShowCompButton_Clicked(object sender, EventArgs e)
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
+
+    private void ShowCompButton_Clicked(object sender, EventArgs e)
 	{
 
 		Application.Current.Resources.TryGetValue("GreenAccent2", out var GreenAccent);

@@ -43,14 +43,16 @@ public static class MauiProgram
         builder.Services.AddSingleton<ChefViewModel>();
         builder.Services.AddSingleton<ExploreViewModel>();
         builder.Services.AddSingleton<DeviceViewModel>();
+        builder.Services.AddSingleton<SettingsViewModel>();
 
         builder.Services.AddTransient<RecipeViewModel>();
 
-        // Views Registrations
+        // Pages Registrations
         builder.Services.AddSingleton<FavoritesPage>();
         builder.Services.AddSingleton<ExplorePage>();
         builder.Services.AddSingleton<ChefPage>();
         builder.Services.AddSingleton<DevicePage>();
+        builder.Services.AddSingleton<SettingsPage>();
 
         builder.Services.AddTransient<RecipePage>();
 

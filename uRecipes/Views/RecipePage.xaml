@@ -35,7 +35,6 @@
                    Grid.Column="0"
                    VerticalOptions="CenterAndExpand"
                    Source="arrowback.svg">
-
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Command="{Binding GoBackCommand}"/>

@@ -2,14 +2,15 @@ using uRecipes.ViewModels;
 
 namespace uRecipes.Views;
 
-public partial class DevicePage : ContentPage
+public partial class DevicePage : BasePage
 {
-
-
-    public DevicePage( DeviceViewModel viewModel )
+    public DevicePage( DeviceViewModel viewModel ) : base( viewModel )
 	{
 		InitializeComponent();
-
-		BindingContext = viewModel;
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 }

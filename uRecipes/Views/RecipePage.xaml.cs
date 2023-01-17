@@ -8,7 +8,6 @@ public partial class RecipePage : BasePage
 		InitializeComponent();
 
 	}
-
     protected override void OnAppearing()
     {
         base.OnAppearing();

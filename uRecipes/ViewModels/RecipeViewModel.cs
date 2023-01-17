@@ -139,13 +139,7 @@ namespace uRecipes.ViewModels
             IsBusy = true;
 
             List<Ingredient> ingredients = await localRepository.GetIngredients(RecipeItem);
-            ingredients.Add(new Ingredient()
-            {
-                Allergens = "a",
-                Name = "name",
-                Quantity = 2,
-                Units = "kg"
-            });
+           
             foreach (Ingredient ingredient in ingredients)
                     Ingredients.Add(ingredient);
 

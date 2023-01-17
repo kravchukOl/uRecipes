@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<uRecipes:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:uRecipes.Models"
              xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -7,6 +7,7 @@
              xmlns:converters="clr-namespace:uRecipes.Views.Converters"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
              xmlns:controls="clr-namespace:uRecipes.Controls"
+             xmlns:uRecipes="clr-namespace:uRecipes"
              x:Class="uRecipes.Views.DevicePage"
              x:DataType="viewmodel:DeviceViewModel"
              Shell.NavBarIsVisible="False"
@@ -23,7 +24,11 @@
                 <Image WidthRequest="50"
                    HeightRequest="50"
                    Grid.Column="0"
-                   Source="knobs.png"/>
+                   Source="knobs.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer  Command="{Binding EnableDesignModeCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
 
                 <Label Text="{Binding HeaderMessage}"
                        FontSize="Header"
@@ -107,4 +112,4 @@
         </Grid>
     </VerticalStackLayout>
 
-</ContentPage>
+</uRecipes:BasePage>

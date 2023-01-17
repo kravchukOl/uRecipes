@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<uRecipes:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:uRecipes.Models"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
              xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
+             xmlns:uRecipes="clr-namespace:uRecipes"
              x:DataType="viewmodel:FavoritesViewModel"
              x:Class="uRecipes.Views.FavoritesPage"
              x:Name="FavPage"
              Title="FavoritesPage">
 
-    <ContentPage.Behaviors>
+    <!--<ContentPage.Behaviors>
         <tools:EventToCommandBehavior 
             EventName="Loaded"
             Command="{Binding InitialiseCommand}"/>
-    </ContentPage.Behaviors>
+    </ContentPage.Behaviors>-->
 
 
 
@@ -276,4 +277,4 @@
             </ScrollView>
         </Grid>
     </StackLayout>
-</ContentPage>
+</uRecipes:BasePage>

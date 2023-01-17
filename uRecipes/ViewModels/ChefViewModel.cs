@@ -1,4 +1,5 @@
-﻿using uRecipes.Services.LocalRepository;
+﻿using uRecipes.Services.LocalisationSevice;
+using uRecipes.Services.LocalRepository;
 using uRecipes.Views.Demo;
 
 namespace uRecipes.ViewModels
@@ -8,8 +9,6 @@ namespace uRecipes.ViewModels
         /* User's property needed !!! */
         // public User User { get; set; }
 
-        [ObservableProperty]
-        string headerMessage;
         [ObservableProperty]
         string headerImage;
 
@@ -21,19 +20,27 @@ namespace uRecipes.ViewModels
         public ObservableCollection <Category> AllCategories { get; private set; }
 
 
-        public ChefViewModel (IRecipeLocalRepository localRepository) 
+        public ChefViewModel (IRecipeLocalRepository localRepository, INavigator navigator,
+            ILocalizationResourceManager localization) 
         {
             IsDesignMode = false;
 
             this.localRepository = localRepository;
 
-            pageNavigator = new PageNavigator();
+            pageNavigator = navigator;
+
+            this.localization = localization;
 
             HeaderMessage = "This is Chef Page...";
 
             AllCategories = new ObservableCollection<Category> ();
 
             Task.Run(async () => await GetAllCategories());
+        }
+
+        public override Task Initialise()
+        {
+            return base.Initialise();
         }
 
         [RelayCommand]
