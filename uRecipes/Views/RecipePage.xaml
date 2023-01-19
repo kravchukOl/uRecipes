@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="uRecipes.Views.RecipePage"
              xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:tabs="http://sharpnado.com"
              xmlns:model="clr-namespace:uRecipes.Models"
              xmlns:converters="clr-namespace:uRecipes.Views.Converters"
              xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
@@ -18,7 +19,6 @@
     <ContentPage.Resources>
         <tools:IsNullConverter x:Key="IsNullConverter"/>
         <tools:IsNotNullConverter x:Key="IsNotNullConverter"/>
-        <!--<converters:IsNotNullConverter x:Key="IsNotNullConverter"/>-->
         <converters:SpecCharConverter x:Key="SpecCharConverter"/>
         <converters:IsNotZeroConverter x:Key="IsNotZeroConverter"/>
     </ContentPage.Resources>
@@ -267,12 +267,11 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <Grid RowDefinitions="90, Auto">
-                        <!--Card header-->
-                        <Grid ColumnDefinitions="*,3,128"
-                                      RowDefinitions="*,3">
-
-                            <Label FontSize="Medium"
+                    <Grid ColumnDefinitions="*,3,128"
+                                      RowDefinitions="90,1,Auto">
+                        
+                        <!--Card Header-->
+                        <Label FontSize="Medium"
                                            FontFamily="HelveticaBold"
                                            VerticalOptions="Center"
                                            Grid.Column="0"
@@ -288,7 +287,7 @@
                             </Label>
 
                             <controls:QuantitySelector Grid.Column="4"
-                                                           Quantity="{Binding PersonServ}"/>
+                                                       Quantity="{Binding PersonServ}"/>
 
                             <Line Grid.Row="1"
                                       X2="5000"
@@ -306,20 +305,17 @@
                                            VerticalOptions="FillAndExpand"
                                            HorizontalOptions="End"/>
 
-                        </Grid>
 
                         <!--IngredientsSheet-->
 
                         <views1:DelayedView x:TypeArguments="views:IngredientsSheet"
-                                          x:Name="MyDelayView"
-                                          AccentColor="{StaticResource Primary}"
-                                          Animate="True"
-                                          UseActivityIndicator="True"
-                                          Grid.Row="1"/>
-
+                                            x:Name="IngredientSheet"
+                                            AccentColor="{StaticResource Primary}"
+                                            Animate="True"
+                                            UseActivityIndicator="True"
+                                            Grid.Row="2"
+                                            Grid.ColumnSpan="3"/>
                     </Grid>
-
-
                 </Border>
 
                 <!--Nutrition Card-->
@@ -337,15 +333,14 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <Grid ColumnDefinitions="*, Auto, 16, *, Auto"
-                              RowDefinitions="Auto,10,28,28,28,28"
+                    <Grid ColumnDefinitions="*, *"
+                              RowDefinitions="60,10,Auto"
                               Margin="0,0,0,0">
 
                         <Label FontSize="Medium"
                            FontFamily="HelveticaBold"
                            VerticalOptions="Center"
-                           Grid.Column="0"
-                                   Grid.ColumnSpan="3">
+                           Grid.Column="0">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Nutrition:" TextColor="{StaticResource VioletAccent}" 
@@ -359,8 +354,7 @@
                                FontAttributes="Bold"
                                VerticalOptions="Center"
                                HorizontalOptions="End"
-                               Grid.Column="1"
-                                   Grid.ColumnSpan="4">
+                               Grid.Column="1">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Calories:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
@@ -371,146 +365,15 @@
                             </Label.FormattedText>
                         </Label>
 
+                        <views1:DelayedView x:TypeArguments="views:NutritionTable"
+                                            x:Name="NutritionTable"
+                                            AccentColor="{StaticResource Primary}"
+                                            Animate="True"
+                                            UseActivityIndicator="True"
+                                            Grid.Row="2"
+                                            Grid.ColumnSpan="2"/>
 
-                        <Label Text="Energy (kJ):"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Row="2"/>
 
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="2"
-                               Grid.Column="1">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Energy_kJ}" FontSize="Subtitle"/>
-                                    <Span Text=" kJ" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Label Text="Fat:"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Row="3"/>
-
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="5"
-                               Grid.Column="1">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Fat_g}" FontSize="Subtitle"/>
-                                    <Span Text=" g" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Label Text="Carbohydrate:"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Row="4"/>
-
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="4"
-                               Grid.Column="1">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Carbohydrate_g}" FontSize="Subtitle"/>
-                                    <Span Text=" g" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Label Text="Sugar:"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Row="5"/>
-
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="3"
-                               Grid.Column="1">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Sugar_g}" FontSize="Subtitle"/>
-                                    <Span Text=" g" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Label Text="Fiber:"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Column="3"
-                               Grid.Row="2"/>
-
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="2"
-                               Grid.Column="4">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Fiber_g}" FontSize="Subtitle"/>
-                                    <Span Text=" g" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Label Text="Protein:"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Column="3"
-                               Grid.Row="3"/>
-
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="3"
-                               Grid.Column="4">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Protein_g}" FontSize="Subtitle"/>
-                                    <Span Text=" g" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Label Text="Cholesterol:"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Row="4"
-                               Grid.Column="3"/>
-
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="4"
-                               Grid.Column="4">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Cholesterol_mg}" FontSize="Subtitle"/>
-                                    <Span Text=" mg" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Label Text="Sodium:"
-                               FontAttributes="Bold"
-                               Style="{StaticResource HelveticaSubtitleViolet}"
-                               Grid.Row="5"
-                               Grid.Column="3"/>
-
-                        <Label Style="{StaticResource HelveticaSubtitleViolet}"
-                               HorizontalOptions="End"
-                               Grid.Row="5"
-                               Grid.Column="4">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding NutritionInfo.Sodium_mg}" FontSize="Subtitle"/>
-                                    <Span Text=" mg" FontSize="Subtitle"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
                     </Grid>
                 </Border>
 
@@ -519,7 +382,8 @@
                         Margin="0,-20,0,0"
                         BackgroundColor="#D7E6D4"
                         Stroke="#ECF6FF"
-                        StrokeThickness="3">
+                        StrokeThickness="3"
+                        MinimumHeightRequest="250">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -529,173 +393,47 @@
                                 Opacity="0.25"/>
                     </Border.Shadow>
 
-                    <CollectionView VerticalScrollBarVisibility="Never">
+                    <Grid ColumnDefinitions="*,*"
+                          RowDefinitions="60,Auto">
 
-                        <CollectionView.ItemsLayout>
-                            <LinearItemsLayout ItemSpacing="20"
-                                               Orientation="Vertical"/>
-                        </CollectionView.ItemsLayout>
-
-                        <CollectionView.Header>
-                            <Grid ColumnDefinitions="*,Auto">
-
-                                <Label FontSize="Medium"
+                        <Label FontSize="Medium"
                            FontFamily="HelveticaBold"
                            VerticalOptions="Center"
                            Grid.Column="0">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Preparation:" TextColor="{StaticResource VioletAccent}" 
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Preparation:" TextColor="{StaticResource VioletAccent}" 
                                           FontAttributes="Bold" CharacterSpacing="1.3" />
 
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-                                <Label FontSize="Medium"
+                        <Label FontSize="Medium"
                                FontFamily="HelveticaBold"
                                FontAttributes="Bold"
                                VerticalOptions="Center"
+                               HorizontalOptions="End"
                                Grid.Column="1">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Total time:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
-                                            <Span Text="{Binding TotalTime }" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
-                                            <Span Text=" min" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Total time:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
+                                    <Span Text="{Binding TotalTime }" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                    <Span Text=" min" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-                            </Grid>
-                        </CollectionView.Header>
+                        <views1:DelayedView x:TypeArguments="views:InstructionsList"
+                                            x:Name="InstructionList"
+                                            AccentColor="{StaticResource Primary}"
+                                            Animate="True"
+                                            UseActivityIndicator="True"
+                                            Grid.Row="1"
+                                            Grid.ColumnSpan="2"/>
 
+                    </Grid>
 
-
-                        <CollectionView.ItemsSource>
-                            <x:Array Type="{x:Type model:Instruction}">
-                                <model:Instruction Descreption="Add the porcini mushrooms to a bowl and cover with 150ml (½ cup) of hot water. Leave to sit for 30 minutes. (As you do this your kitchen will smell of so much goodness!)"
-                                                   Step="1"/>
-
-                                <model:Instruction Descreption="Blitz the mushrooms and onions in the food processor until finely chopped. (you will need to do this in a few stages as there's so many mushrooms!) Place into a large bowl."
-                                                   ImageUrl="preparation0.PNG"
-                                                   Step="2"/>
-
-                                <model:Instruction Descreption="Once you have soaked the porcini mushroom, drain and reserve the water. Roughly chop the mushrooms and add to your blitzed mushrooms."
-                                                   Step="3"/>
-
-                                <model:Instruction Descreption="Add the reserved porcini mushroom water and beetroot juice to the bowl. Stir to combine and leave to soak for 15 minutes."
-                                                   ImageUrl="preparation4.PNG"
-                                                   Step="4"/>
-
-                                <model:Instruction Descreption="Next, drain the mushroom mix through and sieve and discard the juices."
-                                                   ImageUrl="preparation5.PNG"
-                                                   Step="5"/>
-
-                                <model:Instruction Descreption="Place a large frying pan over a medium heat and add 2 tbsp of oil. Add the mushroom mix, walnuts, salt, black pepper, garlic powder and smoked paprika. Cook for 20-30 minutes continuously stirring. (Your aim here is to cook out the water from the mushrooms and dry everything out, be patient I promise it's worth it!)"
-                                                   ImageUrl="preparation6.PNG"
-                                                   Step="6"/>
-
-                                <model:Instruction Descreption="Reduce the heat and add the breadcrumbs. Stir and cook for a further 2 minutes."
-                                                   Step="7"/>
-
-                                <model:Instruction Descreption="Remove from the heat and pour out into a bowl. Leave to cool for 10 minutes or until it's cool enough to handle."
-                                                   ImageUrl="preparation9.PNG"
-                                                   Step="8"/>
-
-                                <model:Instruction Descreption="Divide into 4 and form into patties."
-                                                   ImageUrl="preparation8.PNG"
-                                                   Step="9"/>
-
-                                <model:Instruction Descreption="Place a large frying pan over a medium heat and add 1 tbsp oil. Add your patties and cook for 3-4 minutes aside or until brown."
-                                                   ImageUrl="preparation10.PNG"
-                                                   Step="10"/>
-
-                                <model:Instruction Descreption="In the remaining 1 minutes add a slice of cheese to each burger patty and cover the pan with a lid to melt the cheese."
-                                                   ImageUrl="preparation12.PNG"
-                                                   Step="11"/>
-
-                                <model:Instruction Descreption="Build your burgers with all your favourite toppings and enjoy!"
-                                                   ImageUrl="preparation14.PNG"
-                                                   Step="12"/>
-
-                            </x:Array>
-                        </CollectionView.ItemsSource>
-
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="model:Instruction">
-                                <Border Stroke="{StaticResource GreenAccent}"
-                                        BackgroundColor="Transparent"
-                                        StrokeThickness="2"
-                                        StrokeShape="RoundRectangle 8"
-                                        HorizontalOptions="Center"
-                                        Padding="16">
-
-                                    <Grid ColumnDefinitions="30,*,Auto"
-                                          RowDefinitions="*"
-                                          MinimumHeightRequest="100">
-
-                                        <Border Stroke="{StaticResource GreenAccent}"
-                                                BackgroundColor="Transparent"
-                                                StrokeThickness="2"
-                                                StrokeShape="RoundRectangle 15"
-                                                HorizontalOptions="Center"
-                                                WidthRequest="30"
-                                                HeightRequest="30"        
-                                                Padding="0"
-                                                VerticalOptions="Start"
-                                                Grid.Column="0">
-
-                                            <Label Text = "{Binding Step}"
-                                                   Style="{StaticResource HelveticaSubtitleViolet}"
-                                                   FontAttributes="Bold"
-                                                   VerticalOptions="Center"
-                                                   HorizontalOptions="Center"/>
-
-                                        </Border>
-
-                                        <Label Text="{Binding Descreption}"
-                                               Style="{StaticResource HelveticaBodyViolet}"
-                                               VerticalOptions="CenterAndExpand"
-                                               FontFamily="OpenSansRegular"
-                                               Margin="8,8,8,8"
-                                               Grid.Column="1"/>
-
-                                        <Border IsVisible="{Binding ImageUrl, Converter={StaticResource IsNotNullConverter}}"
-                                                StrokeShape="RoundRectangle 8"
-                                               WidthRequest="86"
-                                               HeightRequest="86"
-                                               Grid.Column="2"
-                                               StrokeThickness="0">
-
-                                            <Image Source="{Binding ImageUrl}"
-                                                   WidthRequest="86"
-                                                   HeightRequest="86"
-                                                   Aspect="AspectFill"/>
-                                        </Border>
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-
-                        <CollectionView.Footer>
-                            <Grid ColumnDefinitions="*">
-                                <Button Text="Step-by-step"
-                                        Style="{StaticResource BaseButtonStyle}"
-                                        ImageSource="playico.svg"
-                                        Command="{Binding SwithcIsCompletedCommand}"
-                                        Margin="0,0,0,5"
-                                        HorizontalOptions="Center">
-
-                                    <Button.Shadow>
-                                        <Shadow Brush="Black"
-                                        Offset="1,6"
-                                        Radius="6"
-                                        Opacity="0.25"/>
-                                    </Button.Shadow>
-                                </Button>
-                            </Grid>
-                        </CollectionView.Footer>
-                    </CollectionView>
                 </Border>
             </VerticalStackLayout>
         </ScrollView>

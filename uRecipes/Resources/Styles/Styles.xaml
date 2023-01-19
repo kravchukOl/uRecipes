@@ -36,13 +36,13 @@
     </Style>
 
     <Style x:Key="HelveticaSubtitleViolet" TargetType="Label">
-        <Setter Property="FontFamily" Value="Helvetica"/>
+        <Setter Property="FontFamily" Value="HelveticaRegular"/>
         <Setter Property="FontSize" Value="Subtitle"/>
         <Setter Property="TextColor" Value="{StaticResource VioletAccent}"/>
     </Style>
 
     <Style x:Key="HelveticaBodyViolet" TargetType="Label">
-        <Setter Property="FontFamily" Value="Helvetica"/>
+        <Setter Property="FontFamily" Value="HelveticaRegular"/>
         <Setter Property="FontSize" Value="Body"/>
         <Setter Property="TextColor" Value="{StaticResource VioletAccent}"/>
     </Style>

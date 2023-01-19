@@ -10,7 +10,6 @@
 
     <ContentView.Resources>
         <tools:IsNotNullConverter x:Key="IsNotNullConverter"/>
-        <!--<converters:IsNotNullConverter x:Key="IsNotNullConverter"/>-->
         <converters:SpecCharConverter x:Key="SpecCharConverter"/>
     </ContentView.Resources>
 

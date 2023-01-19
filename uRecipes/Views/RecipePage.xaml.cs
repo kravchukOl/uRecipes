@@ -1,4 +1,6 @@
+using Sharpnado.Tabs;
 using uRecipes.ViewModels;
+
 
 namespace uRecipes.Views;
 public partial class RecipePage : BasePage
@@ -11,6 +13,8 @@ public partial class RecipePage : BasePage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        MyDelayView.LoadView();
+        IngredientSheet.LoadView();
+        NutritionTable.LoadView();
+        InstructionList.LoadView();
     }
 }
