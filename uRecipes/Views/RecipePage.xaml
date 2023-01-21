@@ -426,6 +426,7 @@
 
                         <views1:DelayedView x:TypeArguments="views:InstructionsList"
                                             x:Name="InstructionList"
+                                            Margin="0,24,0,0"
                                             AccentColor="{StaticResource Primary}"
                                             Animate="True"
                                             UseActivityIndicator="True"

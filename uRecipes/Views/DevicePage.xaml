@@ -13,10 +13,22 @@
              Shell.NavBarIsVisible="False"
              Title="DevicePage">
 
-    <VerticalStackLayout>
-        <VerticalStackLayout Margin="24,24,24,0">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TabStyle" TargetType="tabs:BottomTabItem">
+                <Setter Property="SelectedTabColor" Value="#23C62F" />
+                <Setter Property="UnselectedLabelColor" Value="White" />
+                <!--<Setter Property="UnselectedIconColor" Value="LightGray"/>-->
+                <Setter Property="FontFamily" Value="LetoTextSans" />
+                <Setter Property="LabelSize" Value="18" />
+                <Setter Property="IsTextVisible" Value="False" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <!--Header-->
+    <VerticalStackLayout Margin="24,24,24,0">
+
+        <!--Header-->
             <Grid Margin="0,0,0,24"
                   ColumnDefinitions="50,*,80">
 
@@ -59,24 +71,23 @@
                 </Border>
 
             </Grid>
-            
+
             <!--Buttons-->
-            <FlexLayout JustifyContent="SpaceBetween">
-                <Button Text="Connect device"
+        <FlexLayout JustifyContent="SpaceBetween">
+            <Button Text="Connect device"
                         Style="{StaticResource BaseButtonStyle}"
                         ImageSource="wlan.svg"
                         Command="{Binding ConnectDeviceCommand}">
-                    <Button.Shadow>
-                        <Shadow Brush="Black"
+                <Button.Shadow>
+                    <Shadow Brush="Black"
                         Offset="1,6"
                         Radius="6"
                         Opacity="0.25"/>
-                    </Button.Shadow>
-                    
-                    
-                </Button>
-            </FlexLayout>
-        </VerticalStackLayout>
+                </Button.Shadow>
+
+
+            </Button>
+        </FlexLayout>
 
         <Grid RowDefinitions="*,*"
               ColumnDefinitions="*,*"
@@ -101,15 +112,33 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            
-            
+
+
 
             <Image Source="ucuisine_front2.png"
                    Grid.ColumnSpan="2"
                    Grid.RowSpan="3"
-                   Aspect="Fill"/>
+                   Aspect="Fill"
+                   Margin="-24,0"/>
 
         </Grid>
-    </VerticalStackLayout>
 
+        <tabs:TabHostView x:Name="TabHost"
+                          Margin="-24,0"
+                          BackgroundColor="#9EA5AF"
+                          HeightRequest="46">
+
+            <tabs:UnderlinedTabItem Label="Basics" Style="{StaticResource TabStyle}" 
+                                    UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem Label="Surface" Style="{StaticResource TabStyle}" 
+                                    UnderlineHeight="3"/>
+            <tabs:UnderlinedTabItem Label="Display" Style="{StaticResource TabStyle}"
+                                    UnderlineHeight="3"/>
+            <tabs:UnderlinedTabItem Label="Connection" Style="{StaticResource TabStyle}"
+                                    UnderlineHeight="3"/>
+
+
+
+        </tabs:TabHostView>
+    </VerticalStackLayout>
 </uRecipes:BasePage>
