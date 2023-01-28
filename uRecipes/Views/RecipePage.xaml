@@ -187,7 +187,8 @@
                 </Grid>
 
                 <!--Decription Card-->
-                <Border Padding="24,24,24,44"
+                <Border x:Name="DescriptionCard"
+                        Padding="24,24,24,44"
                         BackgroundColor="#F1F1F1"
                         Stroke="#ECF6FF"
                         StrokeThickness="3">
@@ -251,12 +252,15 @@
                 </Border>
 
                 <!--Ingredients Card-->
-                <Border Padding="0,0,0,44"
+                <Border x:Name="IngredientsCard"
+                        Padding="0,0,0,20"
                         Margin="0,-20,0,0"
                         BackgroundColor="#F2E8C9"
                         Stroke="#ECF6FF"
                         StrokeThickness="3"
-                        MinimumHeightRequest="250">
+                        MinimumHeightRequest="110"
+                        HeightRequest="110"
+                        >
 
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
@@ -312,18 +316,20 @@
                                             x:Name="IngredientSheet"
                                             AccentColor="{StaticResource Primary}"
                                             Animate="True"
-                                            UseActivityIndicator="True"
                                             Grid.Row="2"
                                             Grid.ColumnSpan="3"/>
                     </Grid>
                 </Border>
 
                 <!--Nutrition Card-->
-                <Border Padding="24,24,24,44"
+                <Border x:Name="NutritionCard"
+                        Padding="24,24,24,20"
                         Margin="0,-20,0,0"
                         BackgroundColor="#DDE7EC"
                         Stroke="#ECF6FF"
-                        StrokeThickness="3">
+                        StrokeThickness="3"
+                        MinimumHeightRequest="110"
+                        HeightRequest="110">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -334,7 +340,7 @@
                     </Border.Shadow>
 
                     <Grid ColumnDefinitions="*, *"
-                              RowDefinitions="60,10,Auto"
+                              RowDefinitions="50,10,Auto"
                               Margin="0,0,0,0">
 
                         <Label FontSize="Medium"
@@ -369,7 +375,6 @@
                                             x:Name="NutritionTable"
                                             AccentColor="{StaticResource Primary}"
                                             Animate="True"
-                                            UseActivityIndicator="True"
                                             Grid.Row="2"
                                             Grid.ColumnSpan="2"/>
 
@@ -378,12 +383,13 @@
                 </Border>
 
                 <!--Instructions/Preparation Card-->
-                <Border Padding="24,24,24,44"
+                <Border x:Name="InstructionsCard"
+                        Padding="24,24,24,20"
                         Margin="0,-20,0,0"
                         BackgroundColor="#D7E6D4"
                         Stroke="#ECF6FF"
                         StrokeThickness="3"
-                        MinimumHeightRequest="250">
+                        MinimumHeightRequest="110">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -394,7 +400,11 @@
                     </Border.Shadow>
 
                     <Grid ColumnDefinitions="*,*"
-                          RowDefinitions="60,Auto">
+                          RowDefinitions="50,Auto">
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Ingredients_Tapped"/>
+                        </Grid.GestureRecognizers>
 
                         <Label FontSize="Medium"
                            FontFamily="HelveticaBold"
@@ -426,13 +436,65 @@
 
                         <views1:DelayedView x:TypeArguments="views:InstructionsList"
                                             x:Name="InstructionList"
-                                            Margin="0,24,0,0"
+                                            Margin="0,10,0,0"
                                             AccentColor="{StaticResource Primary}"
                                             Animate="True"
-                                            UseActivityIndicator="True"
                                             Grid.Row="1"
                                             Grid.ColumnSpan="2"/>
 
+                    </Grid>
+
+                </Border>
+
+                <!--Comments and tips Card-->
+
+                <Border Padding="24,24,24,44"
+                        Margin="0,-20,0,0"
+                        BackgroundColor="#F1F1F1"
+                        Stroke="#ECF6FF"
+                        StrokeThickness="3"
+                        MinimumHeightRequest="90">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20,20,0,0"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                                Radius="8"
+                                Opacity="0.25"/>
+                    </Border.Shadow>
+
+                    <Grid ColumnDefinitions="*,*"
+                          RowDefinitions="50,Auto">
+
+                        <Label FontSize="Medium"
+                           FontFamily="HelveticaBold"
+                           VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                           Grid.Column="0"
+                               Grid.ColumnSpan="2">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Reviws and Tips:" TextColor="{StaticResource VioletAccent}" 
+                                          FontAttributes="Bold" CharacterSpacing="1.3" />
+
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <!--<Label FontSize="Medium"
+                               FontFamily="HelveticaBold"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               HorizontalOptions="End"
+                               Grid.Column="1">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Total time:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold" />
+                                    <Span Text="{Binding TotalTime }" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                    <Span Text=" min" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>-->
                     </Grid>
 
                 </Border>
