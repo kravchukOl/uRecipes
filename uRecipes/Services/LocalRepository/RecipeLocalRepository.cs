@@ -18,7 +18,7 @@ namespace uRecipes.Services.LocalRepository
 
         private async Task CreateConnection()
         {
-            if (connection != null)
+            if (connection is object)
                 return;
 
             var documentPath = Environment.GetFolderPath(
@@ -34,7 +34,7 @@ namespace uRecipes.Services.LocalRepository
         }
         private async Task InintializeCategories()
         {
-            if (categories != null)
+            if (categories is object)
                 return;
 
             categories = await connection.Table<Category>().ToListAsync();
@@ -52,7 +52,7 @@ namespace uRecipes.Services.LocalRepository
         }
         public async Task<int> AddItem(Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item is null) throw new ArgumentNullException(nameof(item));
 
             await CreateConnection();
             await connection.InsertAsync(item);
@@ -64,14 +64,14 @@ namespace uRecipes.Services.LocalRepository
             Recipe item, List<Category> categories = null, NutritionInfo nutrition = null,
             List<Ingredient> ingredients = null, List<Instruction> instructions = null)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
-            if (categories == null) throw new ArgumentNullException(nameof(categories));
+            if (item is null) throw new ArgumentNullException(nameof(item));
+            if (categories is null) throw new ArgumentNullException(nameof(categories));
 
             int recipeId;
 
             recipeId = await AddItem(item);
 
-            if (categories != null)
+            if (categories is object)
                 foreach (var entry in categories)
                     await connection.InsertAsync(
                         new Recipe_Category { RecipeId = recipeId, CategoryId = entry.Id });
@@ -87,7 +87,7 @@ namespace uRecipes.Services.LocalRepository
 
         public async Task AddOrUpdate(Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item is null) throw new ArgumentNullException(nameof(item));
 
             if (item.Id == 0)
             {
@@ -149,7 +149,7 @@ namespace uRecipes.Services.LocalRepository
         }
         public async Task RemoveItem(Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item is null) throw new ArgumentNullException(nameof(item));
 
             await CreateConnection();
 
@@ -167,7 +167,7 @@ namespace uRecipes.Services.LocalRepository
         }
         public async Task UpdateItem(Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item is null) throw new ArgumentNullException(nameof(item));
 
             await CreateConnection();
             await connection.UpdateAsync(item);
@@ -193,7 +193,7 @@ namespace uRecipes.Services.LocalRepository
 
             await CreateConnection();
 
-            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
+            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) is null)
             //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
             foreach (Category category in categories)
@@ -202,11 +202,11 @@ namespace uRecipes.Services.LocalRepository
         }
         public async Task<List<Category>> GetCategories(Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item is null) throw new ArgumentNullException(nameof(item));
 
             await CreateConnection();
 
-            if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
+            if (await connection.Table<Recipe>().ElementAtAsync(item.Id) is null)
                 throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
 
@@ -233,12 +233,12 @@ namespace uRecipes.Services.LocalRepository
 
         public async Task<int> SetNutrition(NutritionInfo nutrition, Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
-            if (nutrition == null) throw new ArgumentNullException(nameof(nutrition));
+            if (item is null) throw new ArgumentNullException(nameof(item));
+            if (nutrition is null) throw new ArgumentNullException(nameof(nutrition));
 
             await CreateConnection();
 
-            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
+            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) is null)
             //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
             await connection.InsertAsync(nutrition);
@@ -251,7 +251,7 @@ namespace uRecipes.Services.LocalRepository
         }
         public async Task<NutritionInfo> GetNutrition(Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item is null) throw new ArgumentNullException(nameof(item));
             if (item.NutritionId == 0) return null;
 
             await CreateConnection();
@@ -263,12 +263,12 @@ namespace uRecipes.Services.LocalRepository
 
         public async Task<int> SetIngredients(List<Ingredient> ingredients, Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
-            if (ingredients == null) throw new ArgumentNullException(nameof(ingredients));
+            if (item is null) throw new ArgumentNullException(nameof(item));
+            if (ingredients is null) throw new ArgumentNullException(nameof(ingredients));
 
             await CreateConnection();
 
-            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) == null)
+            //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) is null)
             //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
             Ingredients res = new Ingredients
@@ -286,7 +286,7 @@ namespace uRecipes.Services.LocalRepository
         }
         public async Task<List<Ingredient>> GetIngredients(Recipe item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item is null) throw new ArgumentNullException(nameof(item));
             if (item.IngredientId == 0) return null;
 
             await CreateConnection();
@@ -341,7 +341,7 @@ namespace uRecipes.Services.LocalRepository
 
         private async Task AsignRandIngredients(List <Recipe> recipes, int count)
         {
-            if (recipes == null) throw new ArgumentNullException(nameof(recipes));
+            if (recipes is null) throw new ArgumentNullException(nameof(recipes));
             if (count <= 0 || count > 40) return;
 
             await CreateConnection();
@@ -371,7 +371,7 @@ namespace uRecipes.Services.LocalRepository
         }
         private async Task AsignRandNutritions(List<Recipe> recipes)
         {
-            if (recipes == null) throw new ArgumentNullException(nameof(recipes));
+            if (recipes is null) throw new ArgumentNullException(nameof(recipes));
 
             Random rand_int = new();
 

@@ -11,7 +11,7 @@ namespace uRecipes.Views.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return !(value == null);
+            return value is object;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

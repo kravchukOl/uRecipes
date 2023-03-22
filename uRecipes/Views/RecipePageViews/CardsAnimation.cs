@@ -8,7 +8,9 @@ namespace uRecipes.Views.RecipePageViews
         {
             var animation = new Animation();
 
-            animation.WithConcurrent((f) => view.HeightRequest = f, 0, 500);
+            //animation.WithConcurrent((f) => view.HeightRequest = f, 0, 500);
+            //animation.WithConcurrent((f) => view.HeightRequest = f, 500, view.Height);
+            animation.WithConcurrent((f) => view.TranslationY = f, 0, 500);
 
             return animation;
         }
@@ -17,7 +19,8 @@ namespace uRecipes.Views.RecipePageViews
         {
             var animation = new Animation();
 
-            animation.WithConcurrent((f) => view.HeightRequest = f, 500, 0);
+            //animation.WithConcurrent((f) => view.HeightRequest = f, 600, 0);
+            animation.WithConcurrent((f) => view.TranslationY = f, 600, 0);
 
             return animation;
         }

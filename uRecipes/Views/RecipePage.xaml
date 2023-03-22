@@ -258,9 +258,7 @@
                         BackgroundColor="#F2E8C9"
                         Stroke="#ECF6FF"
                         StrokeThickness="3"
-                        MinimumHeightRequest="110"
-                        HeightRequest="110"
-                        >
+                        MinimumHeightRequest="110">
 
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
@@ -273,7 +271,11 @@
 
                     <Grid ColumnDefinitions="*,3,128"
                                       RowDefinitions="90,1,Auto">
-                        
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Ingredients_Tapped"/>
+                        </Grid.GestureRecognizers>
+
                         <!--Card Header-->
                         <Label FontSize="Medium"
                                            FontFamily="HelveticaBold"
@@ -315,7 +317,6 @@
                         <views1:DelayedView x:TypeArguments="views:IngredientsSheet"
                                             x:Name="IngredientSheet"
                                             AccentColor="{StaticResource Primary}"
-                                            Animate="True"
                                             Grid.Row="2"
                                             Grid.ColumnSpan="3"/>
                     </Grid>
@@ -401,10 +402,6 @@
 
                     <Grid ColumnDefinitions="*,*"
                           RowDefinitions="50,Auto">
-
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Ingredients_Tapped"/>
-                        </Grid.GestureRecognizers>
 
                         <Label FontSize="Medium"
                            FontFamily="HelveticaBold"

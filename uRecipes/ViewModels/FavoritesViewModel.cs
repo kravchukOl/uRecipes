@@ -74,7 +74,7 @@ namespace uRecipes.ViewModels
         }
         private void UpdateHeaderMesange()
         {
-            if (FavRecipes == null)
+            if (FavRecipes is null)
                 return;
 
             if(FavRecipes.Count == 0)
@@ -94,7 +94,7 @@ namespace uRecipes.ViewModels
         [RelayCommand]
         public override async Task Initialise()
         {
-            if (NewFavItem != null)
+            if (NewFavItem is object)
             {
                 await AddItem(NewFavItem);
                 NewFavItem = null;
@@ -115,7 +115,7 @@ namespace uRecipes.ViewModels
         {
             if (IsBusy)
                 return;
-            if (item == null)
+            if (item is null)
                 return;
 
             IsBusy = true;

@@ -43,9 +43,9 @@ namespace uRecipes.ViewModels.Demo
         [RelayCommand]
         public async Task AddRecipe()
         {
-            if (Name == null || Author == null || Description == null 
-                || PhotoURL == null || VideoURL == null 
-                || TotalTime == null || PersServ == null )
+            if (Name is null || Author is null || Description is null 
+                || PhotoURL is null || VideoURL is null 
+                || TotalTime is null || PersServ is null )
                 return;
 
             if (nameIsNotValid || authorIsNotValid || descriptionIsNotValid ||

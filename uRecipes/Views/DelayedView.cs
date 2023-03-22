@@ -5,7 +5,7 @@ namespace uRecipes.Views;
 
 public class DelayedView<TView> : LazyView<TView> where TView : View, new()
 {
-    public int DelayInMilliseconds { get; set; } = 200;
+    public int DelayInMilliseconds { get; set; } = 100;
 
     public override void LoadView()
     {
