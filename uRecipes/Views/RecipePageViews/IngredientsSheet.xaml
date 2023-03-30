@@ -85,6 +85,5 @@
 
             </DataTemplate>
         </CollectionView.ItemTemplate>
-
     </CollectionView>
 </ContentView>

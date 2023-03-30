@@ -145,11 +145,24 @@
                     <!--Demo Users bar-->
                     <HorizontalStackLayout Grid.Column="2" 
                                            HorizontalOptions="Center">
+
+                        <Border Stroke="{StaticResource PrimaryDark}"
+                                WidthRequest="34"
+                                HeightRequest="34">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="17"/>
+                            </Border.StrokeShape>
+                            
+                            
+                            
+                        </Border>
+                        
                         <Frame WidthRequest="34"
                                HeightRequest="34"
                                CornerRadius="17"
                                BorderColor="{StaticResource PrimaryDark}"
-                               IsClippedToBounds="True">
+                               IsClippedToBounds="True"
+                               VerticalOptions="Center">
 
                             <Image WidthRequest="34"
                                    HeightRequest="34"
@@ -270,7 +283,7 @@
                     </Border.Shadow>
 
                     <Grid ColumnDefinitions="*,3,128"
-                                      RowDefinitions="90,1,Auto">
+                          RowDefinitions="90,1,Auto">
 
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Ingredients_Tapped"/>
@@ -282,20 +295,21 @@
                                            VerticalOptions="Center"
                                            Grid.Column="0"
                                            Margin="24,24,0,16">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="Ingredients:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Ingredients:&#10;" TextColor="{StaticResource VioletAccent}" FontAttributes="Bold"
                                                   CharacterSpacing="1.3"/>
-                                        <Span Text="{Binding PersonServ}" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
-                                        <Span Text=" serving" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
+                                    <Span Text="{Binding PersonServ}" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                    <Span Text=" serving" TextColor="{StaticResource VioletAccent}" FontAttributes="None"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-                            <controls:QuantitySelector Grid.Column="4"
+                        <!-- QuantitySelector Control-->
+                        <controls:QuantitySelector Grid.Column="4"
                                                        Quantity="{Binding PersonServ}"/>
 
-                            <Line Grid.Row="1"
+                        <Line Grid.Row="1"
                                       X2="5000"
                                            Grid.ColumnSpan="3"
                                                StrokeThickness="1"
@@ -303,7 +317,7 @@
                                                Stroke="#77B0B7"
                                                HorizontalOptions="FillAndExpand"/>
 
-                            <Rectangle Grid.Column="1"
+                        <Rectangle Grid.Column="1"
                                            Grid.RowSpan="2"
                                            Stroke="#D48469"
                                            StrokeThickness="1"
@@ -313,10 +327,10 @@
 
 
                         <!--IngredientsSheet-->
-
                         <views1:DelayedView x:TypeArguments="views:IngredientsSheet"
                                             x:Name="IngredientSheet"
                                             AccentColor="{StaticResource Primary}"
+                                            Animate="True"
                                             Grid.Row="2"
                                             Grid.ColumnSpan="3"/>
                     </Grid>
@@ -329,8 +343,7 @@
                         BackgroundColor="#DDE7EC"
                         Stroke="#ECF6FF"
                         StrokeThickness="3"
-                        MinimumHeightRequest="110"
-                        HeightRequest="110">
+                        MinimumHeightRequest="110">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,20,0,0"/>
                     </Border.StrokeShape>
@@ -343,6 +356,10 @@
                     <Grid ColumnDefinitions="*, *"
                               RowDefinitions="50,10,Auto"
                               Margin="0,0,0,0">
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Nutrition_Tapped"/>
+                        </Grid.GestureRecognizers>
 
                         <Label FontSize="Medium"
                            FontFamily="HelveticaBold"
@@ -377,8 +394,8 @@
                                             AccentColor="{StaticResource Primary}"
                                             Animate="True"
                                             Grid.Row="2"
-                                            Grid.ColumnSpan="2"/>
-
+                                            Grid.ColumnSpan="2"
+                                            />
 
                     </Grid>
                 </Border>
@@ -444,7 +461,6 @@
                 </Border>
 
                 <!--Comments and tips Card-->
-
                 <Border Padding="24,24,24,44"
                         Margin="0,-20,0,0"
                         BackgroundColor="#F1F1F1"
@@ -495,6 +511,11 @@
                     </Grid>
 
                 </Border>
+                
+                <!--Test comments card-->
+                <!--<views:IngredientsCardView/>-->
+
+
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

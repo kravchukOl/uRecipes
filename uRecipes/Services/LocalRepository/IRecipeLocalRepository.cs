@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using uRecipes.Models;
-
-namespace uRecipes.Services.LocalRepository
+﻿namespace uRecipes.Services.LocalRepository
 {
     public interface IRecipeLocalRepository
     {
@@ -47,7 +40,5 @@ namespace uRecipes.Services.LocalRepository
 
         // DEMO METHODS
         Task LoadDemoRecipes();
-
-
     }
 }

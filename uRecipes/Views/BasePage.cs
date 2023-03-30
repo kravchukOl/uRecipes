@@ -1,5 +1,4 @@
 ﻿using uRecipes.ViewModels;
-
 namespace uRecipes;
 
 public abstract class BasePage : ContentPage
