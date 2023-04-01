@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<uRecipes:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:uRecipes.Models"
-             xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:tabs="http://sharpnado.com"
-             xmlns:converters="clr-namespace:uRecipes.Views.Converters"
-             xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
-             xmlns:controls="clr-namespace:uRecipes.Controls"
-             xmlns:uRecipes="clr-namespace:uRecipes"
-             x:Class="uRecipes.Views.DevicePage"
-             x:DataType="viewmodel:DeviceViewModel"
-             Shell.NavBarIsVisible="False"
-             Title="DevicePage">
+<uRecipes:BasePage
+    x:Class="uRecipes.Views.DevicePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:uRecipes.Controls"
+    xmlns:converters="clr-namespace:uRecipes.Views.Converters"
+    xmlns:model="clr-namespace:uRecipes.Models"
+    xmlns:tabs="http://sharpnado.com"
+    xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:uRecipes="clr-namespace:uRecipes"
+    xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+    Title="DevicePage"
+    x:DataType="viewmodel:DeviceViewModel"
+    Shell.NavBarIsVisible="False">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -28,114 +29,135 @@
 
     <VerticalStackLayout Margin="24,24,24,0">
 
-        <!--Header-->
-            <Grid Margin="0,0,0,24"
-                  ColumnDefinitions="50,*,80">
+        <!--  Header  -->
+        <Grid Margin="0,0,0,24" ColumnDefinitions="50,*,80">
 
 
-                <Image WidthRequest="50"
-                   HeightRequest="50"
-                   Grid.Column="0"
-                   Source="knobs.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer  Command="{Binding EnableDesignModeCommand}"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Image
+                Grid.Column="0"
+                HeightRequest="50"
+                Source="knobs.png"
+                WidthRequest="50">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding EnableDesignModeCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
 
-                <Label Text="{Binding HeaderMessage}"
-                       FontSize="Header"
-                       TextColor="#442244"
-                       FontFamily="Heletica"
-                       Grid.Column="1"
-                       Margin="24,0,16,0"
-                       VerticalOptions="CenterAndExpand"/>
+            <Label
+                Grid.Column="1"
+                Margin="24,0,16,0"
+                FontFamily="Heletica"
+                FontSize="Header"
+                Text="{Binding HeaderMessage}"
+                TextColor="#442244"
+                VerticalOptions="CenterAndExpand" />
 
 
-                <!--User photo frame-->
-                <Border StrokeShape="RoundRectangle 40"
-                   Padding="0"
-                   HeightRequest="80" 
-                   WidthRequest="80"
-                   BackgroundColor="Transparent"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Grid.Column="2">
+            <!--  User photo frame  -->
+            <Border
+                Grid.Column="2"
+                Padding="0"
+                BackgroundColor="Transparent"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 40"
+                VerticalOptions="Center"
+                WidthRequest="80">
 
-                    <!--Demo photo!!!-->
+                <!--  Demo photo!!!  -->
 
-                    <ImageButton Source="user_photo.jpg"
-                       Aspect="Fill"
-                       HeightRequest="80"
-                       WidthRequest="80"/>
+                <ImageButton
+                    Aspect="Fill"
+                    HeightRequest="80"
+                    Source="user_photo.jpg"
+                    WidthRequest="80" />
 
-                </Border>
+            </Border>
 
-            </Grid>
+        </Grid>
 
-            <!--Buttons-->
+        <!--  Buttons  -->
         <FlexLayout JustifyContent="SpaceBetween">
-            <Button Text="Connect device"
-                        Style="{StaticResource BaseButtonStyle}"
-                        ImageSource="wlan.svg"
-                        Command="{Binding ConnectDeviceCommand}">
+            <Button
+                Command="{Binding ConnectDeviceCommand}"
+                ImageSource="wlan.svg"
+                Style="{StaticResource BaseButtonStyle}"
+                Text="Connect device">
                 <Button.Shadow>
-                    <Shadow Brush="Black"
-                        Offset="1,6"
+                    <Shadow
+                        Brush="Black"
+                        Opacity="0.25"
                         Radius="6"
-                        Opacity="0.25"/>
+                        Offset="1,6" />
                 </Button.Shadow>
 
 
             </Button>
         </FlexLayout>
 
-        <Grid RowDefinitions="*,*"
-              ColumnDefinitions="*,*"
-              RowSpacing="22"
-              Margin="0,22,0,0">
+        <Grid
+            Margin="0,22,0,0"
+            ColumnDefinitions="*,*"
+            RowDefinitions="*,*"
+            RowSpacing="22">
 
-            <Label VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   HorizontalTextAlignment="Center">
+            <Label
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="uCuisine Pro" 
-                              TextColor="{StaticResource VioletAccent}" 
-                              FontSize="Title"
-                              FontFamily="LetoTextSans" FontAttributes="Bold"/>
-                        <Span Text="&#10;&#10;"/>
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="LetoTextSans"
+                            FontSize="Title"
+                            Text="uCuisine Pro"
+                            TextColor="{StaticResource VioletAccent}" />
+                        <Span Text="&#10;&#10;" />
 
-                        <Span Text="Waiting for your commands, May"
-                              FontSize="Medium"
-                              TextColor="{StaticResource GreenAccent}"
-                               FontFamily="LetoTextSans" FontAttributes="None"/>
+                        <Span
+                            FontAttributes="None"
+                            FontFamily="LetoTextSans"
+                            FontSize="Medium"
+                            Text="Waiting for your commands, May"
+                            TextColor="{StaticResource GreenAccent}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
 
 
 
-            <Image Source="ucuisine_front2.png"
-                   Grid.ColumnSpan="2"
-                   Grid.RowSpan="3"
-                   Aspect="Fill"
-                   Margin="-24,0"/>
+            <Image
+                Grid.RowSpan="3"
+                Grid.ColumnSpan="2"
+                Margin="-24,0"
+                Aspect="Fill"
+                Source="ucuisine_front2.png" />
 
         </Grid>
 
-        <tabs:TabHostView x:Name="TabHost"
-                          Margin="-24,0"
-                          BackgroundColor="Transparent"
-                          HeightRequest="46">
+        <tabs:TabHostView
+            x:Name="TabHost"
+            Margin="-24,0"
+            BackgroundColor="Transparent"
+            HeightRequest="46">
 
-            <tabs:UnderlinedTabItem Label="Basics" Style="{StaticResource TabStyle}" 
-                                    UnderlineHeight="3" />
-            <tabs:UnderlinedTabItem Label="Surface" Style="{StaticResource TabStyle}" 
-                                    UnderlineHeight="3"/>
-            <tabs:UnderlinedTabItem Label="Display" Style="{StaticResource TabStyle}"
-                                    UnderlineHeight="3"/>
-            <tabs:UnderlinedTabItem Label="Connection" Style="{StaticResource TabStyle}"
-                                    UnderlineHeight="3"/>
+            <tabs:UnderlinedTabItem
+                Label="Basics"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem
+                Label="Surface"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem
+                Label="Display"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem
+                Label="Connection"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
 
 
 
