@@ -1,4 +1,5 @@
-﻿using uRecipes.Services.CloudRepository;
+﻿using System.Text;
+using uRecipes.Services.CloudRepository;
 using uRecipes.Services.LocalisationSevice;
 using uRecipes.Services.LocalRepository;
 
@@ -108,6 +109,8 @@ namespace uRecipes.ViewModels
                 await GetNutrition();
                 //await GetInstructions();
 
+                Allergens = GetAlergenString();
+
             }
             catch (Exception ex)
             {
@@ -174,6 +177,38 @@ namespace uRecipes.ViewModels
         {
             await pageNavigator.MakeToast("This command is still not implemented yet");
         }
+
+        protected string GetAlergenString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            HashSet<String> allergensHashSet = new HashSet<String>();
+
+            foreach (var item in Ingredients)
+            {
+                if(item.Allergens is object)
+                {
+                    String[] input = item.Allergens.Split(", ");
+                    foreach (var inputItem in input) 
+                    {
+                        if(!allergensHashSet.Contains(inputItem))
+                            allergensHashSet.Add(inputItem);
+                    }
+                }
+            }
+
+            String[] allergensArray = allergensHashSet.ToArray();
+
+            foreach(var item in allergensArray)
+            {
+                stringBuilder.Append(item);
+                stringBuilder.Append(' ');
+            }
+
+            return stringBuilder.ToString();
+
+        }
+
 
         [RelayCommand]
         public async Task GoBack() => await pageNavigator.GoBackward();

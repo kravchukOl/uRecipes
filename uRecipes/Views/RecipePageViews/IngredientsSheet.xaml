@@ -31,6 +31,7 @@
                                                FontSize="Subtitle"
                                                FontFamily="Helvetica"
                                                FontAttributes="None"
+                           MaxLines="1"
                                                TextColor="{StaticResource VioletAccent}" 
                                                Margin="24,10,10,10"/>
 

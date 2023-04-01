@@ -16,8 +16,8 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="TabStyle" TargetType="tabs:BottomTabItem">
-                <Setter Property="SelectedTabColor" Value="#23C62F" />
-                <Setter Property="UnselectedLabelColor" Value="White" />
+                <Setter Property="SelectedTabColor" Value="{StaticResource GreenAccent}" />
+                <Setter Property="UnselectedLabelColor" Value="{StaticResource Gray450}" />
                 <!--<Setter Property="UnselectedIconColor" Value="LightGray"/>-->
                 <Setter Property="FontFamily" Value="LetoTextSans" />
                 <Setter Property="LabelSize" Value="18" />
@@ -125,7 +125,7 @@
 
         <tabs:TabHostView x:Name="TabHost"
                           Margin="-24,0"
-                          BackgroundColor="#9EA5AF"
+                          BackgroundColor="Transparent"
                           HeightRequest="46">
 
             <tabs:UnderlinedTabItem Label="Basics" Style="{StaticResource TabStyle}" 

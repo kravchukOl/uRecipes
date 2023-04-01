@@ -53,10 +53,15 @@ namespace uRecipes.ViewModels
             //List<Category> catList = await localRepository.GetAllCategories();
             //catList = new(catList.Where(x => x.CategoryTag.Equals("Popular")));
 
-            List<Category> catList = new(await localRepository.GetCategoriesByTag("Popular"));
+            List<Category> catList = new (await localRepository.GetCategoriesByTag("Popular"));
+            List<Category> catList1 = new(await localRepository.GetCategoriesByTag("RightNow"));
 
             PopCategories.Clear();
+
             foreach (var item in catList)
+                PopCategories.Add(item);
+
+            foreach( var item in catList1) 
                 PopCategories.Add(item);
 
             IsBusy = false;
@@ -98,8 +103,6 @@ namespace uRecipes.ViewModels
             {
                 IsBusy = false;
             }
-
-          
         }
 
         [RelayCommand]

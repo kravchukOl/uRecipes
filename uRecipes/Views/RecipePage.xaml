@@ -147,54 +147,48 @@
                                            HorizontalOptions="Center">
 
                         <Border Stroke="{StaticResource PrimaryDark}"
-                                WidthRequest="34"
-                                HeightRequest="34">
+                                WidthRequest="40"
+                                HeightRequest="40">
                             <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="17"/>
+                                <RoundRectangle CornerRadius="20"/>
                             </Border.StrokeShape>
-                            
-                            
-                            
-                        </Border>
-                        
-                        <Frame WidthRequest="34"
-                               HeightRequest="34"
-                               CornerRadius="17"
-                               BorderColor="{StaticResource PrimaryDark}"
-                               IsClippedToBounds="True"
-                               VerticalOptions="Center">
 
-                            <Image WidthRequest="34"
-                                   HeightRequest="34"
+                            <Image WidthRequest="40"
+                                   HeightRequest="40"
                                    Aspect="Fill"
                                    Source="user_photo1.jpg"/>
+                        </Border>
+                        
+                        <Border Stroke="{StaticResource PrimaryDark}"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                TranslationX="-17">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
 
-                        </Frame>
-                        <Frame Margin="-10,0"
-                               WidthRequest="34"
-                               HeightRequest="34"
-                               CornerRadius="17"
-                               BorderColor="{StaticResource PrimaryDark}"
-                               IsClippedToBounds="True">
-
-                            <Image WidthRequest="34"
-                                   HeightRequest="34"
+                            <Image WidthRequest="40"
+                                   HeightRequest="40"
                                    Aspect="Fill"
                                    Source="user_photo2.jpg"/>
+                        </Border>
 
-                        </Frame>
-                        <Frame WidthRequest="34"
-                               HeightRequest="34"
-                               CornerRadius="17"
-                               BorderColor="{StaticResource PrimaryDark}"
-                               IsClippedToBounds="True">
+                        <Border Stroke="{StaticResource PrimaryDark}"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                TranslationX="-34">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
 
-                            <Image WidthRequest="34"
-                                   HeightRequest="34"
+                            <Image WidthRequest="40"
+                                   HeightRequest="40"
                                    Aspect="Fill"
                                    Source="user_photo3.jpg"/>
+                        </Border>
 
-                        </Frame>
+
+                    
                     </HorizontalStackLayout>
 
                 </Grid>
@@ -215,16 +209,23 @@
                     </Border.Shadow>
 
                     <Grid RowSpacing="10"
-                          RowDefinitions="Auto,20,20,20">
+                          ColumnSpacing="8"
+                          RowDefinitions="Auto,24,24,24"
+                          ColumnDefinitions="24,*">
+                        
                         <Label Text="{Binding Description}"
                                TextColor="{StaticResource VioletAccent}"
                                FontFamily="OpenSansRegular"
-                               Grid.Row="0">
+                               Margin="0,0,0,12"
+                               Grid.Row="0"
+                               Grid.ColumnSpan="2">
                         </Label>
 
                         <Label TextColor="{StaticResource VioletAccent}"
+                               VerticalOptions="Center"
                                FontFamily="OpenSansRegular"
-                               Grid.Row="1">
+                               Grid.Row="1"
+                               Grid.Column="1">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Total Time: " FontAttributes="Bold"/>
@@ -236,8 +237,10 @@
                         </Label>
 
                         <Label TextColor="{StaticResource VioletAccent}"
+                               VerticalOptions="Center"
                                FontFamily="OpenSansRegular"
-                               Grid.Row="2">
+                               Grid.Row="2"
+                               Grid.Column="1">
 
                             <Label.FormattedText>
                                 <FormattedString>
@@ -249,17 +252,37 @@
                         </Label>
 
                         <Label TextColor="{StaticResource VioletAccent}"
+                               VerticalOptions="Center"
                                FontFamily="OpenSansRegular"
-                                Grid.Row="3">
+                               Grid.Row="3"
+                               Grid.Column="1">
 
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Allergens: " FontAttributes="Bold"/>
-                                    <Span Text="(N/I)"/>
+                                    <Span Text="{Binding Allergens}"/>
                                 </FormattedString>
                             </Label.FormattedText>
 
                         </Label>
+                        
+                        <!-- Description Icons -->
+
+                        <Image Source="piece_of_cake.svg"
+                               WidthRequest="24"
+                               HeightRequest="24"
+                               Grid.Row="2"/>
+
+                        <Image Source="clock.svg"
+                               WidthRequest="24"
+                               HeightRequest="24"
+                               Grid.Row="1"/>
+
+                        <Image Source="energy.svg"
+                               WidthRequest="24"
+                               HeightRequest="24"
+                               Grid.Row="3"/>
+
 
                     </Grid>
                 </Border>
@@ -419,6 +442,10 @@
 
                     <Grid ColumnDefinitions="*,*"
                           RowDefinitions="50,Auto">
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Instruction_Tapped"/>
+                        </Grid.GestureRecognizers>
 
                         <Label FontSize="Medium"
                            FontFamily="HelveticaBold"
