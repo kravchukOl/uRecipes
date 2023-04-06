@@ -1,9 +1,10 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:uRecipes"
-             x:Class="uRecipes.App">
-    
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="uRecipes.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:uRecipes">
+
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -11,29 +12,97 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <FontImage x:Key="ExploreIcon"
+            <FontImage
+                x:Key="ExploreIcon"
                 FontFamily="uRecipe"
-                Glyph="&#xe902;" Size="30" Color="#01B8A2" />
+                Glyph="&#xe902;"
+                Size="30"
+                Color="#01B8A2" />
 
-            <FontImage x:Key="FavoriteIcon"
+            <FontImage
+                x:Key="FavoriteIcon"
                 FontFamily="uRecipe"
-                Glyph="&#xe905;" Size="30" Color="#01B8A2"  />
+                Glyph="&#xe905;"
+                Size="30"
+                Color="#01B8A2" />
 
-            <FontImage x:Key="ChefIcon"
+            <FontImage
+                x:Key="ChefIcon"
                 FontFamily="uRecipe"
-                Glyph="&#xe901;" Size="30" Color="#01B8A2"  />
+                Glyph="&#xe901;"
+                Size="30"
+                Color="#01B8A2" />
 
-            <FontImage x:Key="SettingsIcon"
+            <FontImage
+                x:Key="SettingsIcon"
                 FontFamily="uRecipe"
-                Glyph="&#xe908;" Size="30" Color="#01B8A2"  />
+                Glyph="&#xe908;"
+                Size="30"
+                Color="#01B8A2" />
 
-            <FontImage x:Key="DeviceIcon"
+            <FontImage
+                x:Key="DeviceIcon"
                 FontFamily="uRecipe"
-                Glyph="&#xe907;" Size="50" Color="#01B8A2"  />
+                Glyph="&#xe907;"
+                Size="50"
+                Color="#01B8A2" />
 
-            <FontImage x:Key="SearchIcon"
+            <FontImage
+                x:Key="SearchIcon"
                 FontFamily="uRecipe"
-                Glyph="&#xe903;" Size="30" Color="#888888"  />
+                Glyph="&#xe903;"
+                Size="30"
+                Color="#888888" />
+
+            <FontImage
+                x:Key="KnobWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe907;"
+                Size="30"
+                Color="White" />
+            
+            <FontImage 
+                x:Key="BordersWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe91a;"
+                Size="30"
+                Color="White" />
+
+            <FontImage 
+                x:Key="AimWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe918;"
+                Size="30"
+                Color="White" />
+
+            <FontImage 
+                x:Key="TempWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe916;"
+                Size="30"
+                Color="White" />
+
+            <FontImage 
+                x:Key="FrameGray"
+                FontFamily="uRecipe"
+                Glyph="&#xe91d;"
+                Size="30"
+                Color="{StaticResource Gray450}" />
+
+            <FontImage 
+                x:Key="HeatGreen"
+                FontFamily="uRecipe"
+                Glyph="&#xe915;"
+                Size="30"
+                Color="{StaticResource GreenAccent2}" />
+
+            <FontImage 
+                x:Key="UsualGray"
+                FontFamily="uRecipe"
+                Glyph="&#xe914;"
+                Size="30"
+                Color="{StaticResource Gray450}" />
+
 
 
         </ResourceDictionary>

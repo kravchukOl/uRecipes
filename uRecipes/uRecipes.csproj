@@ -63,9 +63,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-	  <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 	  <PackageReference Include="Sharpnado.Tabs.Maui" Version="3.0.1" />
 	  <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.2" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
@@ -110,5 +110,7 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionuRecipesHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 	
 </Project>

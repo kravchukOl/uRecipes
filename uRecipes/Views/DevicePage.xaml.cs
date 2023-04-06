@@ -1,4 +1,5 @@
 using uRecipes.ViewModels;
+using Sharpnado;
 
 namespace uRecipes.Views;
 
@@ -8,6 +9,8 @@ public partial class DevicePage : BasePage
 	{
 		InitializeComponent();
 	}
+
+
 
     protected override void OnAppearing()
     {

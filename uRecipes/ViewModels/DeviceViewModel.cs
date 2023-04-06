@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using uRecipes.Services.LocalisationSevice;
+﻿using uRecipes.Services.LocalisationSevice;
 
 namespace uRecipes.ViewModels
 {
     public partial class DeviceViewModel : BaseViewModel
     {
+
+        //private int _selectedViewModelIndex;
+
+        //public int SelectedViewModelIndex
+        //{
+        //    get => _selectedViewModelIndex;
+        //    set => SetAndRaise(ref _selectedViewModelIndex, value);
+        //}
 
         [ObservableProperty]
         bool isOffline;

@@ -8,6 +8,7 @@ using uRecipes.Services.LocalisationSevice;
 using uRecipes.ViewModels.Demo;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Handlers;
 using Sharpnado.Tabs;
 
 namespace uRecipes;
@@ -44,7 +45,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ExploreViewModel>();
         builder.Services.AddSingleton<DeviceViewModel>();
         builder.Services.AddSingleton<SettingsViewModel>();
-
+      
         builder.Services.AddTransient<RecipeViewModel>();
 
         // Pages Registrations
@@ -60,6 +61,8 @@ public static class MauiProgram
         builder.Services.AddTransient<AddRecipePage>();
         // Test ViewModels registrations:
         builder.Services.AddTransient<AddRecipeViewModel>();
+
+
 
         return builder.Build();
     }
