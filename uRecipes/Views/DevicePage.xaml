@@ -156,8 +156,7 @@
                 Grid.Row="0"
                 Margin="-24,0"
                 BackgroundColor="Transparent"
-                HeightRequest="46"
-                SelectedIndex="0">
+                HeightRequest="46">
 
                 <tabs:UnderlinedTabItem
                     Label="Basics"
@@ -183,8 +182,96 @@
                 Animate="True"
                 SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}">
 
-                <ContentView x:Name="TabBasics" Padding="0,12"
-                             VerticalOptions="Center">
+
+
+                <!--  Surface Tab  -->
+                <ContentView
+                    x:Name="TabBasics"
+                    Padding="0,12"
+                    VerticalOptions="Center">
+
+                    <Grid
+                        ColumnDefinitions=" Auto, Auto , Auto"
+                        RowDefinitions="*,*"
+                        ColumnSpacing="12"
+                        HorizontalOptions="Center"
+                        RowSpacing="4"
+                        VerticalOptions="Center">
+
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            ImageSource="{StaticResource TestWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            MaximumWidthRequest="100"
+                            Text="Self Test"
+                            Grid.RowSpan="2">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Grid.RowSpan="2"
+                            ImageSource="{StaticResource BublesWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            Text="Washing">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            ImageSource="{StaticResource AimWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            Text="Set Zero">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            ImageSource="{StaticResource BordersWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            Text="Set Borders">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
+
+
+                    </Grid>
+
+
+                </ContentView>
+
+
+
+
+
+                <!--  Surface Tab  -->
+                <ContentView
+                    x:Name="TabSurface"
+                    Padding="0,12"
+                    VerticalOptions="Center">
 
                     <Grid
                         ColumnDefinitions="*,*,*,*"
@@ -192,7 +279,7 @@
                         HorizontalOptions="Center"
                         RowDefinitions="*,*"
                         RowSpacing="12"
-                        VerticalOptions="CenterAndExpand">
+                        VerticalOptions="Center">
 
                         <Button
                             Grid.Row="0"
@@ -237,8 +324,8 @@
                             BackgroundColor="White"
                             BorderColor="{StaticResource GreenAccent}"
                             BorderWidth="2"
-                            Style="{StaticResource DeviceButtonStyle}"
                             ImageSource="{StaticResource HeatGreen}"
+                            Style="{StaticResource DeviceButtonStyle}"
                             Text="Heating"
                             TextColor="{StaticResource GreenAccent2}">
                             <Button.Shadow>
@@ -255,10 +342,10 @@
                             BackgroundColor="White"
                             BorderColor="{StaticResource Gray450}"
                             BorderWidth="2"
+                            ImageSource="{StaticResource UsualGray}"
                             Style="{StaticResource DeviceButtonStyle}"
                             Text="Usual"
-                            TextColor="{StaticResource Gray450}"
-                            ImageSource="{StaticResource UsualGray}">
+                            TextColor="{StaticResource Gray450}">
                             <Button.Shadow>
                                 <Shadow
                                     Brush="Black"
@@ -324,11 +411,10 @@
                         </Button>
 
                     </Grid>
+
                 </ContentView>
 
-                <Label Text="This is  WorkSurface's Tab " />
                 <Label Text="This is  Displays's Tab " />
-                <Label Text="This is  Connections's Tab " />
 
 
             </tabs:ViewSwitcher>

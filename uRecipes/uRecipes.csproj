@@ -111,6 +111,10 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Views\DevicePageViews\" />
+	</ItemGroup>
+
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionuRecipesHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 	
 </Project>
