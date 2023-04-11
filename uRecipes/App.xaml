@@ -117,6 +117,34 @@
                 Size="45"
                 Color="{StaticResource White}" />
 
+            <FontImage 
+                x:Key="BulbWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe909;"
+                Size="30"
+                Color="{StaticResource White}" />
+
+            <FontImage 
+                x:Key="ThemeWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe917;"
+                Size="30"
+                Color="{StaticResource White}" />
+
+            <FontImage 
+                x:Key="UnitsWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe91f;"
+                Size="30"
+                Color="{StaticResource White}" />
+
+            <FontImage 
+                x:Key="TimerWhite"
+                FontFamily="uRecipe"
+                Glyph="&#xe919;"
+                Size="30"
+                Color="{StaticResource White}" />
+
 
 
         </ResourceDictionary>

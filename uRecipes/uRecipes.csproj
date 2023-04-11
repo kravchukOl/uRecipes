@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\icons_png\screan_sample.png" />
 	  <None Remove="Resources\Images\icons_svg\clock.svg" />
 	  <None Remove="Resources\Images\icons_svg\energy.svg" />
 	  <None Remove="Resources\Images\icons_svg\piece_of_cake.svg" />
