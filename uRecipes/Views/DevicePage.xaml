@@ -27,14 +27,17 @@
             </Style>
 
             <Style x:Key="DeviceButtonStyle" TargetType="Button">
-                <Setter Property="Padding" Value="4,4,4,0" />
-                <Setter Property="ContentLayout" Value="Top,0" />
+                <Setter Property="Padding" Value="2,4,2,0" />
+                <Setter Property="ContentLayout" Value="Top,-8" />
                 <Setter Property="BackgroundColor" Value="{StaticResource GreenAccent}" />
                 <Setter Property="CornerRadius" Value="8" />
                 <Setter Property="FontFamily" Value="Helvetica" />
                 <Setter Property="FontSize" Value="Micro" />
                 <Setter Property="MinimumHeightRequest" Value="55" />
-                <Setter Property="MinimumWidthRequest" Value="60" />
+                <Setter Property="MinimumWidthRequest" Value="80" />
+                <Setter Property="MaximumWidthRequest" Value="100" />
+                <Setter Property="MaximumHeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="60" />
             </Style>
 
         </ResourceDictionary>
@@ -183,29 +186,24 @@
                 SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}">
 
 
-
-                <!--  Surface Tab  -->
-                <ContentView
-                    x:Name="TabBasics"
-                    Padding="0,12"
-                    VerticalOptions="Center">
+                <!--  Basics Tab  -->
+                <ContentView x:Name="TabBasics" Padding="0,12">
 
                     <Grid
-                        ColumnDefinitions=" Auto, Auto , Auto"
-                        RowDefinitions="*,*"
-                        ColumnSpacing="12"
+                        ColumnDefinitions=" 70, 70 ,70"
+                        ColumnSpacing="8"
                         HorizontalOptions="Center"
+                        RowDefinitions="60,60"
                         RowSpacing="4"
                         VerticalOptions="Center">
 
                         <Button
                             Grid.Row="0"
+                            Grid.RowSpan="2"
                             Grid.Column="0"
                             ImageSource="{StaticResource TestWhite}"
                             Style="{StaticResource DeviceButtonStyle}"
-                            MaximumWidthRequest="100"
-                            Text="Self Test"
-                            Grid.RowSpan="2">
+                            Text="Self Test">
                             <Button.Shadow>
                                 <Shadow
                                     Brush="Black"
@@ -216,8 +214,8 @@
 
                         <Button
                             Grid.Row="0"
-                            Grid.Column="1"
                             Grid.RowSpan="2"
+                            Grid.Column="1"
                             ImageSource="{StaticResource BublesWhite}"
                             Style="{StaticResource DeviceButtonStyle}"
                             Text="Washing">
@@ -260,11 +258,7 @@
 
                     </Grid>
 
-
                 </ContentView>
-
-
-
 
 
                 <!--  Surface Tab  -->
@@ -414,12 +408,95 @@
 
                 </ContentView>
 
-                <Label Text="This is  Displays's Tab " />
+
+                <!--  Display View  -->
+
+                <ContentView
+                    x:Name="DispalyTab"
+                    Padding="0,4"
+                    VerticalOptions="Center">
+
+                    <Grid
+                        ColumnDefinitions="Auto, Auto, Auto, Auto"
+                        ColumnSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        RowDefinitions="65, 65"
+                        RowSpacing="8">
+
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HeightRequest="55"
+                            ImageSource="{StaticResource BulbWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            Text="Backlight">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            HeightRequest="55"
+                            ImageSource="{StaticResource ThemeWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            Text="Theme">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
 
 
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            HeightRequest="55"
+                            ImageSource="{StaticResource UnitsWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            Text="Units">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            HeightRequest="55"
+                            ImageSource="{StaticResource TimerWhite}"
+                            Style="{StaticResource DeviceButtonStyle}"
+                            Text="SmartTimer">
+                            <Button.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="10" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <Image
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Aspect="AspectFill"
+                            Source="screan_sample.png" />
+
+                    </Grid>
+
+                </ContentView>
+                <Label Text="This is  Connection Tab " />
             </tabs:ViewSwitcher>
-
         </Grid>
-
     </VerticalStackLayout>
 </uRecipes:BasePage>
