@@ -121,7 +121,7 @@
                 x:Key="BulbWhite"
                 FontFamily="uRecipe"
                 Glyph="&#xe909;"
-                Size="30"
+                Size="34"
                 Color="{StaticResource White}" />
 
             <FontImage 
