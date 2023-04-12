@@ -5,13 +5,9 @@ namespace uRecipes.ViewModels
     public partial class DeviceViewModel : BaseViewModel
     {
 
-        //private int _selectedViewModelIndex;
+        [ObservableProperty]
+        private int selectedViewModelIndex;
 
-        //public int SelectedViewModelIndex
-        //{
-        //    get => _selectedViewModelIndex;
-        //    set => SetAndRaise(ref _selectedViewModelIndex, value);
-        //}
 
         [ObservableProperty]
         bool isOffline;
@@ -25,13 +21,14 @@ namespace uRecipes.ViewModels
             pageNavigator = navigator;
             this.localization = localization;
 
-            HeaderMessage = (string) this.localization["deviceDefaultMessage"] 
+            this.HeaderMessage = (string) this.localization["deviceDefaultMessage"] 
                 ?? "Here, you can adjust your device's settings";
         }
 
-        public override Task Initialise()
+        public override Task Initialize()
         {
-            return base.Initialise();
+            SelectedViewModelIndex = 0;
+            return Task.CompletedTask;
         }
 
         [RelayCommand]

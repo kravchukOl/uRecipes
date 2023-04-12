@@ -21,7 +21,7 @@ namespace uRecipes.ViewModels
         bool isNotBusy => !IsBusy;
 
 
-        public virtual Task Initialise()
+        public virtual Task Initialize()
         {
             return Task.CompletedTask;
         }

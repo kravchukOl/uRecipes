@@ -38,9 +38,9 @@ namespace uRecipes.ViewModels
             Task.Run(async () => await GetAllCategories());
         }
 
-        public override Task Initialise()
+        public override Task Initialize()
         {
-            return base.Initialise();
+            return base.Initialize();
         }
 
         [RelayCommand]

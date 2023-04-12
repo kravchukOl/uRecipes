@@ -7,11 +7,9 @@
     xmlns:converters="clr-namespace:uRecipes.Views.Converters"
     xmlns:model="clr-namespace:uRecipes.Models"
     xmlns:tabs="http://sharpnado.com"
-    xmlns:tabs1="http://sharpnado.com"
     xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:uRecipes="clr-namespace:uRecipes"
     xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
-    Title="DevicePage"
     x:DataType="viewmodel:DeviceViewModel"
     Shell.NavBarIsVisible="False">
 
@@ -110,6 +108,7 @@
             </Button>
         </FlexLayout>
 
+        <!--  Device Image and Title  -->
         <Grid
             Margin="0,22,0,0"
             ColumnDefinitions="*,*"
@@ -152,351 +151,367 @@
         </Grid>
 
 
-        <Grid RowDefinitions="Auto, *">
+        <tabs:TabHostView
+            x:Name="TabHost"
+            Grid.Row="0"
+            Margin="-24,0"
+            BackgroundColor="Transparent"
+            HeightRequest="40"
+            SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
 
-            <tabs:TabHostView
-                x:Name="TabHost"
-                Grid.Row="0"
-                Margin="-24,0"
-                BackgroundColor="Transparent"
-                HeightRequest="46">
-
-                <tabs:UnderlinedTabItem
-                    Label="Basics"
-                    Style="{StaticResource TabStyle}"
-                    UnderlineHeight="3" />
-                <tabs:UnderlinedTabItem
-                    Label="Surface"
-                    Style="{StaticResource TabStyle}"
-                    UnderlineHeight="3" />
-                <tabs:UnderlinedTabItem
-                    Label="Display"
-                    Style="{StaticResource TabStyle}"
-                    UnderlineHeight="3" />
-                <tabs:UnderlinedTabItem
+            <tabs:UnderlinedTabItem
+                Label="Basics"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem
+                Label="Surface"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem
+                Label="Display"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <!--<tabs:UnderlinedTabItem
                     Label="Connection"
                     Style="{StaticResource TabStyle}"
-                    UnderlineHeight="3" />
-            </tabs:TabHostView>
+                    UnderlineHeight="3" />-->
 
-            <tabs:ViewSwitcher
-                x:Name="Switcher"
-                Grid.Row="1"
-                Animate="True"
-                SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}">
+        </tabs:TabHostView>
 
-
-                <!--  Basics Tab  -->
-                <ContentView x:Name="TabBasics" Padding="0,12">
-
-                    <Grid
-                        ColumnDefinitions=" 70, 70 ,70"
-                        ColumnSpacing="8"
-                        HorizontalOptions="Center"
-                        RowDefinitions="60,60"
-                        RowSpacing="4"
-                        VerticalOptions="Center">
-
-                        <Button
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="0"
-                            ImageSource="{StaticResource TestWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Self Test">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="1"
-                            ImageSource="{StaticResource BublesWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Washing">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            ImageSource="{StaticResource AimWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Set Zero">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="0"
-                            Grid.Column="3"
-                            ImageSource="{StaticResource BordersWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Set Borders">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
+        <tabs:ViewSwitcher
+            x:Name="SwitcherView"
+            Grid.Row="1"
+            Animate="True"
+            HeightRequest="168"
+            HorizontalOptions="CenterAndExpand"
+            SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}"
+            VerticalOptions="CenterAndExpand">
 
 
-                    </Grid>
+            <!--  Basics Tab  -->
+            <ContentView x:Name="TabBasics" Padding="0,12">
 
-                </ContentView>
-
-
-                <!--  Surface Tab  -->
-                <ContentView
-                    x:Name="TabSurface"
-                    Padding="0,12"
+                <Grid
+                    Padding="4"
+                    ColumnDefinitions=" 70, 70 ,70"
+                    ColumnSpacing="8"
+                    HorizontalOptions="Center"
+                    RowDefinitions="60,60"
+                    RowSpacing="4"
                     VerticalOptions="Center">
 
-                    <Grid
-                        ColumnDefinitions="*,*,*,*"
-                        ColumnSpacing="12"
-                        HorizontalOptions="Center"
-                        RowDefinitions="*,*"
-                        RowSpacing="12"
-                        VerticalOptions="Center">
+                    <Button
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        ImageSource="{StaticResource TestWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Self Test">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
 
-                        <Button
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            BackgroundColor="White"
-                            BorderColor="{StaticResource GreenAccent}"
-                            BorderWidth="2"
-                            ImageSource="{StaticResource ExploreIcon}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Circle"
-                            TextColor="{StaticResource GreenAccent2}">
+                    <Button
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        ImageSource="{StaticResource BublesWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Washing">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
 
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        ImageSource="{StaticResource AimWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Set Zero">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
 
-                        <Button
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            BackgroundColor="White"
-                            BorderColor="{StaticResource Gray450}"
-                            BorderWidth="2"
-                            ImageSource="{StaticResource FrameGray}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Polygon"
-                            TextColor="{StaticResource Gray450}">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            BackgroundColor="White"
-                            BorderColor="{StaticResource GreenAccent}"
-                            BorderWidth="2"
-                            ImageSource="{StaticResource HeatGreen}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Heating"
-                            TextColor="{StaticResource GreenAccent2}">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            BackgroundColor="White"
-                            BorderColor="{StaticResource Gray450}"
-                            BorderWidth="2"
-                            ImageSource="{StaticResource UsualGray}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Usual"
-                            TextColor="{StaticResource Gray450}">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="0"
-                            Grid.Column="2"
-                            ImageSource="{StaticResource AimWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Set Zero">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="0"
-                            Grid.Column="3"
-                            ImageSource="{StaticResource BordersWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Set Borders">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            ImageSource="{StaticResource TempWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Set scaling">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="1"
-                            Grid.Column="2"
-                            ImageSource="{StaticResource KnobWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Calibrate">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                    </Grid>
-
-                </ContentView>
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        ImageSource="{StaticResource BordersWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Set Borders">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
 
 
-                <!--  Display View  -->
+                </Grid>
 
-                <ContentView
-                    x:Name="DispalyTab"
-                    Padding="0,4"
-                    VerticalOptions="Center">
-
-                    <Grid
-                        ColumnDefinitions="Auto, Auto, Auto, Auto"
-                        ColumnSpacing="20"
-                        HorizontalOptions="CenterAndExpand"
-                        RowDefinitions="65, 65"
-                        RowSpacing="8">
-
-                        <Button
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            HeightRequest="55"
-                            ImageSource="{StaticResource BulbWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Backlight">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
-
-                        <Button
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            HeightRequest="55"
-                            ImageSource="{StaticResource ThemeWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Theme">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
+            </ContentView>
 
 
-                        <Button
-                            Grid.Row="0"
-                            Grid.Column="3"
-                            HeightRequest="55"
-                            ImageSource="{StaticResource UnitsWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="Units">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
+            <!--  Surface Tab  -->
+            <ContentView
+                x:Name="TabSurface"
+                Padding="0,12"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand">
 
-                        <Button
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            HeightRequest="55"
-                            ImageSource="{StaticResource TimerWhite}"
-                            Style="{StaticResource DeviceButtonStyle}"
-                            Text="SmartTimer">
-                            <Button.Shadow>
-                                <Shadow
-                                    Brush="Black"
-                                    Opacity="0.25"
-                                    Radius="10" />
-                            </Button.Shadow>
-                        </Button>
+                <Grid
+                    ColumnDefinitions="*,*,*,*"
+                    ColumnSpacing="12"
+                    HorizontalOptions="Fill"
+                    RowDefinitions="65, 65"
+                    RowSpacing="12"
+                    VerticalOptions="CenterAndExpand">
 
-                        <Image
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="1"
-                            Grid.ColumnSpan="2"
-                            Aspect="AspectFill"
-                            Source="screan_sample.png" />
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        BackgroundColor="White"
+                        BorderColor="{StaticResource GreenAccent}"
+                        BorderWidth="2"
+                        ImageSource="{StaticResource ExploreIcon}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Circle"
+                        HeightRequest="60"
+                        TextColor="{StaticResource GreenAccent2}">
 
-                    </Grid>
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
 
-                </ContentView>
-                <Label Text="This is  Connection Tab " />
-            </tabs:ViewSwitcher>
-        </Grid>
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        BackgroundColor="White"
+                        BorderColor="{StaticResource Gray450}"
+                        BorderWidth="2"
+                        ImageSource="{StaticResource FrameGray}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Polygon"
+                        HeightRequest="60"
+                        TextColor="{StaticResource Gray450}">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        BackgroundColor="White"
+                        BorderColor="{StaticResource GreenAccent}"
+                        BorderWidth="2"
+                        ImageSource="{StaticResource HeatGreen}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Heating"
+                        HeightRequest="60"
+                        TextColor="{StaticResource GreenAccent2}">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        BackgroundColor="White"
+                        BorderColor="{StaticResource Gray450}"
+                        BorderWidth="2"
+                        ImageSource="{StaticResource UsualGray}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Usual"
+                        HeightRequest="60"
+                        TextColor="{StaticResource Gray450}">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        ImageSource="{StaticResource AimWhite}"
+                        HeightRequest="60"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Set Zero">
+                        
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        HeightRequest="60"
+                        ImageSource="{StaticResource BordersWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Set Borders">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        HeightRequest="60"
+                        ImageSource="{StaticResource TempWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Set scaling">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        HeightRequest="60"
+                        ImageSource="{StaticResource KnobWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Calibrate">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                </Grid>
+
+            </ContentView>
+
+
+            <!--  Display View  -->
+
+            <ContentView
+                x:Name="DispalyTab"
+                Padding="0,12"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand">
+
+                <Grid
+                    ColumnDefinitions="*, *, *, *"
+                    ColumnSpacing="20"
+                    RowDefinitions="65, 65"
+                    RowSpacing="8">
+
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HeightRequest="55"
+                        ImageSource="{StaticResource BulbWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Backlight">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HeightRequest="55"
+                        ImageSource="{StaticResource ThemeWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Theme">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        HeightRequest="55"
+                        ImageSource="{StaticResource UnitsWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="Units">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        HeightRequest="55"
+                        ImageSource="{StaticResource TimerWhite}"
+                        Style="{StaticResource DeviceButtonStyle}"
+                        Text="SmartTimer">
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.25"
+                                Radius="10" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Aspect="AspectFill"
+                        Source="screan_sample.png"/>
+
+                </Grid>
+
+            </ContentView>
+
+            <!--<CollectionView x:Name="ConnectionTab">
+
+                </CollectionView>-->
+        </tabs:ViewSwitcher>
     </VerticalStackLayout>
 </uRecipes:BasePage>

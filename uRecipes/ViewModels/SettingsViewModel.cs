@@ -24,9 +24,9 @@ namespace uRecipes.ViewModels
             HeaderMessage = "This is Settings Page...";
         }
 
-        public override Task Initialise()
+        public override Task Initialize()
         {
-            return base.Initialise();
+            return base.Initialize();
         }
 
         // Enables Design Mode

@@ -8,6 +8,7 @@ public partial class DevicePage : BasePage
     public DevicePage( DeviceViewModel viewModel ) : base( viewModel )
 	{
 		InitializeComponent();
+
 	}
 
 

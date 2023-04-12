@@ -74,7 +74,7 @@ namespace uRecipes.ViewModels
         }
 
         [RelayCommand]
-        public override async Task Initialise()
+        public override async Task Initialize()
         {
             try
             {

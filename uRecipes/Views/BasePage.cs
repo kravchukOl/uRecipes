@@ -14,6 +14,6 @@ public abstract class BasePage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        _viewModel.Initialise();
+        _viewModel.Initialize();
     }
 }
