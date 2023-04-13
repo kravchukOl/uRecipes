@@ -197,7 +197,7 @@
                     ColumnSpacing="8"
                     HorizontalOptions="Center"
                     RowDefinitions="60,60"
-                    RowSpacing="4"
+                    RowSpacing="20"
                     VerticalOptions="Center">
 
                     <Button

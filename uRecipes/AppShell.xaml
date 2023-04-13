@@ -46,9 +46,11 @@
             <ShellContent ContentTemplate="{DataTemplate views:DevicePage}"/>
         </Tab>
 
+        <!-- This tab is disabled -->
         <Tab Title="Chef" 
              Icon="{DynamicResource ChefIcon}" 
              Route="ChefPage"
+             IsVisible="False"
              Shell.NavBarIsVisible="False">
             <ShellContent ContentTemplate="{DataTemplate views:ChefPage}"/>
         </Tab>
