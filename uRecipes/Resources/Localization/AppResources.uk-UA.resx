@@ -120,6 +120,12 @@
   <data name="deviceDefaultMessage" xml:space="preserve">
     <value>Тут Ви можете налаштувати свій пристрій uCuisine</value>
   </data>
+  <data name="device_view_button_connect" xml:space="preserve">
+    <value>Підключити пристрій</value>
+  </data>
+  <data name="device_view_device_message" xml:space="preserve">
+    <value>Давай приготуємо щось разом</value>
+  </data>
   <data name="device_view_tab_basics" xml:space="preserve">
     <value>Основні</value>
   </data>

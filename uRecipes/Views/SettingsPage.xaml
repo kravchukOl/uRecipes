@@ -1,65 +1,125 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<uRecipes:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:uRecipes="clr-namespace:uRecipes"
-             xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:model="clr-namespace:uRecipes.Models"
-             xmlns:converters="clr-namespace:uRecipes.Views.Converters"
-             xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
-             xmlns:controls="clr-namespace:uRecipes.Controls"
-             xmlns:views="clr-namespace:uRecipes.Views.RecipePageViews"
-             x:Class="uRecipes.Views.SettingsPage"
-             x:DataType="viewmodel:SettingsViewModel"
-             Shell.NavBarIsVisible="False"
-             Title="SettingsPage">
-    
-    <VerticalStackLayout Margin="24,24,24,0">
+<uRecipes:BasePage
+    x:Class="uRecipes.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:uRecipes.Views.Converters"
+    xmlns:model="clr-namespace:uRecipes.Models"
+    xmlns:tabs="http://sharpnado.com"
+    xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:uRecipes="clr-namespace:uRecipes"
+    xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+    xmlns:views="clr-namespace:uRecipes.Views.RecipePageViews"
+    Title="SettingsPage"
+    x:DataType="viewmodel:SettingsViewModel"
+    Shell.NavBarIsVisible="False">
 
-        <!--Header-->
-        <Grid Margin="0,0,0,24"
-              ColumnDefinitions="50,*,80">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TabStyle" TargetType="tabs:BottomTabItem">
+                <Setter Property="SelectedTabColor" Value="{StaticResource GreenAccent2}" />
+                <Setter Property="UnselectedLabelColor" Value="{StaticResource Gray450}" />
+                <!--<Setter Property="UnselectedIconColor" Value="LightGray"/>-->
+                <Setter Property="FontFamily" Value="LetoTextSans" />
+                <Setter Property="LabelSize" Value="18" />
+                <Setter Property="IsTextVisible" Value="False" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <Image WidthRequest="50"
-                   HeightRequest="50"
-                   Grid.Column="0"
-                   Source="knobs.png">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Command="{Binding EnableDesignModeCommand}"/>
-                </Image.GestureRecognizers>
-            </Image>
+    <Grid Margin="24,24,24,0" RowDefinitions="*,2*,7*">
 
-            <Label Text="{Binding HeaderMessage}"
-                       FontSize="Header"
-                       TextColor="#442244"
-                       FontFamily="Heletica"
-                       Grid.Column="1"
-                       Margin="24,0,16,0"
-                       VerticalOptions="CenterAndExpand"/>
+        <!--Header -->
+        <Grid
+            Margin="0,0,0,24"
+            ColumnDefinitions="*,80"
+            RowDefinitions="40,40">
 
+            <Label
+                FontFamily="Leto Text Sans Defect"
+                FontSize="28"
+                Text="Settings"
+                TextColor="{StaticResource GreenAccent}" />
 
-            <!--User photo frame-->
-            <Border StrokeShape="RoundRectangle 40"
-                   Padding="0"
-                   HeightRequest="80" 
-                   WidthRequest="80"
-                   BackgroundColor="Transparent"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Grid.Column="2">
-
-                <!--Demo photo!!!-->
-
-                <ImageButton Source="user_photo.jpg"
-                       Aspect="Fill"
-                       HeightRequest="80"
-                       WidthRequest="80"/>
-
-            </Border>
-
+            <!--<Label
+                Grid.Row="1"
+                FontFamily="Heletica"
+                FontSize="Default"
+                Text="{Binding HeaderMessage}"
+                TextColor="{StaticResource VioletAccent}"
+                VerticalOptions="End" />-->
         </Grid>
 
-        <Label FontSize="Title"
+        <Border Grid.Row="1">
+            <Grid ColumnDefinitions="3*,5*,*">
+                <!--  User Avatar  -->
+                <Border
+                    Grid.Column="0"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 50"
+                    VerticalOptions="Center"
+                    WidthRequest="100"
+                    Margin="20,12">
+
+                    <!--  Demo photo!!!  -->
+                    <ImageButton
+                        Aspect="Fill"
+                        HeightRequest="100"
+                        Source="user_photo.jpg"
+                        WidthRequest="100" />
+                </Border>
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start">
+
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontFamily="Helvetica"
+                                FontSize="Large"
+                                Text="May Smith"/>
+                            <Span
+                                FontFamily="Helvetica"
+                                FontSize="Body"
+                                Text="_maySm@" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+        </Border>
+
+
+        <tabs:TabHostView
+            Grid.Row="2"
+            VerticalOptions="Start"
+            BackgroundColor="Transparent"
+            HeightRequest="50"
+            SelectedIndex="0">
+
+            <tabs:UnderlinedTabItem
+                Label="ACCOUNT"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem
+                Label="SOCIAL"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <tabs:UnderlinedTabItem
+                Label="DEVICES"
+                Style="{StaticResource TabStyle}"
+                UnderlineHeight="3" />
+            <!--<tabs:UnderlinedTabItem
+                    Label="Connection"
+                    Style="{StaticResource TabStyle}"
+                    UnderlineHeight="3" />-->
+        </tabs:TabHostView>
+
+
+        <!--<Label FontSize="Title"
                Text="Title"/>
 
         <Label FontSize="Header"
@@ -87,6 +147,7 @@
                Text="Small"/>
 
         <Label FontSize="Subtitle"
-               Text="Subtitle"/>
-    </VerticalStackLayout>
+               Text="Subtitle"/>-->
+
+    </Grid>
 </uRecipes:BasePage>

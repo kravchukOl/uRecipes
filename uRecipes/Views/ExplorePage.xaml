@@ -1,109 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<uRecipes:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:model="clr-namespace:uRecipes.Models"
-             xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
-             xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
-             xmlns:uRecipes="clr-namespace:uRecipes"
-             x:DataType="viewmodel:ExploreViewModel"
-             x:Class="uRecipes.ExplorePage"
-             x:Name="ExpPage"
-             Shell.NavBarIsVisible="False">
+<uRecipes:BasePage
+    x:Class="uRecipes.ExplorePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
+    xmlns:model="clr-namespace:uRecipes.Models"
+    xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:uRecipes="clr-namespace:uRecipes"
+    xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+    x:DataType="viewmodel:ExploreViewModel"
+    Shell.NavBarIsVisible="False">
 
     <StackLayout Margin="24,24,24,0">
 
-        <!--Header-->
-        <Grid Margin="0,0,0,24"
-              ColumnDefinitions="*,80"
-              RowDefinitions="40,40">
+        <!--  Header  -->
+        <Grid
+            Margin="0,0,0,24"
+            ColumnDefinitions="*,80"
+            RowDefinitions="40,40">
 
-            <Label Text="{Binding GreatingMessage}" 
-                       FontSize="28"
-                       TextColor="{StaticResource GreenAccent}"
-                       FontFamily="Leto Text Sans Defect"/>
+            <Label
+                FontFamily="Leto Text Sans Defect"
+                FontSize="28"
+                Text="{Binding GreatingMessage}"
+                TextColor="{StaticResource GreenAccent}" />
 
-            <Label Text="{Binding HeaderMessage}"
-                       FontSize="Default"
-                       TextColor="{StaticResource VioletAccent}"
-                       FontFamily="Heletica"
-                       VerticalOptions="End"
-                       Grid.Row="1"/>
+            <Label
+                Grid.Row="1"
+                FontFamily="Heletica"
+                FontSize="Default"
+                Text="{Binding HeaderMessage}"
+                TextColor="{StaticResource VioletAccent}"
+                VerticalOptions="End" />
+            <!--  User Avatar  -->
+            <Border
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Padding="0"
+                BackgroundColor="Transparent"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 40"
+                VerticalOptions="Center"
+                WidthRequest="80">
 
-            <!--User photo frame-->
-            <Border StrokeShape="RoundRectangle 40"
-                    Padding="0"
-                    HeightRequest="80" 
-                    WidthRequest="80"
-                    BackgroundColor="Transparent"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Grid.Column="1"
-                    Grid.RowSpan="2">
-
-                <!--Demo photo!!!-->
-                <ImageButton Source="user_photo.jpg"
-                       Aspect="Fill"
-                       HeightRequest="80"
-                       WidthRequest="80"/>
+                <!--  Demo photo!!!  -->
+                <ImageButton
+                    Aspect="Fill"
+                    HeightRequest="80"
+                    Source="user_photo.jpg"
+                    WidthRequest="80" />
 
             </Border>
-
         </Grid>
 
-        <!--Search field frame-->
-        <Border StrokeShape="RoundRectangle 20"
-                StrokeThickness="0"
-                HeightRequest="40"
-                Padding="16,0,16,0"
-                Margin="0,0,0,12"
-                BackgroundColor="#F6F6F6"
-                HorizontalOptions="Fill">
+        <!--  Search field frame  -->
+        <Border
+            Margin="0,0,0,12"
+            Padding="16,0,16,0"
+            BackgroundColor="#F6F6F6"
+            HeightRequest="40"
+            HorizontalOptions="Fill"
+            StrokeShape="RoundRectangle 20"
+            StrokeThickness="0">
 
             <Grid ColumnDefinitions="30,*">
 
-                <Image Source="{StaticResource SearchIcon}"
-                       WidthRequest="30"
-                       HeightRequest="30"
-                       VerticalOptions="Center">
-
-                </Image>
-                <Entry Placeholder="{x:Static localisation:AppResources.exploreSearchPlaceHolder}"
-                       VerticalOptions="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       TextColor="#9E9E9E"
-                       PlaceholderColor="#9E9E9E"
-                       FontSize="Body"
-                       Grid.Column="1"/>
+                <Image
+                    HeightRequest="30"
+                    Source="{StaticResource SearchIcon}"
+                    VerticalOptions="Center"
+                    WidthRequest="30" />
+                <Entry
+                    Grid.Column="1"
+                    FontSize="Body"
+                    HorizontalOptions="CenterAndExpand"
+                    Placeholder="{x:Static localisation:AppResources.exploreSearchPlaceHolder}"
+                    PlaceholderColor="#9E9E9E"
+                    TextColor="#9E9E9E"
+                    VerticalOptions="Center" />
 
 
             </Grid>
 
         </Border>
 
-        <!--Categories Buttons-->
-        <CollectionView ItemsSource="{Binding PopCategories}"
-                        Margin="0,0,0,12">
+        <!--  Categories Buttons  -->
+        <CollectionView Margin="0,0,0,12" ItemsSource="{Binding PopCategories}">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal"
-                                   ItemSpacing="8" />
+                <LinearItemsLayout ItemSpacing="8" Orientation="Horizontal" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Category">
                     <Grid>
-                        <Button Text="{Binding CategoryName}"
-                                CornerRadius="20"
-                                HeightRequest="25"
-                                FontSize="Caption"
-                                Padding="12,4,12,4"
-                                BackgroundColor="{StaticResource GreenAccent}"
-                                FontFamily="Helvetica"
-                                Margin="0,0,2,4">
+                        <Button
+                            Margin="0,0,2,4"
+                            Padding="12,4,12,4"
+                            BackgroundColor="{StaticResource GreenAccent}"
+                            CornerRadius="20"
+                            FontFamily="Helvetica"
+                            FontSize="Caption"
+                            HeightRequest="25"
+                            Text="{Binding CategoryName}">
                             <Button.Shadow>
-                                <Shadow Brush="Black"
-                                        Offset="0,4"
-                                        Radius="5"
-                                        Opacity="0.25"/>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.25"
+                                    Radius="5"
+                                    Offset="0,4" />
                             </Button.Shadow>
                         </Button>
                     </Grid>
@@ -112,42 +116,44 @@
 
         </CollectionView>
 
-        <!--Recipes Collections-->
-        <ScrollView VerticalOptions="StartAndExpand"
-                    VerticalScrollBarVisibility="Never">
+        <!--  Recipes Collections  -->
+        <ScrollView VerticalOptions="StartAndExpand" VerticalScrollBarVisibility="Never">
 
             <VerticalStackLayout Spacing="22">
 
-                <!--Specially for You recipes Header and button-->
+                <!--  Specially for You recipes Header and button  -->
                 <Grid ColumnDefinitions="Auto,*">
 
-                    <Label Text="{x:Static localisation:AppResources.exploreSpecially}"
-                           TextColor="{StaticResource VioletAccent}"
-                           FontSize="Medium" 
-                           FontFamily="Leto Text Sans Defect"
-                           VerticalOptions="Center"
-                           />
-
-                    <Button Text="{x:Static localisation:AppResources.viewAll}"
-                        Padding="0"
-                        Margin="0"
-                        BackgroundColor="Transparent"
-                        TextColor="{StaticResource Gray450}"
+                    <Label
                         FontFamily="Leto Text Sans Defect"
-                        VerticalOptions="Center"
+                        FontSize="Medium"
+                        Text="{x:Static localisation:AppResources.exploreSpecially}"
+                        TextColor="{StaticResource VioletAccent}"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        Grid.Column="1"
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        FontFamily="Leto Text Sans Defect"
                         HorizontalOptions="End"
-                        Grid.Column="1"/>
+                        Text="{x:Static localisation:AppResources.viewAll}"
+                        TextColor="{StaticResource Gray450}"
+                        VerticalOptions="Center" />
 
                 </Grid>
-                
-                <ActivityIndicator IsVisible="{Binding IsBusy}"
-                                   IsRunning="{Binding IsBusy}"
-                                   VerticalOptions="Center"/>
 
-                <!--Specially for You recipes Horisontal -->
-                <CollectionView HeightRequest="250"
-                                BackgroundColor="Transparent"
-                                ItemsSource="{Binding TrendingRecipes}">
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="CenterAndExpand"/>
+
+                <!--  Specially for You recipes Horisontal  -->
+                <CollectionView
+                    BackgroundColor="Transparent"
+                    HeightRequest="250"
+                    ItemsSource="{Binding TrendingRecipes}">
 
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal"/>
@@ -155,55 +161,60 @@
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
-                            <Border StrokeShape="RoundRectangle 8"
-                                   Padding="0"
-                                   Margin="5"
-                                   HeightRequest="250"
-                                   WidthRequest="192"
-                                   Stroke="Transparent"
-                                   StrokeThickness="0">
+                            <Border
+                                Margin="5"
+                                Padding="0"
+                                HeightRequest="250"
+                                Stroke="Transparent"
+                                StrokeShape="RoundRectangle 8"
+                                StrokeThickness="0"
+                                WidthRequest="192">
 
                                 <!--<Border.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter = "{Binding .}"
-                                                          Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
+                                                          Command = "{Binding Path=BindingContext.GoToRecipeCommand,
                                                                               Source={Reference ExpPage}}"/>
                                 </Frame.GestureRecognizers>-->
 
                                 <Grid RowDefinitions="187,63">
 
-                                    <Image Grid.RowSpan="2"
-                                           Source="{Binding ImageUrl.AbsoluteUri}"
-                                           Aspect="AspectFill"/>
+                                    <Image
+                                        Grid.RowSpan="2"
+                                        Aspect="AspectFill"
+                                        Source="{Binding ImageUrl.AbsoluteUri}" />
 
-                                    <Border StrokeShape="RoundRectangle 8"
-                                           Margin="8,0,8,8"
-                                           Padding="8,8,8,0"
-                                           HeightRequest="55"
-                                           BackgroundColor="#959E9E9E"
-                                           VerticalOptions="Center"
-                                           Stroke="Transparent"
-                                           Grid.Row="1">
+                                    <Border
+                                        Grid.Row="1"
+                                        Margin="8,0,8,8"
+                                        Padding="8,8,8,0"
+                                        BackgroundColor="#959E9E9E"
+                                        HeightRequest="55"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 8"
+                                        VerticalOptions="Center">
 
-                                        <Grid RowDefinitions="22,22"
-                                              ColumnDefinitions="*">
+                                        <Grid ColumnDefinitions="*" RowDefinitions="22,22">
 
-                                            <Label Text="{Binding Name}"
-                                               FontFamily="Leto Text Sans Defect"
-                                               TextColor="White"
-                                               FontSize="Body"
-                                               Grid.Row="0"
-                                               Grid.Column="0"
-                                               VerticalOptions="Start"
-                                               MaxLines="1"/>
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                FontFamily="Leto Text Sans Defect"
+                                                FontSize="Body"
+                                                MaxLines="1"
+                                                Text="{Binding Name}"
+                                                TextColor="White"
+                                                VerticalOptions="Start" />
 
-                                            <Label FontFamily="Leto Text Sans Defect"
-                                               TextColor="White"
-                                               FontSize="Default"
-                                               Grid.Row="1"
-                                               Grid.Column="0"
-                                               VerticalOptions="Start">
+                                            <Label
+                                                Grid.Row="1"
+                                                Grid.Column="0"
+                                                FontFamily="Leto Text Sans Defect"
+                                                FontSize="Default"
+                                                TextColor="White"
+                                                VerticalOptions="Start">
                                                 <!--<Label.Text>
-                                                    --><!--<MultiBinding StringFormat ="{}{0} {1} | {2} {3)">
+                                                -->
+                                                <!--<MultiBinding StringFormat ="{}{0} {1} | {2} {3)">
                                                         <Binding Path="TotalTime"/>
                                                         <Binding Path="PersonServ"/>
                                                     </MultiBinding>
@@ -211,13 +222,13 @@
 
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="{Binding TotalTime}" FontFamily="Leto Text Sans Defect" />
+                                                        <Span FontFamily="Leto Text Sans Defect" Text="{Binding TotalTime}" />
                                                         <Span Text=" " />
-                                                        <Span Text="{x:Static localisation:AppResources._mins}" FontFamily="Leto Text Sans Defect"/>
-                                                        <Span Text=" | " FontFamily="Leto Text Sans Defect" />
-                                                        <Span Text="{Binding PersonServ}" FontFamily="Leto Text Sans Defect"/>
+                                                        <Span FontFamily="Leto Text Sans Defect" Text="{x:Static localisation:AppResources._mins}" />
+                                                        <Span FontFamily="Leto Text Sans Defect" Text=" | " />
+                                                        <Span FontFamily="Leto Text Sans Defect" Text="{Binding PersonServ}" />
                                                         <Span Text=" " />
-                                                        <Span Text="{x:Static localisation:AppResources._serving}" FontFamily="Leto Text Sans Defect"/>
+                                                        <Span FontFamily="Leto Text Sans Defect" Text="{x:Static localisation:AppResources._serving}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -240,78 +251,85 @@
                     </CollectionView.ItemTemplate>
 
                 </CollectionView>
-                
 
-                <!--Trending Recipes Header and button-->
-                <Grid ColumnDefinitions="*,*" >
 
-                    <Label Text="{x:Static localisation:AppResources.exploreTrending}"
-                           TextColor="{StaticResource VioletAccent}"
-                           FontSize="Medium" 
-                           FontFamily="Leto Text Sans Defect"/>
+                <!--  Trending Recipes Header and button  -->
+                <Grid ColumnDefinitions="*,*">
 
-                    <Button Text="{x:Static localisation:AppResources.viewAll}"
-                            Padding="0"
-                            Margin="0"
-                            BackgroundColor="Transparent"
-                            TextColor="{StaticResource Gray450}"
-                            FontFamily="Leto Text Sans Defect"
-                            Grid.Column="1"
-                            HorizontalOptions="End"/>
+                    <Label
+                        FontFamily="Leto Text Sans Defect"
+                        FontSize="Medium"
+                        Text="{x:Static localisation:AppResources.exploreTrending}"
+                        TextColor="{StaticResource VioletAccent}" />
+
+                    <Button
+                        Grid.Column="1"
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        FontFamily="Leto Text Sans Defect"
+                        HorizontalOptions="End"
+                        Text="{x:Static localisation:AppResources.viewAll}"
+                        TextColor="{StaticResource Gray450}" />
 
                 </Grid>
 
-                <ActivityIndicator IsVisible="{Binding IsBusy}"
-                                   IsRunning="{Binding IsBusy}"
-                                   VerticalOptions="Center"/>
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="CenterAndExpand"/>
 
-                <!--Trending recipes Horisontal-->
-                <CollectionView HeightRequest="152"
-                                BackgroundColor="Transparent"
-                                ItemsSource="{Binding SeasonRecipes}">
+                <!--  Trending recipes Horisontal  -->
+                <CollectionView
+                    BackgroundColor="Transparent"
+                    HeightRequest="152"
+                    ItemsSource="{Binding SeasonRecipes}">
 
                     <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Horizontal"/>
+                        <LinearItemsLayout Orientation="Horizontal" />
                     </CollectionView.ItemsLayout>
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
 
-                            <Border 
-                                WidthRequest="130"
-                                HeightRequest="152"
-                                Padding="0"
+                            <Border
                                 Margin="5,0,5,0"
+                                Padding="0"
                                 BackgroundColor="Transparent"
-                                StrokeThickness="0">
+                                HeightRequest="152"
+                                StrokeThickness="0"
+                                WidthRequest="130">
 
                                 <!--<Border.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter = "{Binding .}"
-                                                          Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
+                                                          Command = "{Binding Path=BindingContext.GoToRecipeCommand,
                                                                       Source={Reference ExpPage}}"/>
                                 </Border.GestureRecognizers>-->
 
                                 <Grid RowDefinitions="120,32">
 
-                                    <Border StrokeShape="RoundRectangle 8"
-                                            Grid.Row="0"
-                                            WidthRequest="130"
-                                            HeightRequest="120"
-                                            StrokeThickness="0">
+                                    <Border
+                                        Grid.Row="0"
+                                        HeightRequest="120"
+                                        StrokeShape="RoundRectangle 8"
+                                        StrokeThickness="0"
+                                        WidthRequest="130">
 
-                                        <Image Source="{Binding ImageUrl.AbsoluteUri}"
-                                           Aspect="AspectFill"
-                                           WidthRequest="130"
-                                           HeightRequest="120"/>
+                                        <Image
+                                            Aspect="AspectFill"
+                                            HeightRequest="120"
+                                            Source="{Binding ImageUrl.AbsoluteUri}"
+                                            WidthRequest="130" />
                                     </Border>
 
-                                    <Label Text="{Binding Name}"
-                                           FontSize="Default"
-                                           TextColor="{StaticResource VioletAccent}"
-                                           FontFamily="Leto Text Sans Defect"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center"
-                                           Grid.Row="1"/>
+                                    <Label
+                                        Grid.Row="1"
+                                        FontFamily="Leto Text Sans Defect"
+                                        FontSize="Default"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding Name}"
+                                        TextColor="{StaticResource VioletAccent}"
+                                        VerticalOptions="Center" />
 
                                 </Grid>
                             </Border>

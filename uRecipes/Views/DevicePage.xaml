@@ -24,7 +24,6 @@
                 <Setter Property="LabelSize" Value="18" />
                 <Setter Property="IsTextVisible" Value="False" />
             </Style>
-
             <Style x:Key="DeviceButtonStyle" TargetType="Button">
                 <Setter Property="Padding" Value="2,4,2,0" />
                 <Setter Property="ContentLayout" Value="Top,-8" />
@@ -67,7 +66,7 @@
                 VerticalOptions="CenterAndExpand" />
 
 
-            <!--  User photo frame  -->
+            <!--  User Avatar  -->
             <Border
                 Grid.Column="2"
                 Padding="0"
@@ -96,7 +95,7 @@
                 Command="{Binding ConnectDeviceCommand}"
                 ImageSource="wlan.svg"
                 Style="{StaticResource BaseButtonStyle}"
-                Text="Connect device">
+                Text="{x:Static localisation:AppResources.device_view_button_connect}">
                 <Button.Shadow>
                     <Shadow
                         Brush="Black"
@@ -129,12 +128,11 @@
                             Text="uCuisine Pro"
                             TextColor="{StaticResource VioletAccent}" />
                         <Span Text="&#10;&#10;" />
-
                         <Span
                             FontAttributes="None"
                             FontFamily="LetoTextSans"
                             FontSize="Medium"
-                            Text="Waiting for your commands, May"
+                            Text="{x:Static localisation:AppResources.device_view_device_message}"
                             TextColor="{StaticResource GreenAccent}" />
                     </FormattedString>
                 </Label.FormattedText>

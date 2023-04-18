@@ -139,7 +139,7 @@ namespace uRecipes.ViewModels
         // Enables Design Mode
         private void EnableDesignMode()
         {
-            IsDesignMode = !isDesignMode;
+            IsDesignMode = !IsDesignMode;
 
             if (IsDesignMode)
                 pageNavigator.MakeToast("Design mode has been Enabled");

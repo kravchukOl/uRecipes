@@ -120,6 +120,12 @@
   <data name="deviceDefaultMessage" xml:space="preserve">
     <value>Here, you can adjust setting of your uCuisine device.</value>
   </data>
+  <data name="device_view_button_connect" xml:space="preserve">
+    <value>Connect device</value>
+  </data>
+  <data name="device_view_device_message" xml:space="preserve">
+    <value>Waiting for your commands...</value>
+  </data>
   <data name="device_view_tab_basics" xml:space="preserve">
     <value>Basics</value>
   </data>

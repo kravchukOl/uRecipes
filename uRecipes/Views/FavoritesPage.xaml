@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<uRecipes:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:model="clr-namespace:uRecipes.Models"
-             xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
-             xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
-             xmlns:uRecipes="clr-namespace:uRecipes"
-             x:DataType="viewmodel:FavoritesViewModel"
-             x:Class="uRecipes.Views.FavoritesPage"
-             x:Name="FavPage"
-             Title="FavoritesPage">
+<uRecipes:BasePage
+    x:Class="uRecipes.Views.FavoritesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
+    xmlns:model="clr-namespace:uRecipes.Models"
+    xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:uRecipes="clr-namespace:uRecipes"
+    xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
+    x:Name="FavPage"
+    Title="FavoritesPage"
+    x:DataType="viewmodel:FavoritesViewModel">
 
     <!--<ContentPage.Behaviors>
-        <tools:EventToCommandBehavior 
+        <tools:EventToCommandBehavior
             EventName="Loaded"
             Command="{Binding InitialiseCommand}"/>
     </ContentPage.Behaviors>-->
@@ -21,266 +22,276 @@
 
     <StackLayout Margin="24,24,24,0">
 
-        <!--Header-->
-        <Grid Margin="0,0,0,24"
-              ColumnDefinitions="50,*,80">
+        <!--  Header  -->
+        <Grid Margin="0,0,0,24" ColumnDefinitions="50,*,80">
 
-            <Image WidthRequest="50"
-                   HeightRequest="50"
-                   Grid.Column="0"
-                   Source="{Binding HeaderImage}">
+            <Image
+                Grid.Column="0"
+                HeightRequest="50"
+                Source="{Binding HeaderImage}"
+                WidthRequest="50">
 
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                        NumberOfTapsRequired="1"
-                        Command="{Binding EnableDesignModeCommand}"/>
+                    <TapGestureRecognizer Command="{Binding EnableDesignModeCommand}" NumberOfTapsRequired="1" />
                 </Image.GestureRecognizers>
             </Image>
 
-            <Label Text="{Binding HeaderMessage}"
-                       FontSize="14"
-                       TextColor="#442244"
-                       FontFamily="Heletica"
-                       Grid.Column="1"
-                       Margin="24,0,16,0"
-                       VerticalOptions="CenterAndExpand"/>
+            <Label
+                Grid.Column="1"
+                Margin="24,0,16,0"
+                FontFamily="Heletica"
+                FontSize="14"
+                Text="{Binding HeaderMessage}"
+                TextColor="#442244"
+                VerticalOptions="CenterAndExpand" />
 
-            <!--User photo frame-->
-            <Border StrokeShape="RoundRectangle 40"
-                   Padding="0"
-                   HeightRequest="80" 
-                   WidthRequest="80"
-                   BackgroundColor="Transparent"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Grid.Column="2">
+            <!--  User photo frame  -->
+            <Border
+                Grid.Column="2"
+                Padding="0"
+                BackgroundColor="Transparent"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 40"
+                VerticalOptions="Center"
+                WidthRequest="80">
 
-                <!--Demo photo!!!-->
+                <!--  Demo photo!!!  -->
 
-                <ImageButton Source="user_photo.jpg"
-                       Aspect="Fill"
-                       HeightRequest="80"
-                       WidthRequest="80"/>
+                <ImageButton
+                    Aspect="Fill"
+                    HeightRequest="80"
+                    Source="user_photo.jpg"
+                    WidthRequest="80" />
             </Border>
         </Grid>
 
-        
-        <!--Filter Buttons-->
+
+        <!--  Filter Buttons  -->
         <FlexLayout JustifyContent="SpaceBetween">
 
-            <Button Text="{x:Static localisation:AppResources.filters}"
-                    Style="{StaticResource BaseButtonStyle}"
-                    ImageSource="slider03.svg"
-                    Command="{Binding ShowFiltersCommand}">
+            <Button
+                Command="{Binding ShowFiltersCommand}"
+                ImageSource="slider03.svg"
+                Style="{StaticResource BaseButtonStyle}"
+                Text="{x:Static localisation:AppResources.filters}">
 
                 <Button.Shadow>
-                    <Shadow Brush="Black"
-                Offset="1,6"
-                Radius="6"
-                Opacity="0.25"/>
+                    <Shadow
+                        Brush="Black"
+                        Opacity="0.25"
+                        Radius="6"
+                        Offset="1,6" />
                 </Button.Shadow>
             </Button>
 
             <HorizontalStackLayout Spacing="3">
 
-                <Button x:Name="ShowCompButton"
-                        Text="Compleated"
-                        HeightRequest="16"
-                        Padding="0"
-                        Margin="0"
-                        BackgroundColor="Transparent"
-                        TextColor="{StaticResource Gray450}"
-                        VerticalOptions="Center"
-                        FontFamily="Leto Text Sans Defect"
-                        Command="{Binding ShowCompletedCommand}"
-                        Clicked="ShowCompButton_Clicked"/>
+                <Button
+                    x:Name="ShowCompButton"
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Clicked="ShowCompButton_Clicked"
+                    Command="{Binding ShowCompletedCommand}"
+                    FontFamily="Leto Text Sans Defect"
+                    HeightRequest="16"
+                    Text="Compleated"
+                    TextColor="{StaticResource Gray450}"
+                    VerticalOptions="Center" />
 
-                <Label Text="|"
-                       VerticalOptions="Center"
-                       HeightRequest="15"
-                       FontFamily="Leto Text Sans Defect"
-                       TextColor="{StaticResource Gray450}"/>
+                <Label
+                    FontFamily="Leto Text Sans Defect"
+                    HeightRequest="15"
+                    Text="|"
+                    TextColor="{StaticResource Gray450}"
+                    VerticalOptions="Center" />
 
-                <Button x:Name="ShowAllButton"
-                        Text="View All"
-                        HeightRequest="16"
-                        Padding="0"
-                        Margin="0"
-                        BackgroundColor="Transparent"
-                        TextColor="{StaticResource GreenAccent}"
-                        VerticalOptions="Center"
-                        FontFamily="Leto Text Sans Defect"
-                        Command="{Binding ShowAllCommand}"
-                        Clicked="ShowAllButton_Clicked"/>
+                <Button
+                    x:Name="ShowAllButton"
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Clicked="ShowAllButton_Clicked"
+                    Command="{Binding ShowAllCommand}"
+                    FontFamily="Leto Text Sans Defect"
+                    HeightRequest="16"
+                    Text="View All"
+                    TextColor="{StaticResource GreenAccent}"
+                    VerticalOptions="Center" />
 
             </HorizontalStackLayout>
 
         </FlexLayout>
 
 
-        <Grid Margin="0,16,0,0"
-              RowDefinitions="*, Auto"
-              VerticalOptions="FillAndExpand">
+        <Grid
+            Margin="0,16,0,0"
+            RowDefinitions="*, Auto"
+            VerticalOptions="FillAndExpand">
 
-            <!--Collection of Favortite Recipes-->
-            <CollectionView ItemsSource="{Binding FavRecipes}"
-                            Grid.Row="0">
-
+            <!--  Collection of Favortite Recipes  -->
+            <CollectionView Grid.Row="0" ItemsSource="{Binding FavRecipes}">
                 
-                <!-- !!! Add the empty views!!!  -->
+                <!--  !!! Add the empty views!!!  -->
                 <CollectionView.EmptyView>
-                    <VerticalStackLayout VerticalOptions="CenterAndExpand"
-                                         Spacing="20">
-                        
-                        <Image Source="recipe_alert.png"
-                               WidthRequest="125"/>
+                    <VerticalStackLayout Spacing="20" VerticalOptions="CenterAndExpand">
 
-                        <Label Text="Nothing to display here"
-                               HorizontalOptions="Center"
-                               TextColor="{StaticResource VioletAccent}"
-                               FontSize="Medium"
-                               FontFamily="Helvetica"/>
+                        <Image Source="recipe_alert.png" WidthRequest="125" />
 
-                        <Button Text="Back to Recipes"
-                                Style="{StaticResource BaseButtonStyle}"
-                                HorizontalOptions="Center"/>
+                        <Label
+                            FontFamily="Helvetica"
+                            FontSize="Medium"
+                            HorizontalOptions="Center"
+                            Text="Nothing to display here"
+                            TextColor="{StaticResource VioletAccent}" />
+
+                        <Button
+                            HorizontalOptions="Center"
+                            Style="{StaticResource BaseButtonStyle}"
+                            Text="Back to Recipes" />
 
                     </VerticalStackLayout>
                 </CollectionView.EmptyView>
-                
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Recipe">
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems SwipeBehaviorOnInvoked="Auto">
-
-                                    <SwipeItem Text="Remove"
-                                                   BackgroundColor="{StaticResource GreenAccent2}"
-                                                   IconImageSource="trash.svg"
-                                                   IsDestructive="True"
-                                                   Command="{Binding Path=BindingContext.DeleteRecipeCommand, Source={Reference FavPage}}"
-                                                   CommandParameter="{Binding .}"/>
+                                    <SwipeItem
+                                        BackgroundColor="{StaticResource GreenAccent2}"
+                                        Command="{Binding Path=BindingContext.DeleteRecipeCommand, Source={Reference FavPage}}"
+                                        CommandParameter="{Binding .}"
+                                        IconImageSource="trash.svg"
+                                        IsDestructive="True"
+                                        Text="Remove" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
-                            
+                            <!--  ItemTamplate layout  -->
+                            <Border
+                                Margin="0,0,0,16"
+                                Padding="16,10"
+                                HorizontalOptions="FillAndExpand"
+                                Stroke="{StaticResource GreenAccent}"
+                                StrokeShape="RoundRectangle 8"
+                                StrokeThickness="2">
 
-                            <!--ItemTamplate layout-->
-                            <Border     Stroke="{StaticResource GreenAccent}"
-                                        StrokeThickness="2"
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToRecipeCommand, Source={Reference FavPage}}" CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
+
+                                <Grid ColumnDefinitions="100,*,25" RowDefinitions="70,30">
+
+                                    <Border
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        HeightRequest="100"
+                                        Stroke="Transparent"
                                         StrokeShape="RoundRectangle 8"
-                                        HorizontalOptions="FillAndExpand"
-                                        Margin="0,0,0,16"
-                                        Padding="16,10">
+                                        WidthRequest="100">
 
-                                    <Border.GestureRecognizers>
-                                        <TapGestureRecognizer CommandParameter = "{Binding .}"
-                                                              Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
-                                                                         Source={Reference FavPage}}"/>
-                                    </Border.GestureRecognizers>
-                                    
-                                    <Grid RowDefinitions="60,40"
-                                          ColumnDefinitions="100,*,25">
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToRecipeCommand, Source={Reference FavPage}}" CommandParameter="{Binding .}" />
+                                        </Border.GestureRecognizers>
 
-                                    <Border StrokeShape="RoundRectangle 8"
-                                            Stroke="Transparent"
-                                            WidthRequest="100"
+                                        <Image
+                                            Aspect="AspectFill"
                                             HeightRequest="100"
-                                            Grid.Column="0"
-                                            Grid.RowSpan="2">
-
-                                            <Border.GestureRecognizers>
-                                                <TapGestureRecognizer CommandParameter = "{Binding .}"
-                                                                      Command = "{Binding Path=BindingContext.GoToRecipeCommand, 
-                                                                         Source={Reference FavPage}}"/>
-                                            </Border.GestureRecognizers>
-
-                                        <Image Source="{Binding ImageUrl.AbsoluteUri}"
-                                                       Aspect="AspectFill"
-                                                       HeightRequest="100"
-                                                       WidthRequest="100"/>
+                                            Source="{Binding ImageUrl.AbsoluteUri}"
+                                            WidthRequest="100" />
                                     </Border>
-        
-                                        <Label Text="{Binding Name}"
-                                                   TextColor="{StaticResource VioletAccent}"
-                                                   FontFamily="Roboto"
-                                                   FontSize="Medium"
-                                                   Padding="16,0"
-                                                   Grid.Column="1"
-                                                   Grid.Row="0"/>
 
-                                    <Label TextColor="{StaticResource GreenAccent}"
-                                                   FontFamily="Lato Text Sans Defect"
-                                                   Padding="16,0"
-                                                   Grid.Column="1"
-                                                   Grid.Row="1"
-                                    VerticalOptions="Center">
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Padding="16,0"
+                                        FontFamily="Roboto"
+                                        FontSize="Medium"
+                                        Text="{Binding Name}"
+                                        TextColor="{StaticResource VioletAccent}" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Padding="16,0"
+                                        FontFamily="Lato Text Sans Defect"
+                                        TextColor="{StaticResource GreenAccent}"
+                                        VerticalOptions="Center">
 
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding TotalTime}" FontFamily="Leto Text Sans Defect" />
+                                                <Span FontFamily="Leto Text Sans Defect" Text="{Binding TotalTime}" />
                                                 <Span Text=" " />
-                                                <Span Text="{x:Static localisation:AppResources._mins}" FontFamily="Leto Text Sans Defect"/>
-                                                <Span Text=" | " FontFamily="Leto Text Sans Defect" />
-                                                <Span Text="{Binding PersonServ}" FontFamily="Leto Text Sans Defect"/>
+                                                <Span FontFamily="Leto Text Sans Defect" Text="{x:Static localisation:AppResources._mins}" />
+                                                <Span FontFamily="Leto Text Sans Defect" Text=" | " />
+                                                <Span FontFamily="Leto Text Sans Defect" Text="{Binding PersonServ}" />
                                                 <Span Text=" " />
-                                                <Span Text="{x:Static localisation:AppResources._serving}" FontFamily="Leto Text Sans Defect"/>
+                                                <Span FontFamily="Leto Text Sans Defect" Text="{x:Static localisation:AppResources._serving}" />
                                             </FormattedString>
                                         </Label.FormattedText>
 
 
                                     </Label>
 
-                                        <Image Source="completed.svg"
-                                                   WidthRequest="25"
-                                                   Grid.Column="2"
-                                                   Grid.RowSpan="2"
-                                                   IsVisible="{Binding IsCompleted}"/>
-                                    </Grid>
-                                
+                                    <Image
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        IsVisible="{Binding IsCompleted}"
+                                        Source="completed.svg"
+                                        WidthRequest="25" />
+                                </Grid>
+
                             </Border>
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-                
+
             </CollectionView>
 
-            <ActivityIndicator IsVisible="{Binding IsBusy}"
-                               IsRunning="{Binding IsBusy}"
-                               VerticalOptions="CenterAndExpand"
-                               Grid.Row="0"/>
+            <ActivityIndicator
+                Grid.Row="0"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="CenterAndExpand" />
 
-            <!-- Design Mode Controls: -->
-            <ScrollView  Grid.Row="1" 
-                         IsVisible="{Binding IsDesignMode}"
-                         Orientation="Horizontal">
-                
+            <!--  Design Mode Controls:  -->
+            <ScrollView
+                Grid.Row="1"
+                IsVisible="{Binding IsDesignMode}"
+                Orientation="Horizontal">
+
                 <StackLayout Orientation="Horizontal">
 
-                    <Button Text="Add Recipe"
-                            Style="{StaticResource BaseButtonStyle}"
-                            Command="{Binding GoToAddRecipeCommand}"
-                            FontSize="Small"
-                            Margin="5,8"/>
+                    <Button
+                        Margin="5,8"
+                        Command="{Binding GoToAddRecipeCommand}"
+                        FontSize="Small"
+                        Style="{StaticResource BaseButtonStyle}"
+                        Text="Add Recipe" />
 
-                    <Button Text="Add Demo Recipes to DB"
-                            Style="{StaticResource BaseButtonStyle}"
-                            Command="{Binding AddDemoRecipesCommand}"
-                            FontSize="Small"
-                            Margin="5,8"/>
+                    <Button
+                        Margin="5,8"
+                        Command="{Binding AddDemoRecipesCommand}"
+                        FontSize="Small"
+                        Style="{StaticResource BaseButtonStyle}"
+                        Text="Add Demo Recipes to DB" />
 
-                    <Button Text="Save To Repository"
-                            Style="{StaticResource BaseButtonStyle}"
-                            Command="{Binding SaveToRepositoryCommand}"
-                            FontSize="Small"
-                            Margin="5,8"
-                            IsEnabled="False"/>
+                    <Button
+                        Margin="5,8"
+                        Command="{Binding SaveToRepositoryCommand}"
+                        FontSize="Small"
+                        IsEnabled="False"
+                        Style="{StaticResource BaseButtonStyle}"
+                        Text="Save To Repository" />
 
-                    <Button Text="Delete All recipes"
-                            Style="{StaticResource BaseButtonStyle}"
-                            Command="{Binding DeleteAllFavRecipesCommand}"
-                            FontSize="Small"
-                            Margin="5,8"
-                            IsEnabled="False"/>
+                    <Button
+                        Margin="5,8"
+                        Command="{Binding DeleteAllFavRecipesCommand}"
+                        FontSize="Small"
+                        IsEnabled="False"
+                        Style="{StaticResource BaseButtonStyle}"
+                        Text="Delete All recipes" />
 
                 </StackLayout>
             </ScrollView>
