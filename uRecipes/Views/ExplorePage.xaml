@@ -212,11 +212,12 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="{Binding TotalTime}" FontFamily="Leto Text Sans Defect" />
-                                                        <Span Text="{x:Static localisation:AppResources.min}" FontFamily="Leto Text Sans Defect"/>
+                                                        <Span Text=" " />
+                                                        <Span Text="{x:Static localisation:AppResources._mins}" FontFamily="Leto Text Sans Defect"/>
                                                         <Span Text=" | " FontFamily="Leto Text Sans Defect" />
                                                         <Span Text="{Binding PersonServ}" FontFamily="Leto Text Sans Defect"/>
                                                         <Span Text=" " />
-                                                        <Span Text="{x:Static localisation:AppResources.serving}" FontFamily="Leto Text Sans Defect"/>
+                                                        <Span Text="{x:Static localisation:AppResources._serving}" FontFamily="Leto Text Sans Defect"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>

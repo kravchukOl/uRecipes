@@ -178,7 +178,7 @@
                                                                          Source={Reference FavPage}}"/>
                                     </Border.GestureRecognizers>
                                     
-                                    <Grid RowDefinitions="70,30"
+                                    <Grid RowDefinitions="60,40"
                                           ColumnDefinitions="100,*,25">
 
                                     <Border StrokeShape="RoundRectangle 8"
@@ -208,18 +208,27 @@
                                                    Grid.Column="1"
                                                    Grid.Row="0"/>
 
-                                        <Label TextColor="{StaticResource GreenAccent}"
+                                    <Label TextColor="{StaticResource GreenAccent}"
                                                    FontFamily="Lato Text Sans Defect"
                                                    Padding="16,0"
                                                    Grid.Column="1"
-                                                   Grid.Row="13">
-                                            <Label.Text>
-                                                <MultiBinding StringFormat ="{}{0} min | {1} serving">
-                                                    <Binding Path="TotalTime"/>
-                                                    <Binding Path="PersonServ"/>
-                                                </MultiBinding>
-                                            </Label.Text>
-                                        </Label>
+                                                   Grid.Row="1"
+                                    VerticalOptions="Center">
+
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding TotalTime}" FontFamily="Leto Text Sans Defect" />
+                                                <Span Text=" " />
+                                                <Span Text="{x:Static localisation:AppResources._mins}" FontFamily="Leto Text Sans Defect"/>
+                                                <Span Text=" | " FontFamily="Leto Text Sans Defect" />
+                                                <Span Text="{Binding PersonServ}" FontFamily="Leto Text Sans Defect"/>
+                                                <Span Text=" " />
+                                                <Span Text="{x:Static localisation:AppResources._serving}" FontFamily="Leto Text Sans Defect"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+
+
+                                    </Label>
 
                                         <Image Source="completed.svg"
                                                    WidthRequest="25"

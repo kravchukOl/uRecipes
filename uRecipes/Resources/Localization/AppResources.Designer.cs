@@ -61,6 +61,78 @@ namespace uRecipes.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to min.
+        /// </summary>
+        internal static string _mins {
+            get {
+                return ResourceManager.GetString("_mins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to minutes.
+        /// </summary>
+        internal static string _minutes {
+            get {
+                return ResourceManager.GetString("_minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to serving.
+        /// </summary>
+        internal static string _serving {
+            get {
+                return ResourceManager.GetString("_serving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connect device.
+        /// </summary>
+        internal static string device_view_button_connect {
+            get {
+                return ResourceManager.GetString("device_view_button_connect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for your commands....
+        /// </summary>
+        internal static string device_view_device_message {
+            get {
+                return ResourceManager.GetString("device_view_device_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basics.
+        /// </summary>
+        internal static string device_view_tab_basics {
+            get {
+                return ResourceManager.GetString("device_view_tab_basics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string device_view_tab_display {
+            get {
+                return ResourceManager.GetString("device_view_tab_display", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Surface.
+        /// </summary>
+        internal static string device_view_tab_surface {
+            get {
+                return ResourceManager.GetString("device_view_tab_surface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Here, you can adjust setting of your uCuisine device..
         /// </summary>
         internal static string deviceDefaultMessage {
@@ -120,24 +192,6 @@ namespace uRecipes.Resources.Localization {
         internal static string filters {
             get {
                 return ResourceManager.GetString("filters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to min.
-        /// </summary>
-        internal static string min {
-            get {
-                return ResourceManager.GetString("min", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to serving.
-        /// </summary>
-        internal static string serving {
-            get {
-                return ResourceManager.GetString("serving", resourceCulture);
             }
         }
         

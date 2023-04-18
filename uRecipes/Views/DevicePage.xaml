@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:uRecipes.Controls"
     xmlns:converters="clr-namespace:uRecipes.Views.Converters"
+    xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
     xmlns:model="clr-namespace:uRecipes.Models"
     xmlns:tabs="http://sharpnado.com"
     xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -160,15 +161,15 @@
             SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
 
             <tabs:UnderlinedTabItem
-                Label="Basics"
+                Label="{x:Static localisation:AppResources.device_view_tab_basics}"
                 Style="{StaticResource TabStyle}"
                 UnderlineHeight="3" />
             <tabs:UnderlinedTabItem
-                Label="Surface"
+                Label="{x:Static localisation:AppResources.device_view_tab_surface}"
                 Style="{StaticResource TabStyle}"
                 UnderlineHeight="3" />
             <tabs:UnderlinedTabItem
-                Label="Display"
+                Label="{x:Static localisation:AppResources.device_view_tab_display}"
                 Style="{StaticResource TabStyle}"
                 UnderlineHeight="3" />
             <!--<tabs:UnderlinedTabItem
@@ -285,10 +286,10 @@
                         BackgroundColor="White"
                         BorderColor="{StaticResource GreenAccent}"
                         BorderWidth="2"
+                        HeightRequest="60"
                         ImageSource="{StaticResource ExploreIcon}"
                         Style="{StaticResource DeviceButtonStyle}"
                         Text="Circle"
-                        HeightRequest="60"
                         TextColor="{StaticResource GreenAccent2}">
 
                         <Button.Shadow>
@@ -305,10 +306,10 @@
                         BackgroundColor="White"
                         BorderColor="{StaticResource Gray450}"
                         BorderWidth="2"
+                        HeightRequest="60"
                         ImageSource="{StaticResource FrameGray}"
                         Style="{StaticResource DeviceButtonStyle}"
                         Text="Polygon"
-                        HeightRequest="60"
                         TextColor="{StaticResource Gray450}">
                         <Button.Shadow>
                             <Shadow
@@ -324,10 +325,10 @@
                         BackgroundColor="White"
                         BorderColor="{StaticResource GreenAccent}"
                         BorderWidth="2"
+                        HeightRequest="60"
                         ImageSource="{StaticResource HeatGreen}"
                         Style="{StaticResource DeviceButtonStyle}"
                         Text="Heating"
-                        HeightRequest="60"
                         TextColor="{StaticResource GreenAccent2}">
                         <Button.Shadow>
                             <Shadow
@@ -343,10 +344,10 @@
                         BackgroundColor="White"
                         BorderColor="{StaticResource Gray450}"
                         BorderWidth="2"
+                        HeightRequest="60"
                         ImageSource="{StaticResource UsualGray}"
                         Style="{StaticResource DeviceButtonStyle}"
                         Text="Usual"
-                        HeightRequest="60"
                         TextColor="{StaticResource Gray450}">
                         <Button.Shadow>
                             <Shadow
@@ -359,11 +360,11 @@
                     <Button
                         Grid.Row="0"
                         Grid.Column="2"
-                        ImageSource="{StaticResource AimWhite}"
                         HeightRequest="60"
+                        ImageSource="{StaticResource AimWhite}"
                         Style="{StaticResource DeviceButtonStyle}"
                         Text="Set Zero">
-                        
+
                         <Button.Shadow>
                             <Shadow
                                 Brush="Black"
@@ -503,7 +504,7 @@
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
                         Aspect="AspectFill"
-                        Source="screan_sample.png"/>
+                        Source="screan_sample.png" />
 
                 </Grid>
 

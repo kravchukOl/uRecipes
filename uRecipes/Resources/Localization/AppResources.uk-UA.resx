@@ -120,6 +120,15 @@
   <data name="deviceDefaultMessage" xml:space="preserve">
     <value>Тут Ви можете налаштувати свій пристрій uCuisine</value>
   </data>
+  <data name="device_view_tab_basics" xml:space="preserve">
+    <value>Основні</value>
+  </data>
+  <data name="device_view_tab_display" xml:space="preserve">
+    <value>Дисплей</value>
+  </data>
+  <data name="device_view_tab_surface" xml:space="preserve">
+    <value>Поверхня</value>
+  </data>
   <data name="exploreDeafaultMessage" xml:space="preserve">
     <value>Що будемо готувати сьогодні?</value>
   </data>
@@ -138,13 +147,16 @@
   <data name="filters" xml:space="preserve">
     <value>Фільтри</value>
   </data>
-  <data name="min" xml:space="preserve">
-    <value>хвилин</value>
-  </data>
-  <data name="serving" xml:space="preserve">
-    <value>порцій</value>
-  </data>
   <data name="viewAll" xml:space="preserve">
     <value>Переглянути Всі</value>
+  </data>
+  <data name="_mins" xml:space="preserve">
+    <value>хв.</value>
+  </data>
+  <data name="_minutes" xml:space="preserve">
+    <value>хвилин</value>
+  </data>
+  <data name="_serving" xml:space="preserve">
+    <value>порцій</value>
   </data>
 </root>

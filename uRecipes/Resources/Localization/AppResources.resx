@@ -120,6 +120,15 @@
   <data name="deviceDefaultMessage" xml:space="preserve">
     <value>Here, you can adjust setting of your uCuisine device.</value>
   </data>
+  <data name="device_view_tab_basics" xml:space="preserve">
+    <value>Basics</value>
+  </data>
+  <data name="device_view_tab_display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="device_view_tab_surface" xml:space="preserve">
+    <value>Surface</value>
+  </data>
   <data name="exploreDeafaultMessage" xml:space="preserve">
     <value>What are we going to cook today?</value>
   </data>
@@ -138,13 +147,16 @@
   <data name="filters" xml:space="preserve">
     <value>Filters</value>
   </data>
-  <data name="min" xml:space="preserve">
-    <value>min</value>
-  </data>
-  <data name="serving" xml:space="preserve">
-    <value>serving</value>
-  </data>
   <data name="viewAll" xml:space="preserve">
     <value>View All</value>
+  </data>
+  <data name="_mins" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="_minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="_serving" xml:space="preserve">
+    <value>serving</value>
   </data>
 </root>
