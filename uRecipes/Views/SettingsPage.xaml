@@ -27,9 +27,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid Margin="24,24,24,0" RowDefinitions="*,2*,7*">
+    <Grid Margin="24,24,24,0" RowDefinitions="*,2*,50,7*">
 
-        <!--Header -->
+        <!--  Header  --> 
         <Grid
             Margin="0,0,0,24"
             ColumnDefinitions="*,80"
@@ -50,19 +50,19 @@
                 VerticalOptions="End" />-->
         </Grid>
 
-        <Border Grid.Row="1">
+        <Border Grid.Row="1" StrokeThickness="0">
             <Grid ColumnDefinitions="3*,5*,*">
                 <!--  User Avatar  -->
                 <Border
                     Grid.Column="0"
+                    Margin="20,12"
                     Padding="0"
                     BackgroundColor="Transparent"
                     HeightRequest="100"
                     HorizontalOptions="Center"
                     StrokeShape="RoundRectangle 50"
                     VerticalOptions="Center"
-                    WidthRequest="100"
-                    Margin="20,12">
+                    WidthRequest="100">
 
                     <!--  Demo photo!!!  -->
                     <ImageButton
@@ -70,35 +70,40 @@
                         HeightRequest="100"
                         Source="user_photo.jpg"
                         WidthRequest="100" />
-                </Border>
-                <Label
-                    Grid.Column="1"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Start">
 
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span
-                                FontFamily="Helvetica"
-                                FontSize="Large"
-                                Text="May Smith"/>
-                            <Span
-                                FontFamily="Helvetica"
-                                FontSize="Body"
-                                Text="_maySm@" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                </Border>
+
+                <HorizontalStackLayout Grid.Column="1">
+                    <Label
+                        Padding="16"
+                        HorizontalOptions="CenterAndExpand"
+                        LineHeight="1.8"
+                        VerticalOptions="Center"
+                        TextColor="{StaticResource VioletAccent}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="Helvetica"
+                                    FontSize="Large"
+                                    Text="May Smith&#10;" />
+                                <Span
+                                    FontFamily="Helvetica"
+                                    FontSize="Body"
+                                    Text="_maySm@" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </HorizontalStackLayout>
             </Grid>
         </Border>
 
 
         <tabs:TabHostView
             Grid.Row="2"
-            VerticalOptions="Start"
             BackgroundColor="Transparent"
             HeightRequest="50"
-            SelectedIndex="0">
+            SelectedIndex="0"
+            VerticalOptions="Start">
 
             <tabs:UnderlinedTabItem
                 Label="ACCOUNT"

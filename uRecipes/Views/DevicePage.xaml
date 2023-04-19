@@ -41,10 +41,13 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <VerticalStackLayout Margin="24,24,24,0">
+    <Grid Margin="24,24,24,0" RowDefinitions=" 104, 20, 5*,40, 3*">
 
         <!--  Header  -->
-        <Grid Margin="0,0,0,24" ColumnDefinitions="50,*,80">
+        <Grid
+            Grid.Row="0"
+            Margin="0,0,0,24"
+            ColumnDefinitions="50,*,80">
 
             <Image
                 Grid.Column="0"
@@ -90,31 +93,34 @@
         </Grid>
 
         <!--  Buttons  -->
-        <FlexLayout JustifyContent="SpaceBetween">
-            <Button
-                Command="{Binding ConnectDeviceCommand}"
-                ImageSource="wlan.svg"
-                Style="{StaticResource BaseButtonStyle}"
-                Text="{x:Static localisation:AppResources.device_view_button_connect}">
-                <Button.Shadow>
-                    <Shadow
-                        Brush="Black"
-                        Opacity="0.25"
-                        Radius="6"
-                        Offset="1,6" />
-                </Button.Shadow>
+        <Button
+            Grid.Row="1"
+            Margin="0,14,0,0"
+            Command="{Binding ConnectDeviceCommand}"
+            HorizontalOptions="Start"
+            ImageSource="wlan.svg"
+            Style="{StaticResource BaseButtonStyle}"
+            Text="{x:Static localisation:AppResources.device_view_button_connect}">
+            <Button.Shadow>
+                <Shadow
+                    Brush="Black"
+                    Opacity="0.25"
+                    Radius="6"
+                    Offset="1,6" />
+            </Button.Shadow>
 
 
-            </Button>
-        </FlexLayout>
+        </Button>
 
         <!--  Device Image and Title  -->
         <Grid
+            Grid.Row="2"
             Margin="0,22,0,0"
             ColumnDefinitions="*,*"
             RowDefinitions="*,*"
             RowSpacing="22">
 
+            <!--  Device Model and Greeting  -->
             <Label
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
@@ -138,8 +144,7 @@
                 </Label.FormattedText>
             </Label>
 
-
-
+            <!--  Device's Image  -->
             <Image
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="2"
@@ -149,10 +154,9 @@
 
         </Grid>
 
-
         <tabs:TabHostView
             x:Name="TabHost"
-            Grid.Row="0"
+            Grid.Row="3"
             Margin="-24,0"
             BackgroundColor="Transparent"
             HeightRequest="40"
@@ -179,7 +183,7 @@
 
         <tabs:ViewSwitcher
             x:Name="SwitcherView"
-            Grid.Row="1"
+            Grid.Row="4"
             Animate="True"
             HeightRequest="168"
             HorizontalOptions="CenterAndExpand"
@@ -193,7 +197,7 @@
                 <Grid
                     Padding="4"
                     ColumnDefinitions=" 70, 70 ,70"
-                    ColumnSpacing="8"
+                    ColumnSpacing="4"
                     HorizontalOptions="Center"
                     RowDefinitions="60,60"
                     RowSpacing="20"
@@ -512,5 +516,5 @@
 
                 </CollectionView>-->
         </tabs:ViewSwitcher>
-    </VerticalStackLayout>
+    </Grid>
 </uRecipes:BasePage>
