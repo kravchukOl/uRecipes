@@ -29,7 +29,7 @@
 
     <Grid Margin="24,24,24,0" RowDefinitions="*,2*,50,7*">
 
-        <!--  Header  --> 
+        <!--  Header  -->
         <Grid
             Margin="0,0,0,24"
             ColumnDefinitions="*,80"
@@ -78,8 +78,8 @@
                         Padding="16"
                         HorizontalOptions="CenterAndExpand"
                         LineHeight="1.8"
-                        VerticalOptions="Center"
-                        TextColor="{StaticResource VioletAccent}">
+                        TextColor="{StaticResource VioletAccent}"
+                        VerticalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span
@@ -94,11 +94,20 @@
                         </Label.FormattedText>
                     </Label>
                 </HorizontalStackLayout>
+
+
+                <!--  Add OnTapGesture Recognizer  -->
+                <ImageButton
+                    Grid.Column="2"
+                    Source="{StaticResource ChevronRightViolet}"
+                    VerticalOptions="Center" />
+
             </Grid>
         </Border>
 
 
         <tabs:TabHostView
+            x:Name="TabHost"
             Grid.Row="2"
             BackgroundColor="Transparent"
             HeightRequest="50"
@@ -124,35 +133,51 @@
         </tabs:TabHostView>
 
 
-        <!--<Label FontSize="Title"
-               Text="Title"/>
+        <tabs:ViewSwitcher
+            x:Name="SwitcherView"
+            Grid.Row="3"
+            SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}">
 
-        <Label FontSize="Header"
-               Text="Header"/>
+            <ScrollView Padding="16,24">
+                <VerticalStackLayout>
 
-        <Label FontSize="Body"
-               Text="Body"/>
+                    <Border
+                        Padding="4"
+                        BackgroundColor="{StaticResource Gray100}"
+                        HeightRequest="30"
+                        StrokeThickness="0">
 
-        <Label FontSize="Caption"
-               Text="Caption"/>
+                        <Grid ColumnDefinitions="24, *, 24">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource EmailViolet}"
+                                VerticalOptions="Center" />
 
-        <Label FontSize="Default"
-               Text="Default"/>
+                            <Label
+                                Grid.Column="1"
+                                Margin="32,0,0,0"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="Email"
+                                VerticalOptions="Center" />
 
-        <Label FontSize="Large"
-               Text="Large"/>
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
 
-        <Label FontSize="Medium"
-               Text="Medium"/>
+                </VerticalStackLayout>
 
-        <Label FontSize="Micro"
-               Text="Micro"/>
+            </ScrollView>
 
-        <Label FontSize="Small"
-               Text="Small"/>
+            <Label Text="SOCIAL" />
 
-        <Label FontSize="Subtitle"
-               Text="Subtitle"/>-->
+            <Label Text="DEVICE" />
+
+
+        </tabs:ViewSwitcher>
 
     </Grid>
 </uRecipes:BasePage>

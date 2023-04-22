@@ -61,7 +61,7 @@ namespace uRecipes.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to min.
+        ///   Looks up a localized string similar to mins.
         /// </summary>
         internal static string _mins {
             get {

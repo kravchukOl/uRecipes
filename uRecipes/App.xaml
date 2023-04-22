@@ -145,8 +145,82 @@
                 Size="30"
                 Color="{StaticResource White}" />
 
+            <FontImage
+                x:Key="GlobeViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe90a;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
 
+            <FontImage
+                x:Key="LockViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe90b;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
 
+            <FontImage
+                x:Key="EmailViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe90c;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="MoonViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe90d;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="NotificationViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe90e;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="ShieldViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe90f;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="UserViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe910;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="ChevronRightViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe911;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="CompassViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe912;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="FileViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe913;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
+
+            <FontImage
+                x:Key="FontViolet"
+                FontFamily="uRecipe"
+                Glyph="&#xe922;"
+                Size="30"
+                Color="{StaticResource VioletAccent}"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
