@@ -153,6 +153,36 @@
   <data name="filters" xml:space="preserve">
     <value>Filters</value>
   </data>
+  <data name="settings_view_label_contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="settings_view_label_display_mode" xml:space="preserve">
+    <value>Display mode</value>
+  </data>
+  <data name="settings_view_label_email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="settings_view_label_language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="settings_view_label_notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="settings_view_label_privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="settings_view_label_quick_user_guide" xml:space="preserve">
+    <value>Quick User Guide</value>
+  </data>
+  <data name="settings_view_label_security" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="settings_view_label_terms_of_service" xml:space="preserve">
+    <value>Terms of service</value>
+  </data>
+  <data name="settings_view_label_text_size" xml:space="preserve">
+    <value>Text size</value>
+  </data>
   <data name="viewAll" xml:space="preserve">
     <value>View All</value>
   </data>

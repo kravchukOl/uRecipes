@@ -196,6 +196,105 @@ namespace uRecipes.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        internal static string settings_view_label_contact {
+            get {
+                return ResourceManager.GetString("settings_view_label_contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display mode.
+        /// </summary>
+        internal static string settings_view_label_display_mode {
+            get {
+                return ResourceManager.GetString("settings_view_label_display_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string settings_view_label_email {
+            get {
+                return ResourceManager.GetString("settings_view_label_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        internal static string settings_view_label_language {
+            get {
+                return ResourceManager.GetString("settings_view_label_language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification.
+        /// </summary>
+        internal static string settings_view_label_notification {
+            get {
+                return ResourceManager.GetString("settings_view_label_notification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy.
+        /// </summary>
+        internal static string settings_view_label_privacy {
+            get {
+                return ResourceManager.GetString("settings_view_label_privacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick User Guide.
+        /// </summary>
+        internal static string settings_view_label_quick_user_guide {
+            get {
+                return ResourceManager.GetString("settings_view_label_quick_user_guide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Security.
+        /// </summary>
+        internal static string settings_view_label_security {
+            get {
+                return ResourceManager.GetString("settings_view_label_security", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms Of Service.
+        /// </summary>
+        internal static string settings_view_label_terms_of_service {
+            get {
+                return ResourceManager.GetString("settings_view_label_terms_of_service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test size.
+        /// </summary>
+        internal static string settings_view_label_text_size {
+            get {
+                return ResourceManager.GetString("settings_view_label_text_size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick User Guide.
+        /// </summary>
+        internal static string settings_view_label_user_guide {
+            get {
+                return ResourceManager.GetString("settings_view_label_user_guide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View All.
         /// </summary>
         internal static string viewAll {

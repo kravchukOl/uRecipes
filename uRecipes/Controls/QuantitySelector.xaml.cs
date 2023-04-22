@@ -27,7 +27,12 @@ public partial class QuantitySelector : ContentView
 	}
 
 	private void OnPlusTaped(object sender, TappedEventArgs e) => Quantity++;
-    private void OnMinusTaped(object sender, TappedEventArgs e) => Quantity--;
 
+    private void OnMinusTaped(object sender, TappedEventArgs e)
+    {
+		if (Quantity == 1)
+			return;
 
+        Quantity--;
+    }
 }

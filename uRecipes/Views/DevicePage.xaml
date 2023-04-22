@@ -16,27 +16,6 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="TabStyle" TargetType="tabs:BottomTabItem">
-                <Setter Property="SelectedTabColor" Value="{StaticResource GreenAccent2}" />
-                <Setter Property="UnselectedLabelColor" Value="{StaticResource Gray450}" />
-                <!--<Setter Property="UnselectedIconColor" Value="LightGray"/>-->
-                <Setter Property="FontFamily" Value="LetoTextSans" />
-                <Setter Property="LabelSize" Value="18" />
-                <Setter Property="IsTextVisible" Value="False" />
-            </Style>
-            <Style x:Key="DeviceButtonStyle" TargetType="Button">
-                <Setter Property="Padding" Value="2,4,2,0" />
-                <Setter Property="ContentLayout" Value="Top,-8" />
-                <Setter Property="BackgroundColor" Value="{StaticResource GreenAccent}" />
-                <Setter Property="CornerRadius" Value="8" />
-                <Setter Property="FontFamily" Value="Helvetica" />
-                <Setter Property="FontSize" Value="Micro" />
-                <Setter Property="MinimumHeightRequest" Value="55" />
-                <Setter Property="MinimumWidthRequest" Value="80" />
-                <Setter Property="MaximumWidthRequest" Value="100" />
-                <Setter Property="MaximumHeightRequest" Value="100" />
-                <Setter Property="WidthRequest" Value="60" />
-            </Style>
 
         </ResourceDictionary>
     </ContentPage.Resources>

@@ -6,11 +6,12 @@ public partial class SettingsPage : BasePage
 {
 	public SettingsPage(SettingsViewModel viewModel) : base(viewModel)
 	{
-		InitializeComponent();
+        InitializeComponent();
 	}
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        TabHost.SelectedIndex = 0;
     }
 
 }

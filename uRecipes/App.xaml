@@ -202,7 +202,7 @@
                 Color="{StaticResource VioletAccent}"/>
 
             <FontImage
-                x:Key="CompassViolet"
+                x:Key="CompasViolet"
                 FontFamily="uRecipe"
                 Glyph="&#xe912;"
                 Size="30"

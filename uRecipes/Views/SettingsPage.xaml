@@ -3,29 +3,15 @@
     x:Class="uRecipes.Views.SettingsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converters="clr-namespace:uRecipes.Views.Converters"
+    xmlns:localisation="clr-namespace:uRecipes.Resources.Localization"
     xmlns:model="clr-namespace:uRecipes.Models"
     xmlns:tabs="http://sharpnado.com"
     xmlns:tools="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:uRecipes="clr-namespace:uRecipes"
     xmlns:viewmodel="clr-namespace:uRecipes.ViewModels"
-    xmlns:views="clr-namespace:uRecipes.Views.RecipePageViews"
-    Title="SettingsPage"
     x:DataType="viewmodel:SettingsViewModel"
     Shell.NavBarIsVisible="False">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="TabStyle" TargetType="tabs:BottomTabItem">
-                <Setter Property="SelectedTabColor" Value="{StaticResource GreenAccent2}" />
-                <Setter Property="UnselectedLabelColor" Value="{StaticResource Gray450}" />
-                <!--<Setter Property="UnselectedIconColor" Value="LightGray"/>-->
-                <Setter Property="FontFamily" Value="LetoTextSans" />
-                <Setter Property="LabelSize" Value="18" />
-                <Setter Property="IsTextVisible" Value="False" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
 
     <Grid Margin="24,24,24,0" RowDefinitions="*,2*,50,7*">
 
@@ -112,7 +98,8 @@
             BackgroundColor="Transparent"
             HeightRequest="50"
             SelectedIndex="0"
-            VerticalOptions="Start">
+            VerticalOptions="Start"
+            Margin="0,0,0,24">
 
             <tabs:UnderlinedTabItem
                 Label="ACCOUNT"
@@ -138,16 +125,19 @@
             Grid.Row="3"
             SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}">
 
-            <ScrollView Padding="16,24">
-                <VerticalStackLayout>
+            <ScrollView Padding="8,0"
+                        VerticalScrollBarVisibility="Never">
+                <VerticalStackLayout
+                    Spacing="12">
 
+                    <!-- Email -->
                     <Border
                         Padding="4"
-                        BackgroundColor="{StaticResource Gray100}"
-                        HeightRequest="30"
-                        StrokeThickness="0">
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
 
-                        <Grid ColumnDefinitions="24, *, 24">
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
                             <Image
                                 Grid.Column="0"
                                 Source="{StaticResource EmailViolet}"
@@ -155,10 +145,10 @@
 
                             <Label
                                 Grid.Column="1"
-                                Margin="32,0,0,0"
+                                TextColor="{StaticResource VioletAccent}"
                                 FontFamily="Helvetica"
                                 FontSize="Medium"
-                                Text="Email"
+                                Text="{x:Static localisation:AppResources.settings_view_label_email}"
                                 VerticalOptions="Center" />
 
                             <Image
@@ -167,6 +157,268 @@
                                 VerticalOptions="Center" />
                         </Grid>
                     </Border>
+                    <!-- Notification -->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource NotificationViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_notification}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+                    <!--Privacy-->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource LockViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_privacy}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+                    <!--Security-->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource ShieldViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_security}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Divider -->
+                    <Line X1="0"
+                          X2="500"
+                          BackgroundColor="{StaticResource GreenAccent}"
+                          StrokeThickness="2"/>
+
+                    <!-- Display -->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource MoonViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_display_mode}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Text Size -->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource FontViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_text_size}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Language -->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource GlobeViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_language}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Divider -->
+                    <Line X1="0"
+                          X2="500"
+                          BackgroundColor="{StaticResource GreenAccent}"
+                          StrokeThickness="2"/>
+
+                    <!-- Contact -->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource UserViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_contact}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Quick user guide -->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource CompasViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_quick_user_guide}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Terms of service -->
+                    <Border
+                        Padding="4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid ColumnDefinitions="24, *, 24"
+                              ColumnSpacing="32">
+                            <Image
+                                Grid.Column="0"
+                                Source="{StaticResource FileViolet}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                TextColor="{StaticResource VioletAccent}"
+                                FontFamily="Helvetica"
+                                FontSize="Medium"
+                                Text="{x:Static localisation:AppResources.settings_view_label_terms_of_service}"
+                                VerticalOptions="Center" />
+
+                            <Image
+                                Grid.Column="2"
+                                Source="{StaticResource ChevronRightViolet}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
 
                 </VerticalStackLayout>
 
