@@ -121,4 +121,15 @@
   }
 
 
+  {
+    "Name": "Meat Cutlets",
+    "Description": "This recipe has many different names. Depending on the country and culture, people would call it Croquettes, Cutlets, Patties, or Kotleti. Despite various names, they are all cutlet shaped patties made of ground meat, covered with breadcrumbs, and fried on a skillet.",
+    "Author": "Veronika’s kitchen",
+    "ImageUrl": "https://as1.ftcdn.net/v2/jpg/03/18/92/98/1000_F_318929815_J8XgiJDJQgU6YulHD5MSaLjQSNl2J54S.jpg",
+    "VideoUrl": "https://youtu.be/YNwJwveu_ho",
+    "TotalTime": "30",
+    "PersonServ": "3"
+  }
+
+
 ]

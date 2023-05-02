@@ -98,8 +98,7 @@
             BackgroundColor="Transparent"
             HeightRequest="50"
             SelectedIndex="0"
-            VerticalOptions="Start"
-            Margin="0,0,0,24">
+            VerticalOptions="Start">
 
             <tabs:UnderlinedTabItem
                 Label="ACCOUNT"
@@ -123,7 +122,8 @@
         <tabs:ViewSwitcher
             x:Name="SwitcherView"
             Grid.Row="3"
-            SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}">
+            SelectedIndex="{Binding Source={x:Reference TabHost}, Path=SelectedIndex, Mode=OneWay}"
+            Padding="0,16">
 
             <ScrollView Padding="8,0"
                         VerticalScrollBarVisibility="Never">
@@ -421,7 +421,6 @@
 
 
                 </VerticalStackLayout>
-
             </ScrollView>
 
             <Label Text="SOCIAL" />
