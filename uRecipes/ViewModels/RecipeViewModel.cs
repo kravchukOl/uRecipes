@@ -102,7 +102,7 @@ namespace uRecipes.ViewModels
 
                 TotalTime = RecipeItem.TotalTime;
                 PersonServ = RecipeItem.PersonServ;
-                isCompleted = RecipeItem.IsCompleted;
+                IsCompleted = RecipeItem.IsCompleted;
 
                 //await GetCategories();
                 await GetIngredients();
@@ -127,15 +127,15 @@ namespace uRecipes.ViewModels
             NutritionInfo = await localRepository.GetNutrition(RecipeItem);
         }
 
-        private async Task GetCategories()
-        {
-            throw new NotImplementedException();
-        }
+        //private async Task GetCategories()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private async Task GetInstructions()
-        {
-            throw new NotImplementedException();
-        }
+        //private async Task GetInstructions()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private async Task GetIngredients()
         {
@@ -217,7 +217,7 @@ namespace uRecipes.ViewModels
         [RelayCommand]
         private void EnableDesignMode()
         {
-            IsDesignMode = !isDesignMode;
+            IsDesignMode = !IsDesignMode;
 
             if (IsDesignMode)
                 pageNavigator.MakeToast("Design mode has been Enabled");

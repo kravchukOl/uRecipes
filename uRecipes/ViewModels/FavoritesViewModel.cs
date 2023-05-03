@@ -94,7 +94,7 @@ namespace uRecipes.ViewModels
         [RelayCommand]
         public override async Task Initialize()
         {
-            if (NewFavItem is object)
+            if (NewFavItem is not null)
             {
                 await AddItem(NewFavItem);
                 NewFavItem = null;

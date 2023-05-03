@@ -14,7 +14,7 @@
 		<ApplicationTitle>uRecipes</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.urecipes</ApplicationId>
+		<ApplicationId>com.kravchukol.urecipes</ApplicationId>
 		<ApplicationIdGuid>6EA1C731-016B-4CCF-A5AB-0FF102072321</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\Demo\recipe_imgs\grilled_meat_cutlets.jpg" />
 	  <None Remove="Resources\Images\icons_png\screan_sample.png" />
 	  <None Remove="Resources\Images\icons_svg\clock.svg" />
 	  <None Remove="Resources\Images\icons_svg\energy.svg" />

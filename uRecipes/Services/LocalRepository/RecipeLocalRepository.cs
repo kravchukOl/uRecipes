@@ -39,7 +39,7 @@ namespace uRecipes.Services.LocalRepository
 
             categories = await connection.Table<Category>().ToListAsync();
 
-            if(categories.Count == 0)
+            if (categories.Count == 0)
             {
                 using var stream = await FileSystem.OpenAppPackageFileAsync("categories.json");
                 using var reader = new StreamReader(stream);
@@ -155,11 +155,11 @@ namespace uRecipes.Services.LocalRepository
 
             await connection.Table<Recipe_Category>().DeleteAsync(x => x.RecipeId == item.Id);
 
-            if(item.IngredientId != 0)
+            if (item.IngredientId != 0)
                 await connection.Table<Ingredients>().DeleteAsync(x => x.Id == item.IngredientId);
-            if(item.NutritionId != 0)
+            if (item.NutritionId != 0)
                 await connection.Table<NutritionInfo>().DeleteAsync(x => x.Id == item.NutritionId);
-            if(item.InstructionId != 0)
+            if (item.InstructionId != 0)
                 await connection.Table<Instructions>().DeleteAsync(x => x.Id == item.InstructionId);
 
             await connection.DeleteAsync(item);
@@ -303,14 +303,15 @@ namespace uRecipes.Services.LocalRepository
         }
 
 
-        public async Task<int> SetInstruction(List<Instruction> instructions, Recipe item)
-        {
-            throw new NotImplementedException();
-        }
-        public async Task<List<Instruction>> GetInstructions(Recipe item)
-        {
-            throw new NotImplementedException();
-        }
+        //public async Task<int> SetInstruction(List<Instruction> instructions, Recipe item)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public async Task<List<Instruction>> GetInstructions(Recipe item)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 
 
@@ -329,17 +330,42 @@ namespace uRecipes.Services.LocalRepository
             var contents = await reader.ReadToEndAsync();
             List<Recipe> demoRecipes = JsonSerializer.Deserialize<List<Recipe>>(contents);
 
-            demoRecipes.ForEach(async recipe => 
+            demoRecipes.ForEach(async recipe =>
             {
                 await AddItem(recipe);
             });
 
             await AsignRandIngredients(demoRecipes, 10);
             await AsignRandNutritions(demoRecipes);
+            await AsignRandCategories(demoRecipes, 10);
         }
 
+        private async Task AsignRandCategories(List<Recipe> recipes, int count)
+        {
+            if (recipes is null) throw new ArgumentNullException(nameof(recipes));
+            if (count <= 0 || count > 40) return;
 
-        private async Task AsignRandIngredients(List <Recipe> recipes, int count)
+            if (categories is null)
+                await InintializeCategories();
+
+            Random random = new Random();
+
+            int categoriesCount = categories.Count;
+
+            var recipeCategories = new List<Category>();
+
+            foreach (Recipe recipe in recipes)
+            {
+                recipeCategories.Clear();
+
+                for (int i = 0; i < count; i++)
+                    recipeCategories.Add(categories[random.Next(categoriesCount)]);
+
+                await SetCategories(recipeCategories, recipe);
+            }
+        }
+
+        private async Task AsignRandIngredients(List<Recipe> recipes, int count)
         {
             if (recipes is null) throw new ArgumentNullException(nameof(recipes));
             if (count <= 0 || count > 40) return;
@@ -348,7 +374,7 @@ namespace uRecipes.Services.LocalRepository
 
             using var stream = await FileSystem.OpenAppPackageFileAsync("ingredients_demo.json");
             using var reader = new StreamReader(stream);
-            
+
             var contents = await reader.ReadToEndAsync();
             List<Ingredient> demoIngredients = JsonSerializer.Deserialize<List<Ingredient>>(contents);
 
@@ -361,13 +387,14 @@ namespace uRecipes.Services.LocalRepository
             {
                 ingredients.Clear();
 
-                for(int i = 0; i < count; i++)
+                for (int i = 0; i < count; i++)
                     ingredients.Add(demoIngredients[random.Next(demoIngredients.Count)]);
 
                 await SetIngredients(ingredients, recipe);
             }
 
-            
+
+
         }
         private async Task AsignRandNutritions(List<Recipe> recipes)
         {
@@ -375,7 +402,7 @@ namespace uRecipes.Services.LocalRepository
 
             Random rand_int = new();
 
-            foreach(Recipe recipe in recipes)
+            foreach (Recipe recipe in recipes)
             {
                 NutritionInfo nutrition = new NutritionInfo
                 {
@@ -386,8 +413,8 @@ namespace uRecipes.Services.LocalRepository
                     Sugar_g = rand_int.Next(0, 20),
                     Fiber_g = rand_int.Next(0, 20),
                     Protein_g = rand_int.Next(0, 80),
-                    Cholesterol_mg = rand_int.Next(0,250),
-                    Sodium_mg = rand_int.Next(0,600)
+                    Cholesterol_mg = rand_int.Next(0, 250),
+                    Sodium_mg = rand_int.Next(0, 600)
                 };
 
                 await SetNutrition(nutrition, recipe);

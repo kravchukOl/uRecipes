@@ -33,9 +33,9 @@
         Task <int> SetIngredients(List<Ingredient> ingredients, Recipe item);
         Task<List<Ingredient>> GetIngredients(Recipe item);
 
-        // Ingredients GET; SET;
-        Task <int> SetInstruction(List<Instruction> instruction, Recipe item);
-        Task<List<Instruction>> GetInstructions(Recipe item);
+        // Instructions GET; SET;
+        //Task<int> SetInstruction(List<Instruction> instruction, Recipe item);
+        //Task<List<Instruction>> GetInstructions(Recipe item);
 
 
         // DEMO METHODS
