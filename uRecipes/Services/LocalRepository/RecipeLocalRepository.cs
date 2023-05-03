@@ -18,7 +18,7 @@ namespace uRecipes.Services.LocalRepository
 
         private async Task CreateConnection()
         {
-            if (connection is object)
+            if (connection is not null)
                 return;
 
             var documentPath = Environment.GetFolderPath(
@@ -34,7 +34,7 @@ namespace uRecipes.Services.LocalRepository
         }
         private async Task InintializeCategories()
         {
-            if (categories is object)
+            if (categories is not null)
                 return;
 
             categories = await connection.Table<Category>().ToListAsync();
@@ -71,7 +71,7 @@ namespace uRecipes.Services.LocalRepository
 
             recipeId = await AddItem(item);
 
-            if (categories is object)
+            if (categories is not null)
                 foreach (var entry in categories)
                     await connection.InsertAsync(
                         new Recipe_Category { RecipeId = recipeId, CategoryId = entry.Id });
@@ -117,8 +117,8 @@ namespace uRecipes.Services.LocalRepository
         {
             await CreateConnection();
 
-            List<Recipe> recipes = new List<Recipe>();
-            List<Recipe_Category> rcp_ctg = new List<Recipe_Category>();
+            List<Recipe> recipes = new();
+            List<Recipe_Category> rcp_ctg = new();
 
             foreach (Category item in categories)
                 rcp_ctg.AddRange(
@@ -271,7 +271,7 @@ namespace uRecipes.Services.LocalRepository
             //if (await connection.Table<Recipe>().ElementAtAsync(item.Id) is null)
             //    throw new Exception("SQLite DB:(Recipe): Recipe item is not found in DB");
 
-            Ingredients res = new Ingredients
+            Ingredients res = new()
             {
                 IngredientsJSON = JsonSerializer.Serialize(ingredients),
             };
@@ -348,7 +348,7 @@ namespace uRecipes.Services.LocalRepository
             if (categories is null)
                 await InintializeCategories();
 
-            Random random = new Random();
+            Random random = new();
 
             int categoriesCount = categories.Count;
 
@@ -379,9 +379,9 @@ namespace uRecipes.Services.LocalRepository
             List<Ingredient> demoIngredients = JsonSerializer.Deserialize<List<Ingredient>>(contents);
 
 
-            Random random = new Random();
+            Random random = new();
 
-            List<Ingredient> ingredients = new List<Ingredient>();
+            List<Ingredient> ingredients = new();
 
             foreach (Recipe recipe in recipes)
             {
@@ -404,7 +404,7 @@ namespace uRecipes.Services.LocalRepository
 
             foreach (Recipe recipe in recipes)
             {
-                NutritionInfo nutrition = new NutritionInfo
+                NutritionInfo nutrition = new()
                 {
                     Calories_kcal = rand_int.Next(50, 600),
                     Energy_kJ = rand_int.Next(50, 500),

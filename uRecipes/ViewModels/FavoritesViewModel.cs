@@ -17,7 +17,7 @@ namespace uRecipes.ViewModels
 
         public Recipe NewFavItem { get; set; } = null;
 
-        private IRecipeLocalRepository localRepository;
+        private readonly IRecipeLocalRepository localRepository;
 
         public ObservableCollection<Recipe> FavRecipes { get; set; }
 

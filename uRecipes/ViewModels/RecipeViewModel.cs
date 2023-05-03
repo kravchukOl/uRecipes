@@ -184,7 +184,7 @@ namespace uRecipes.ViewModels
 
             foreach (var item in Ingredients)
             {
-                if(item.Allergens is object)
+                if(item.Allergens is not null)
                 {
                     String[] input = item.Allergens.Split(", ");
                     foreach (var inputItem in input) 

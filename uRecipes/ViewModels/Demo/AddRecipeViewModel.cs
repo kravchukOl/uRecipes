@@ -55,7 +55,7 @@ namespace uRecipes.ViewModels.Demo
 
 
 
-            Recipe recipe = new Recipe
+            Recipe recipe = new()
             {
                 Name = this.Name,
                 Author = this.Author,
