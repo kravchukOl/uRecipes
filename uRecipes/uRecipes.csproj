@@ -57,7 +57,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\Demo\recipe_imgs\grilled_meat_cutlets.jpg" />
 	  <None Remove="Resources\Images\icons_png\screan_sample.png" />
 	  <None Remove="Resources\Images\icons_svg\clock.svg" />
 	  <None Remove="Resources\Images\icons_svg\energy.svg" />
@@ -65,9 +64,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
-	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 	  <PackageReference Include="Sharpnado.Tabs.Maui" Version="3.0.1" />
 	  <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.2" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
@@ -114,6 +112,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Services\CloudRepository\" />
 	  <Folder Include="Views\DevicePageViews\" />
 	</ItemGroup>
 

@@ -48,9 +48,9 @@ namespace uRecipes.ViewModels.Demo
                 || TotalTime is null || PersServ is null )
                 return;
 
-            if (nameIsNotValid || authorIsNotValid || descriptionIsNotValid ||
-                photoURLIsNotValid || videoURLIsNotValid || totalTimeIsNotValid
-                || persServIsNotValid)
+            if (NameIsNotValid || AuthorIsNotValid || DescriptionIsNotValid ||
+                PhotoURLIsNotValid || VideoURLIsNotValid || TotalTimeIsNotValid
+                || PersServIsNotValid)
                 return;
 
 

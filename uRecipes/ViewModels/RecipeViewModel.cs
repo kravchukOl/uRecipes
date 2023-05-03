@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using uRecipes.Services.CloudRepository;
 using uRecipes.Services.LocalisationSevice;
 using uRecipes.Services.LocalRepository;
 
@@ -9,7 +8,6 @@ namespace uRecipes.ViewModels
     public partial class RecipeViewModel : BaseViewModel
     {
         private IRecipeLocalRepository localRepository;
-        private IRecipeCloudRepository cloudRepository;
 
         private IConnectivity connectivity;
 
